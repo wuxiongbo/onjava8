@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="85253ba5-3a03-4a53-8eff-1cd20f244a29" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../com/mindviewinc/simple/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/../com/mindviewinc/simple/List.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../com/mindviewinc/simple/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../com/mindviewinc/simple/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HijackedInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/HijackedInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Manipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MultipleInterfaceVariants.java" beforeDir="false" afterPath="$PROJECT_DIR$/generics/MultipleInterfaceVariants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NonCovariantGenerics.java" beforeDir="false" afterPath="$PROJECT_DIR$/NonCovariantGenerics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/UseList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/ArrayShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/ArrayShow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/BasicSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/BasicSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/CollectionMethodDifferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/CollectionMethodDifferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/ConvertTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/ConvertTo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Count.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Count.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/CountMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/CountMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/CountingIntegerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/CountingIntegerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Countries.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Countries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Enums.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Enums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/FillMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/FillMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/HTMLColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/HTMLColors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/MouseClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/MouseClick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Rand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Rand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Tuple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Tuple2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Tuple2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Tuple3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Tuple3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Tuple4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Tuple4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../onjava/Tuple5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../onjava/Tuple5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/CircularQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/CircularQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/CircularQueueException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/CircularQueueException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/CountedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/CountedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/Inverter1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/Inverter1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/Inverter2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/Inverter2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/Inverter3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/Inverter3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/Inverter4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/Inverter4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/StringInverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/StringInverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/tests/CircularQueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/tests/CircularQueueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/tests/CountedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/tests/CountedListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/tests/DynamicStringInverterTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/tests/DynamicStringInverterTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../validating/tests/StringInverterTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../validating/tests/StringInverterTests.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coffee/Americano.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#0#262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coffee/CoffeeSupplier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#1929#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="generics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generics" type="462c0819:PsiDirectoryNode" />
+              <item name="coffee" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../../play-samples-play-scala-hello-world-tutorial" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85253ba5-3a03-4a53-8eff-1cd20f244a29" name="Default Changelist" comment="" />
+      <created>1630910814600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630910814600</updated>
+      <workItem from="1630910815935" duration="26000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="26000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="JRebel" side_tool="true" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="SBT Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="SBT Execute" side_tool="true" />
+      <window_info anchor="bottom" id="TeamCity" />
+      <window_info anchor="bottom" id="JRebel Console" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Codota" />
+      <window_info anchor="right" id="Mybatis datasource" side_tool="true" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/coffee/CoffeeSupplier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#1929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coffee/Americano.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
