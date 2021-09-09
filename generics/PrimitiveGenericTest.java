@@ -31,6 +31,13 @@ interface FillArray {
 
 public class PrimitiveGenericTest {
 
+    /**
+     *
+     * 自动装箱不适用于数组，因此我们必须创建 FillArray.fill() 的重载版本，或创建产生 Wrapped 输出的生成器。
+     * FillArray 仅比 java.util.Arrays.setAll() 多了一点功能，返回填充的数组。
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         String[] strings = FillArray.fill(
@@ -43,6 +50,7 @@ public class PrimitiveGenericTest {
         int[] integers = FillArray.fill(
                 new int[9],
                 new Rand.Pint());
+
 
         System.out.println(Arrays.toString(integers));
     }
