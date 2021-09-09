@@ -58,5 +58,15 @@ public class UnboundedWildcards2 {
         assign1(new HashMap<>());
         assign2(new HashMap<>());
         assign3(new HashMap<>());
+
+
+        Map map1 = new HashMap();
+        Map<?, ?> map2 = new HashMap();
+        Map<String, ?> map3 = new HashMap();
+
+        Map map11 = new HashMap<>();
+        Map<?, ?> map22 = new HashMap<>();
+        Map<String, ?> map33 = new HashMap<>();
+
     }
 }

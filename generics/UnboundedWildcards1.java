@@ -8,13 +8,12 @@ import java.util.*;
 /**
  * 无界通配符 <?>
  *
- * arg: new ArrayList()
- *      new ArrayList<>()
+ * arg: new ArrayList();  new ArrayList<>();  List<?>;
  *
  * assign1: List
  *   List
  *   List<?>
- *   List<? extends Object>
+ *   List<? extends Object>   // warning
  *
  * assign2: List<?>
  *   List
@@ -36,8 +35,7 @@ public class UnboundedWildcards1 {
         list1 = list;
         list2 = list;
 
-        list3 = list;
-
+//        list3 = list;
         // warning: [unchecked] unchecked conversion
         // list3 = list;
         //         ^
@@ -66,10 +64,13 @@ public class UnboundedWildcards1 {
     //      “我是想用 Java 的泛型来编写这段代码，我在这里并不是要用原生类型，但是在当前这种情况下，泛型参数可以持有任何类型。”
     public static void main(String[] args) {
 
+
+
         assign1(new ArrayList());
         assign2(new ArrayList());
 
         // assign3(new ArrayList());
+
 
         // warning: [unchecked] unchecked method invocation:
         //    method assign3 in class UnboundedWildcards1 is applied to given types
@@ -77,6 +78,7 @@ public class UnboundedWildcards1 {
         //        ^
         // required: List<? extends Object>
         // found: ArrayList
+
 
         // warning: [unchecked] unchecked conversion
         // assign3(new ArrayList());
@@ -86,6 +88,7 @@ public class UnboundedWildcards1 {
 
         // 2 warnings
 
+
         assign1(new ArrayList<>());
         assign2(new ArrayList<>());
         assign3(new ArrayList<>());
@@ -93,7 +96,7 @@ public class UnboundedWildcards1 {
         // 这两种形式都可以作为List<?>接受
         // Both forms are acceptable as List<?>:
         List<?> wildList = new ArrayList();
-        wildList = new ArrayList<>();
+//        wildList = new ArrayList<>();
 
         assign1(wildList);
         assign2(wildList);
@@ -103,14 +106,23 @@ public class UnboundedWildcards1 {
 
         // 使用原生类型 意味着放弃编译检查
         List a = new ArrayList();
+
+        // 编译器处理 List<?> 和 List<? extends Object> 是不同的。
         List<?> b = new ArrayList();
         List<? extends Object> c = new ArrayList();
+
+        // 事实上，因为泛型参数擦除到它的第一个边界，因此 List<?> 看起来等价于List<Object> ，而 List 实际上也是 List<Object> ——除非这些语句都不为真。
+        //    List 实际上表示    “持有任何 Object 类型的原生 List”,
+        // 而 List<?> 表示       “具有某种特定类型的非原生 List ，只是我们不知道类型是什么。”
 
         List a2 = new ArrayList<>();
         List<?> b2 = new ArrayList<>();
         List<? extends Object> c2 = new ArrayList<>();
 
+    }
 
+
+    private void test(){
 
         // (-∞, 上界]，[下界， Object]
 
@@ -128,20 +140,17 @@ public class UnboundedWildcards1 {
         List<? super Apple> c4 =new ArrayList<>();
         c4.add(new Apple());
 
+
         // Apple 是下界，所以向这样的 List 中添加 Fruit 是不安全的，因为这将使这个 List 敞开口子，
         // 从而可以向其中添加 非Apple类型的对象(如，同样继承自Fruit的Orange)，而这是违反静态类型安全的。
         // c4.add(new Fruit());
+
 
         // 只能返回Object
         Object obj = c4.get(0);
 
         // 除非知道更多信息。
         Apple apple3 = (Apple)c4.get(0);
-
-
     }
-
-
-
 
 }
