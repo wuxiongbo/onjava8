@@ -29,9 +29,18 @@ public class PlainGenericInheritance {
         Derived derived = new Derived();
         DerivedGS dgs = new DerivedGS();
 
+
+        // 在这里， 更具体的类(Derived)、基类(Base) 都可作为方法参数。 从而 触发了继承机制 导致 方法重载
+        // 自限定类型，则可以避免这种情况
+
         dgs.set(derived);
-        // 重载，不是 覆盖
+
+
+        // 传入基类 反而 导致了重载
+        // 因为继承机制，产生了方法重载（不同与方法返回，方法返回有 参数协变 机制 ）
         dgs.set(base); // Overloaded, not overridden!
+
+
 
     }
 }

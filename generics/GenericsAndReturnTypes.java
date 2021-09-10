@@ -12,18 +12,19 @@ interface Getter extends GenericGetter<Getter> {
 }
 
 /**
+ * 协变返回类型的引入， 使 子类方法 能够返回 比 被覆盖的父类方法 所返回的类  更具体的类。
  *
  * 自限定泛型事实上将产生 “确切的导出类型” 作为其返回值
  *
- * get的角度看。自限定类型 能否强制 返回 确切的导出类型
  *
  */
 public class GenericsAndReturnTypes {
     void test(Getter g) {
 
+        // 返回了更加具体的类
         Getter result = g.get();
 
-        // 也可以是基类
         GenericGetter gg = g.get(); // Also the base type
+
     }
 }
