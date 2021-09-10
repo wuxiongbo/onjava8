@@ -16,6 +16,11 @@ class DerivedSetter extends OrdinarySetter {
     }
 }
 
+/**
+ * OrdinaryArguments 对比 SelfBoundingAndCovariantArguments
+ *
+ * 在非泛型代码中，参数类型不能随子类型发生变化
+ */
 public class OrdinaryArguments {
 
     public static void main(String[] args) {
@@ -27,7 +32,7 @@ public class OrdinaryArguments {
         ds.set(derived);
 
         // Compiles--overloaded, not overridden!:
-        // 编译-- 重载，而不是覆盖！ 参数类型 不能随着 子类型 发生改变。
+        // 重载，而不是覆盖！ 参数类型 不能随着 子类型 发生改变 。
         ds.set(base);
     }
 

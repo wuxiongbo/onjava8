@@ -16,8 +16,11 @@ class DerivedGS extends GenericSetter<Base> {
 }
 
 /**
- * 如果不使用自限定，将重载参数类型。
- * 如果使用了自限定，只能获得方法的一个版本，它将接受确切的参数类型。
+ * 如果不使用自限定：  本示例
+ *      将重载参数类型。
+ *
+ * 如果使用了自限定：  SelfBoundingAndCovariantArguments.java
+ *      只能获得方法的一个版本，它将接受确切的参数类型。
  */
 public class PlainGenericInheritance {
     public static void main(String[] args) {

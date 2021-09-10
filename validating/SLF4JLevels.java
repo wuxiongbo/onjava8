@@ -2,18 +2,19 @@
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
+
 import org.slf4j.*;
 
 public class SLF4JLevels {
-  private static Logger log =
-    LoggerFactory.getLogger(SLF4JLevels.class);
-  public static void main(String[] args) {
-    log.trace("Hello");
-    log.debug("Logging");
-    log.info("Using");
-    log.warn("the SLF4J");
-    log.error("Facade");
-  }
+    private static Logger log = LoggerFactory.getLogger(SLF4JLevels.class);
+
+    public static void main(String[] args) {
+        log.trace("Hello");
+        log.debug("Logging");
+        log.info("Using");
+        log.warn("the SLF4J");
+        log.error("Facade");
+    }
 }
 /* Output:
 2021-01-24T08:49:37.658

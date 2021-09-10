@@ -4,7 +4,8 @@
 // Visit http://OnJava8.com for more book information.
 import java.util.*;
 
+//当擦除后的参数不能产生唯一的参数列表时，你必须提供不同的方法名：
 public class UseList2<W, T> {
-  void f1(List<T> v) {}
-  void f2(List<W> v) {}
+    void f1(List<T> v) {}
+    void f2(List<W> v) {}
 }

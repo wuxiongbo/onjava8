@@ -6,17 +6,17 @@
 // {ThrowsException}
 
 public class LoaderAssertions {
-  public static void main(String[] args) {
-    ClassLoader.getSystemClassLoader()
-      .setDefaultAssertionStatus(true);
-    new Loaded().go();
-  }
+    public static void main(String[] args) {
+        ClassLoader.getSystemClassLoader()
+                .setDefaultAssertionStatus(true);
+        new Loaded().go();
+    }
 }
 
 class Loaded {
-  public void go() {
-    assert false: "Loaded.go()";
-  }
+    public void go() {
+        assert false : "Loaded.go()";
+    }
 }
 /* Output:
 ___[ Error Output ]___

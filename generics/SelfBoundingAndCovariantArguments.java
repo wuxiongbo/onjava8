@@ -10,27 +10,28 @@ interface SelfBoundSetter<T extends SelfBoundSetter<T>> {
 interface Setter extends SelfBoundSetter<Setter> {
 }
 
+
+/**
+ * OrdinaryArguments 对比 SelfBoundingAndCovariantArguments
+ *
+ *
+ * 使用自限定类型时：  本示例
+ *      在导出类中只有一个方法，并且这个方法接受 导出类型(Setter) 而不是 基类型(SelfBoundSetter) 为参数
+ *
+ * 如果不使用自限定类型： PlainGenericInheritance.java
+ *      普通的继承机制就会介入，而你将能够重载，就跟 在非泛型的情况下(OrdinaryArguments.java)  一样
+ *
+ *
+ *  个人总结： 使用自限定，能防止方法的重载。 使方法使用确切的类型
+ */
 public class SelfBoundingAndCovariantArguments {
 
 
     void testA(Setter s1, Setter s2, SelfBoundSetter sbs) {
         s1.set(s2);
 
-        // 方法参数只能传入自限定类型。传入基类会编译报错。
+        // 使用了自限定。方法将接受确切的参数类型。  传入基类会编译报错。
 //        s1.set(sbs);
-
-        // error: method set in interface SelfBoundSetter<T>
-        // cannot be applied to given types;
-        //     s1.set(sbs);
-        //       ^
-        //   required: Setter
-        //   found: SelfBoundSetter
-        //   reason: argument mismatch;
-        // SelfBoundSetter cannot be converted to Setter
-        //   where T is a type-variable:
-        //     T extends SelfBoundSetter<T> declared in
-        //     interface SelfBoundSetter
-        // 1 error
 
     }
 

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CircularQueueTest {
-  private validating.CircularQueue queue = new validating.CircularQueue(10);
+  private CircularQueue queue = new CircularQueue(10);
   private int i = 0;
   @BeforeEach
   public void initialize() {
@@ -36,7 +36,7 @@ public class CircularQueueTest {
     String msg = "";
     try {
       queue.put("");
-    } catch(validating.CircularQueueException e) {
+    } catch(CircularQueueException e) {
       msg = e.getMessage();
       System.out.println(msg);
     }
@@ -51,7 +51,7 @@ public class CircularQueueTest {
     String msg = "";
     try {
       queue.get();
-    } catch(validating.CircularQueueException e) {
+    } catch(CircularQueueException e) {
       msg = e.getMessage();
       System.out.println(msg);
     }
@@ -64,7 +64,7 @@ public class CircularQueueTest {
     String msg = "";
     try {
       queue.put(null);
-    } catch(validating.CircularQueueException e) {
+    } catch(CircularQueueException e) {
       msg = e.getMessage();
       System.out.println(msg);
     }
