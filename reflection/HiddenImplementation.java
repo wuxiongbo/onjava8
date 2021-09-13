@@ -3,8 +3,8 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Sneaking around package hiding
-import reflection.interfacea.*;
-import reflection.packageaccess.*;
+import interfacea.*;
+import packageaccess.*;
 import java.lang.reflect.*;
 
 public class HiddenImplementation {

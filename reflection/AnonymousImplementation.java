@@ -3,7 +3,7 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Anonymous inner classes can't hide from reflection
-import reflection.interfacea.*;
+import interfacea.*;
 
 class AnonymousA {
   public static A makeA() {

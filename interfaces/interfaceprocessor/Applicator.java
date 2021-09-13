@@ -2,11 +2,13 @@
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-package interfaces.interfaceprocessor;
+package interfaceprocessor;
 
 public class Applicator {
-  public static void apply(Processor p, Object s) {
-    System.out.println("Using Processor " + p.name());
-    System.out.println(p.process(s));
-  }
+
+    public static void apply(Processor p, Object s) {
+        System.out.println("Using Processor " + p.name());
+        System.out.println(p.process(s));
+    }
+
 }

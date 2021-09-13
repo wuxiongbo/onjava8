@@ -24,13 +24,13 @@ public class CheckedList {
 
     public static void main(String[] args) {
 
-        // 有猫腻，依然安静的执行
+        // 给dogs1列表，添加一直猫。
         List<Dog> dogs1 = new ArrayList<>();
         oldStyleMethod(dogs1); // Quietly accepts a Cat
 
 
 
-        // 有猫腻，则抛异常
+        // 给dogs2列表，添加一直猫。 抛异常
         List<Dog> dogs2 = Collections.checkedList(new ArrayList<>(), Dog.class);
         try {
             oldStyleMethod(dogs2); // Throws an exception
@@ -39,11 +39,11 @@ public class CheckedList {
         }
 
 
-
         // Derived types work fine:  派生类型 可以很好的运行
         List<Pet> pets = Collections.checkedList(new ArrayList<>(), Pet.class);
         pets.add(new Dog());
         pets.add(new Cat());
+
     }
 
 }
