@@ -12,24 +12,36 @@ import java.util.*;
 
 public class CheckedList {
 
+    /**
+     * oldStyleMethod() 表示遗留代码，因为它接受的是原生的 List
+     * @param probablyDogs
+     */
     @SuppressWarnings("unchecked")
     static void oldStyleMethod(List probablyDogs) {
         probablyDogs.add(new Cat());
     }
 
+
     public static void main(String[] args) {
+
+        // 有猫腻，依然安静的执行
         List<Dog> dogs1 = new ArrayList<>();
         oldStyleMethod(dogs1); // Quietly accepts a Cat
-        List<Dog> dogs2 = Collections.checkedList(
-                new ArrayList<>(), Dog.class);
+
+
+
+        // 有猫腻，则抛异常
+        List<Dog> dogs2 = Collections.checkedList(new ArrayList<>(), Dog.class);
         try {
             oldStyleMethod(dogs2); // Throws an exception
         } catch (Exception e) {
             System.out.println("Expected: " + e);
         }
-        // Derived types work fine:
-        List<Pet> pets = Collections.checkedList(
-                new ArrayList<>(), Pet.class);
+
+
+
+        // Derived types work fine:  派生类型 可以很好的运行
+        List<Pet> pets = Collections.checkedList(new ArrayList<>(), Pet.class);
         pets.add(new Dog());
         pets.add(new Cat());
     }

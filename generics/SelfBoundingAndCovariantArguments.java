@@ -30,7 +30,7 @@ public class SelfBoundingAndCovariantArguments {
     void testA(Setter s1, Setter s2, SelfBoundSetter sbs) {
         s1.set(s2);
 
-        // 使用了自限定。方法将接受确切的参数类型。  传入基类会编译报错。
+        // 使用了自限定。将只能获得方法的一个版本，他讲接受确切的参数类型。  传入基类会编译报错。
 //        s1.set(sbs);
 
     }

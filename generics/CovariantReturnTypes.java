@@ -24,13 +24,16 @@ interface OrdinaryGetter {
  */
 interface DerivedGetter extends OrdinaryGetter {
     // Overridden method return type can vary:
-    // 重写方法 的 返回类型 可以改变。  可返回为 更具体的类型
+    // 重写方法 的 返回类型 可以改变。  可返回为 更具体的类型。 而不用方法重载。  这就是参数协变
     @Override
     Derived get();
 }
 
 public class CovariantReturnTypes {
     void test(DerivedGetter d) {
+
+        // 参数协变，使之可以返回具体类型 而不会重载。
         Derived d2 = d.get();
+
     }
 }
