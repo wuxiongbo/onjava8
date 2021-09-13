@@ -9,11 +9,17 @@ interface Processor<T, E extends Exception> {
     void process(List<T> resultCollector) throws E;
 }
 
+/**
+ * 存放 Processor，并收集 各Processor 的 执行结果。
+ * @param <T>
+ * @param <E>
+ */
 class ProcessRunner<T, E extends Exception> extends ArrayList<Processor<T, E>> {
 
     List<T> processAll() throws E {
 
-        List<T> resultCollector = new ArrayList<>();  // 收集参数
+        List<T> resultCollector = new ArrayList<>();  // 收集参数。 收集 Processor 的执行结果
+
         for (Processor<T, E> processor : this)
             processor.process(resultCollector);
 
