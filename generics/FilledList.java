@@ -29,8 +29,11 @@ public class FilledList<T> extends ArrayList<T> {
 
     public static void main(String[] args) {
 
+
         List<String> list = new FilledList<>("Hello", 4);
         System.out.println(list);
+
+
 
         // Supplier version:
         List<Integer> ilist = new FilledList<>(() -> 47, 4);

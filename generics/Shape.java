@@ -3,16 +3,21 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
+// 为了测试 Apply ，我们首先创建一个 Shape 类
 public class Shape {
-  private static long counter = 0;
-  private final long id = counter++;
-  @Override public String toString() {
-    return getClass().getSimpleName() + " " + id;
-  }
-  public void rotate() {
-    System.out.println(this + " rotate");
-  }
-  public void resize(int newSize) {
-    System.out.println(this + " resize " + newSize);
-  }
+    private static long counter = 0;
+    private final long id = counter++;
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " " + id;
+    }
+
+    public void rotate() {
+        System.out.println(this + " rotate");
+    }
+
+    public void resize(int newSize) {
+        System.out.println(this + " resize " + newSize);
+    }
 }

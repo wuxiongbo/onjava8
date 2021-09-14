@@ -33,6 +33,11 @@ class Failure1 extends Exception {
 class Processor1 implements Processor<String, Failure1> {
     static int count = 3;
 
+    /**
+     * 每执行一次，添加执行结果，并且计数器减一
+     * @param resultCollector
+     * @throws Failure1
+     */
     @Override
     public void process(List<String> resultCollector) throws Failure1 {
         if (count-- > 1)
@@ -50,6 +55,11 @@ class Failure2 extends Exception {
 class Processor2 implements Processor<Integer, Failure2> {
     static int count = 2;
 
+    /**
+     * 每执行一次，添加执行结果，并且计数器减一
+     * @param resultCollector
+     * @throws Failure1
+     */
     @Override
     public void process(List<Integer> resultCollector) throws Failure2 {
         if (count-- == 0)
