@@ -35,21 +35,30 @@ class Bank {
 }
 
 public class BankTeller {
+
     public static void serve(Teller t, Customer c) {
         System.out.println(t + " serves " + c);
     }
 
     public static void main(String[] args) {
         // Demonstrate create():
+        // 演示 create()
         RandomList<Teller> tellers = Suppliers.create(RandomList::new, Teller::new, 4);
         // Demonstrate fill():
+        // 演示 fill()。使用第一个版本的fill()
         List<Customer> customers = Suppliers.fill(new ArrayList<>(), Customer::new, 12);
         customers.forEach(c -> serve(tellers.select(), c));
+
+
         // Demonstrate assisted latent typing:
+        // 演示 辅助潜在分型
         Bank bank = Suppliers.fill(new Bank(), Bank::put, BankTeller::new, 3);
+
         // Can also use second version of fill():
+        // 也可以使用第二个版本的fill()
         List<Customer> customers2 = Suppliers.fill(new ArrayList<>(),List::add, Customer::new, 12);
     }
+
 }
 /* Output:
 Teller 3 serves Customer 1

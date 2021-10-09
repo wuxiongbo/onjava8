@@ -4,6 +4,12 @@
 // Visit http://OnJava8.com for more book information.
 
 public class Apricot {
-  void pick() { /* ... */ }
-  void pit() { pick(); /* ... */ }
+    void pick() {
+        /* ... */
+    }
+
+    void pit() {
+        pick();
+        /* ... */
+    }
 }

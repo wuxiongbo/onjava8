@@ -3,8 +3,9 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Searching with a Comparator import
+import onjava.Rand;
+
 import java.util.*;
-import onjava.*;
 import static onjava.ArrayShow.*;
 
 public class AlphabeticSearch {
