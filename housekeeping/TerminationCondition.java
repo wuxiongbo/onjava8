@@ -26,16 +26,24 @@ class Book {
     }
 }
 
+/**
+ * 本例的终结条件是：所有的 Book 对象在被垃圾回收之前必须被登记。
+ *
+ * 但在 main()方法中，有一本书没有登记。
+ * 要是没有 finalize() 方法来验证终结条件，将会很难发现这个 bug。
+ */
 public class TerminationCondition {
     public static void main(String[] args) {
         Book novel = new Book(true);
         // Proper cleanup:
         novel.checkIn();
+
         // Drop the reference, forget to clean up:
         new Book(true);
         // Force garbage collection & finalization:
         System.gc();
-        new onjava.Nap(1); // One second delay
+
+        new onjava.Nap(1); // 延时一秒钟
     }
 }
 /* Output:

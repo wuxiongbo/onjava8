@@ -3,7 +3,7 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Uses the library
-import com.mindviewinc.simple.*;
+import mindviewinc.simple.*;
 
 public class LibTest {
   public static void main(String[] args) {

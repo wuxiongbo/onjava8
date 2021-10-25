@@ -7,6 +7,7 @@
 import java.lang.reflect.*;
 
 // Does not implement Performs:
+// 没有实现 Performs 接口
 class Mime {
     public void walkAgainstTheWind() {
     }
@@ -25,6 +26,7 @@ class Mime {
 }
 
 // Does not implement Performs:
+// 没有实现 Performs 接口
 class SmartDog {
     public void speak() {
         System.out.println("Woof!");
@@ -38,7 +40,7 @@ class SmartDog {
     }
 }
 
-// 利用反射调用 speak 与 sit 方法。 作为对缺乏潜在类型机制的补偿。 但是它将所有的 “类型检查” 都转移到了 “运行时”
+// 利用 反射，调用 speak 与 sit 方法。 作为对缺乏潜在类型机制的补偿。 但是它将所有的 “类型检查” 都转移到了 “运行时”
 class CommunicateReflectively {
     public static void perform(Object speaker) {
         Class<?> spkr = speaker.getClass();
