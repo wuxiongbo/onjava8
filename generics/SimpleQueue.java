@@ -6,6 +6,11 @@
 
 import java.util.*;
 
+/**
+ * apply() 方法 还可以接受其他任何事物，只要能够使这些事物是 Iterable 的
+ *
+ * @param <T>
+ */
 public class SimpleQueue<T> implements Iterable<T> {
     private LinkedList<T> storage = new LinkedList<>();
 

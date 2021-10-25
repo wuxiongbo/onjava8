@@ -6,6 +6,12 @@
 import java.util.*;
 import java.util.function.*;
 
+/**
+ * 接 generics/Apply.java
+ *
+ * 测试：将 任何方法 应用于 序列 中的所有对象
+ *
+ */
 public class ApplyTest {
     public static void main(String[] args) throws Exception {
 

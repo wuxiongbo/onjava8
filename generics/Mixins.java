@@ -57,13 +57,18 @@ class BasicImp implements Basic {
 }
 
 /**
- * Mixin 类基本上是在使用委托，因此每个混入类型都要求在 Mixin 中有一个相应的域，而你必须在 Mixin 中编写所有必需的方法，将方法调用转发给恰当的对象。
+ * 接 Mixins.cpp
  *
- * 这个示例使用了非常简单的类，但是当使用更复杂的混型时，代码数量会急速增加。
+ * Mixin 类基本上是在使用委托，
+ * 因此每个混入类型 ，都要求在 Mixin 中有一个相应的域，而你必须在 Mixin 中编写所有必需的方法，将方法调用转发给恰当的对象。
+ *
+ * 本示例中，只是使用了非常简单的类，当使用更复杂的混型时，代码数量会急速增加。
+ *
+ * 尝试用修饰器模式解决这个问题  decorator/Decoration.java
  */
 class Mixin extends BasicImp implements TimeStamped, SerialNumbered {
-    private TimeStamped timeStamp = new TimeStampedImp();
-    private SerialNumbered serialNumber = new SerialNumberedImp();
+    private TimeStamped timeStamp = new TimeStampedImp();  // TimeStamped 的 域
+    private SerialNumbered serialNumber = new SerialNumberedImp();   // SerialNumbered 的 域
 
     @Override
     public long getStamp() {

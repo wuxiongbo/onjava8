@@ -66,6 +66,14 @@ class CommunicateReflectively {
     }
 }
 
+/**
+ * 反射提供了一些有用的可能性，但是它将所有的类型检查都转移到了运行时，
+ * 因此，在许多情况下并不是我们所希望的。
+ * 如果能够实现编译期类型检查，这通常会更符合要求。
+ *
+ * generics/Apply.java
+ *
+ */
 public class LatentReflection {
     public static void main(String[] args) {
         CommunicateReflectively.perform(new SmartDog());

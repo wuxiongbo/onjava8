@@ -16,9 +16,11 @@ class MixinProxy implements InvocationHandler {
 
         delegatesByMethod = new HashMap<>();
 
+        // 存储为 委托。
         for (Tuple2<Object, Class<?>> pair : pairs) {
 
-            // a1 被代理类的实例  a2 被代理类的接口的class对象
+            // pair.a1 被代理类的实例
+            // pair.a2 被代理类的接口的class对象
             for (Method method : pair.a2.getMethods()) {
                 String methodName = method.getName();
                 // The first interface in the map
@@ -34,6 +36,7 @@ class MixinProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String methodName = method.getName();
+        // 调用 委托
         Object delegate = delegatesByMethod.get(methodName);
         return method.invoke(delegate, args);
     }
@@ -52,8 +55,19 @@ class MixinProxy implements InvocationHandler {
 }
 
 /**
- * 因为只有 动态类型 而不是 静态类型 才包含所有的 混入类型，因此，这仍旧不如 C++ 的方式好，
- * 因为，在 具有这些类型的对象的方法 可以调用之前，你被强制要求 必须先将这 些对象向下转型到恰当的类型。但是，它明显地更接近于真正的混型。
+ * 因为只有 “动态类型” 而不是 “静态类型” 才包含所有的 混入类型，因此，这仍旧不如 C++ 的方式好，
+ *
+ * 只有 “动态类型” 而不是 “静态类型” 才包含所有的 混入类型。 这句话可以这么理解，
+ * 动态的 运行时期才动态代理增强，使包含所有的混入类型。
+ * 静态的 编译时期，并不包含混入类型。
+ *
+ * 因为，在 具有这些类型的对象的方法 可以调用之前，你被强制要求 必须先将这 些对象向下转型到恰当的类型。
+ * 虽然这种方式依然不够完美，但它明显地更接近于真正的混型。
+ *
+ *
+ * 为了让 Java 支持混型，人们已经做了大量的工作朝着这个目标努力，
+ * 包括创建了至少一种附加语言（Jam 语言），它是专门用来支持混型的。
+ *
  */
 public class DynamicProxyMixin {
     public static void main(String[] args) {
@@ -64,20 +78,22 @@ public class DynamicProxyMixin {
                 Tuple.tuple(new SerialNumberedImp(), SerialNumbered.class));
 
         Basic b = (Basic) mixin;
+        b.set("Hello");
         TimeStamped t = (TimeStamped) mixin;
         SerialNumbered s = (SerialNumbered) mixin;
 
-        b.set("Hello");
         System.out.println(b.get());
         System.out.println(t.getStamp());
         System.out.println(s.getSerialNumber());
 
 
-//        Mixin1 mix = (Mixin1)mixin;
-//        b.set("Hello11111");
-//        System.out.println(mix.get());
-//        System.out.println(mix.getStamp());
-//        System.out.println(mix.getSerialNumber());
+
+
+        Mixin1 mix = (Mixin1)mixin;
+        b.set("Hello11111");
+        System.out.println(mix.get());
+        System.out.println(mix.getStamp());
+        System.out.println(mix.getSerialNumber());
 
     }
 }
@@ -87,5 +103,5 @@ Hello
 1
 */
 
-
-//interface Mixin1 extends Basic,TimeStamped, SerialNumbered { }
+//  代理类 实现了 Basic,TimeStamped, SerialNumbered 这三个接口。 类似 Mixin1
+interface Mixin1 extends Basic,TimeStamped, SerialNumbered { }
