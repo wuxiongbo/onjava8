@@ -6,6 +6,12 @@
 import java.util.*;
 
 interface Processor<T, E extends Exception> {
+    /**
+     * Processor 执行 process() 方法，并且可能会抛出具有 "类型E"  的异常。
+     * process()的结果存储在 List<T>resultCollector 中（这被称为 收集参数 ）。
+     * @param resultCollector
+     * @throws E
+     */
     void process(List<T> resultCollector) throws E;
 }
 
@@ -16,10 +22,12 @@ interface Processor<T, E extends Exception> {
  */
 class ProcessRunner<T, E extends Exception> extends ArrayList<Processor<T, E>> {
 
+    // 如果不能参数化所抛出的异常，那么，由于检查型异常的缘故，将不能编写出这种泛化的代码。
     List<T> processAll() throws E {
 
         List<T> resultCollector = new ArrayList<>();  // 收集参数。 收集 Processor 的执行结果
 
+        // 遍历执行 List容器中的 Processor
         for (Processor<T, E> processor : this)
             processor.process(resultCollector);
 
@@ -28,8 +36,10 @@ class ProcessRunner<T, E extends Exception> extends ArrayList<Processor<T, E>> {
 
 }
 
+// 异常1
 class Failure1 extends Exception {
 }
+// Processor实现1
 class Processor1 implements Processor<String, Failure1> {
     static int count = 3;
 
@@ -50,8 +60,10 @@ class Processor1 implements Processor<String, Failure1> {
     }
 }
 
+// 异常2
 class Failure2 extends Exception {
 }
+// Processor实现2
 class Processor2 implements Processor<Integer, Failure2> {
     static int count = 2;
 

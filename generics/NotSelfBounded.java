@@ -3,6 +3,10 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
+/**
+ * 可以移除自限定这个限制，这样所有的类仍旧是可以编译的，但是 E 也会因此而变得可编译
+ * @param <T>
+ */
 public class NotSelfBounded<T> {
     T element;
 
