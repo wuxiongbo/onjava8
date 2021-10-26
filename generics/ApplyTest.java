@@ -15,12 +15,13 @@ import java.util.function.*;
 public class ApplyTest {
     public static void main(String[] args) throws Exception {
 
+        // 调用 List<Shape> 集合中 持有的对象 Shape  的  rotate、resize 方法
         List<Shape> shapes = Suppliers.create(ArrayList::new, Shape::new, 3);
         Apply.apply(shapes, Shape.class.getMethod("rotate"));
         Apply.apply(shapes, Shape.class.getMethod("resize", int.class), 7);
 
 
-
+        // 调用 List<Square> 集合中 持有的对象 Square  的  rotate、resize 方法
         List<Square> squares = Suppliers.create(ArrayList::new, Square::new, 3);
         Apply.apply(squares, Shape.class.getMethod("rotate"));
         Apply.apply(squares, Shape.class.getMethod("resize", int.class), 7);

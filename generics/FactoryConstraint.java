@@ -61,10 +61,18 @@ class Foo2<T> {
 }
 
 /**
+ * 接 generics/InstantiateGenericType.java
  *
- * InstantiateGenericType.java 由于错误不是在编译时捕获的，因此语言创建者不赞成这种方法。
+ * 补偿擦除 之 泛型类型的实例化方案二：
+ * 使用 显式工厂（Supplier）并 “约束类型”
+ *
  *
  * 他们建议使用显式工厂（Supplier）并约束类型，以便只有实现该工厂的类可以这样创建对象。
+ *
+ * IntegerFactory 本身就是通过实现 Supplier<Integer> 的工厂。
+ * Widget 包含一个内部类，它是一个工厂。
+ * 还要注意，Fudge 并没有做任何类似于工厂的操作，但是传递 Fudge::new 仍然会产生工厂行为，
+ *  这是因为，编译器将对函数方法 ::new 的调用转换为对get() 的调用。
  *
  */
 public class FactoryConstraint {

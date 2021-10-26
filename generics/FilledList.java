@@ -6,6 +6,7 @@
 import java.util.*;
 import java.util.function.*;
 
+// 填充集合
 public class FilledList<T> extends ArrayList<T> {
 
     // Supplier version:

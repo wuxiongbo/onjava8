@@ -6,20 +6,20 @@
 
 import java.util.*;
 
+
 interface SuperPower {
 }
 
 interface XRayVision extends SuperPower {
     void seeThroughWalls();
 }
-
 interface SuperHearing extends SuperPower {
     void hearSubtleNoises();
 }
-
 interface SuperSmell extends SuperPower {
     void trackBySmell();
 }
+
 
 class SuperHero<POWER extends SuperPower> {
     POWER power;
@@ -32,7 +32,6 @@ class SuperHero<POWER extends SuperPower> {
         return power;
     }
 }
-
 class SuperSleuth<POWER extends XRayVision>
         extends SuperHero<POWER> {
     SuperSleuth(POWER power) {
@@ -43,9 +42,7 @@ class SuperSleuth<POWER extends XRayVision>
         power.seeThroughWalls();
     }
 }
-
-class
-CanineHero<POWER extends SuperHearing & SuperSmell>
+class CanineHero<POWER extends SuperHearing & SuperSmell>
         extends SuperHero<POWER> {
     CanineHero(POWER power) {
         super(power);
@@ -60,8 +57,8 @@ CanineHero<POWER extends SuperHearing & SuperSmell>
     }
 }
 
-class SuperHearSmell
-        implements SuperHearing, SuperSmell {
+// 创建符合泛型约束的类型
+class SuperHearSmell implements SuperHearing, SuperSmell {
     @Override
     public void hearSubtleNoises() {
     }
@@ -71,32 +68,42 @@ class SuperHearSmell
     }
 }
 
+// 继承 泛型边界最多的那个类。
 class DogPerson extends CanineHero<SuperHearSmell> {
     DogPerson() {
         super(new SuperHearSmell());
     }
 }
 
+
+/**
+ * 更多层次的示例
+ */
 public class EpicBattle {
-    // Bounds in generic methods:
-    static <POWER extends SuperHearing>
-    void useSuperHearing(SuperHero<POWER> hero) {
+
+    // 边界 在 泛型方法
+    static <POWER extends SuperHearing> void useSuperHearing(SuperHero<POWER> hero) {
         hero.getPower().hearSubtleNoises();
     }
-
-    static <POWER extends SuperHearing & SuperSmell>
-    void superFind(SuperHero<POWER> hero) {
+    static <POWER extends SuperHearing & SuperSmell> void superFind(SuperHero<POWER> hero) {
         hero.getPower().hearSubtleNoises();
         hero.getPower().trackBySmell();
     }
 
+
     public static void main(String[] args) {
         DogPerson dogPerson = new DogPerson();
+
         useSuperHearing(dogPerson);
         superFind(dogPerson);
-        // You can do this:
+
+
+        // 通配符的使用
+
+        // 你可以这样做
         List<? extends SuperHearing> audioPeople;
-        // But you can't do this:
+        // 但是你不可以这么做
         // List<? extends SuperHearing & SuperSmell> dogPs;
+
     }
 }

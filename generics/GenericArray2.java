@@ -3,6 +3,26 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
+
+/**
+ * 接 generics/GenericArray.java
+ *
+ * 创建泛型类型的数组
+ *
+ * 解决方式：
+ * 在集合中使用 Object[] ，在 使用数组元素 时 再强转
+ *
+ * 存在问题：
+ * 如果调用 rep() ，它将再次尝试将 Object[] 强制转换为 T[] ，但仍然不正确，并在编译时生成警告，并在运行时生成异常。
+ * 因此，无法破坏基础数组的类型，该基础数组只能是 Object[] 。
+ *
+ *
+ * 在内部将数组视为 Object[] 而不是 T[] 的优点是：
+ *    我们不太可能会忘记数组的 运行时类型 并 意外地引入了 bug， 尽管大多数（也许是全部）此类错误会在运行时被迅速检测到。
+ *
+ * 接 generics/GenericArrayWithTypeToken.java
+ * @param <T>
+ */
 public class GenericArray2<T> {
     private Object[] array;
 

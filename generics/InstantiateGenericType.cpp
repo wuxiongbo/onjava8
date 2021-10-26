@@ -4,12 +4,20 @@
 // Visit http://OnJava8.com for more book information.
 // C++, not Java!
 
+/*
+    试图在 Erased.java 中 new T() 是行不通的，部分原因是由于擦除，部分原因是编译器无法验证 T 是否具有默认（无参）构造函数。
+    但是在 C++ 中，此操作自然，直接且安全（在编译时检查）
+
+    Java 中的解决方案是传入一个工厂对象，并使用该对象创建新实例。
+    generics/InstantiateGenericType.java
+*/
+
 template<class T> class Foo {
-  T x; // Create a field of type T
-  T* y; // Pointer to T
-public:
-  // Initialize the pointer:
-  Foo() { y = new T(); }
+    T x; // Create a field of type T
+    T* y; // Pointer to T
+    public:
+      // Initialize the pointer:
+      Foo() { y = new T(); }
 };
 
 class Bar {};

@@ -34,6 +34,17 @@ class Employee {
     }
 }
 
+/**
+ * 上接  generics/Erased.java
+ *
+ * 补偿擦除 之 泛型类型的实例化方案一：
+ * 引入“类型标记”
+ *
+ *
+ * 最方便的工厂对象是 只传 Class 对象。
+ * 如果使用 类型标记，则可以使用 newInstance() 创建该类型的新对象：
+ *
+ */
 public class InstantiateGenericType {
 
     public static void main(String[] args) {
@@ -41,14 +52,20 @@ public class InstantiateGenericType {
         ClassAsFactory<Employee> fe = new ClassAsFactory<>(Employee.class);
         System.out.println(fe.get());
 
-        // 这样可以编译，但对于 ClassAsFactory<Integer> 会失败，这是因为 Integer 没有无参构造函数。
-        // 由于错误不是在编译时捕获的，因此语言创建者不赞成这种方法。
+
+        // 对于 ClassAsFactory<Integer> ，虽说可以编译，但会 运行失败，这是因为 Integer 没有无参构造函数。
+        // 由于错误不是在 “编译时” 捕获的，因此语言创建者不赞成这种方法。
         ClassAsFactory<Integer> fi = new ClassAsFactory<>(Integer.class);
+
+
         try {
             System.out.println(fi.get());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        // 他们建议使用 显式工厂（Supplier） 并 约束类型，以便只有实现该工厂的类可以这样创建对象。
+        // 见： generics/FactoryConstraint.java
 
     }
 
