@@ -4,9 +4,12 @@
 // Visit http://OnJava8.com for more book information.
 
 /**
- * BasicHolder是一个 能够产生使用导出类作为其参数和返回类型的  基类。
+ * 接 generics/CuriouslyRecurringGeneric.java
+ *
+ * BasicHolder是一个 能够产生使用 导出类（T） 作为其 方法参数 和 返回类型 的 基类。
  * 它还能将导出类型用作其域类型
  *
+ * 接 generics/CRGWithBasicHolder.java
  * @param <T>
  */
 public class BasicHolder<T> {
