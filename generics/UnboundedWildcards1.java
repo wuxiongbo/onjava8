@@ -76,16 +76,16 @@ public class UnboundedWildcards1 {
         assign3(wildList);
 
 
-        // 使用原生类型  List 意味着放弃编译检查
-        List a = new ArrayList();
-
-        // 编译器处理 List<?> 和 List<? extends Object> 是不同的。
+        List a = new ArrayList();// 使用原生类型  List 意味着放弃编译检查
         List<?> b = new ArrayList();
         List<? extends Object> c = new ArrayList();  // warning
+        // 可以发现，编译器处理 List<?> 和 List<? extends Object> 是不同的。
 
 
+        // 令人困惑的是，编译器并非总是关注像 List 和 List<?> 之间的这种差异，因此它们看起来就像是相同的事物。
 
-        // 因为泛型参数擦除到它的第一个边界，因此 List<?> 看起来等价于List<Object> ，而 List 实际上也是 List<Object> 。
+
+        // 因为泛型参数擦除到它的第一个边界，因此 List<?> 看起来等价于List<Object> ，而 List 实际上也确实是 List<Object> 。
         // 实际上  List 表示        “持有任何 Object 类型的原生 List”,
         // 而     List<?> 表示     “具有某种特定类型的非原生 List ，只是我们不知道类型是什么。”
 
@@ -94,38 +94,39 @@ public class UnboundedWildcards1 {
         List<?> b2 = new ArrayList<>();
         List<? extends Object> c2 = new ArrayList<>();
 
+        // 编译器何时才会关注 原生类型 和 涉及无界通配符的类型 之间的差异呢？
+        // generics/Wildcards.java
     }
+
+
 
 
     private void test(){
 
         // (-∞, 上界(MyClass)]，[下界(MyClass)， Object]
 
-        // 边界。 可读 上界类型。  不可写
+        // 边界。
         List<? extends Apple> c3 =new ArrayList<>();
+        // 不可写
 //        c3.add(new Apple());
 //        c3.add(new Object());
-        c3.add(null);
+        // 可读 上界类型。
         Apple apple2 = c3.get(0);
 
 
-        // 逆变。 可写 下界类型。 只可读 Object
+        // 逆变。
         List<? super Apple> cc = new ArrayList<Fruit>();
-
         List<? super Apple> c4 =new ArrayList<>();
+        // 可写 下界类型。
         c4.add(new Apple());
+//        c4.add(new Fruit());
 
-
-        // Apple 是下界，所以，向这样的 List 中添加 Fruit 是不安全的。
-        // 因为，这将使这个 List 敞开口子，从而，可以向其中添加 非Apple类型的对象(如，同样继承自Fruit的Orange)，而这是违反静态类型安全的。
-        // c4.add(new Fruit());
-
-
+        // 只可读 Object
         // List<? super Apple>  只能返回  Object
         Object obj = c4.get(0);
-
-        // 除非，知道更多信息。（知道具体类型的前提下，进行强转）
+        // 除非，你已经知道更多信息
         Apple apple3 = (Apple)c4.get(0);
+
     }
 
 }

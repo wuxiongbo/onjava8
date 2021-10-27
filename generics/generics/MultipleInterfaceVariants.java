@@ -16,7 +16,7 @@ interface Payable<T> {}
 // 这样，就意味着在重复两次地实现相同的接口。
 class Employee implements Payable<Employee> {}
 //class Hourly extends Employee implements Payable<Hourly> {}
-class Hourly extends Employee implements Payable<Employee> {}
+//class Hourly extends Employee implements Payable<Employee> {}  // ok
 
 
 

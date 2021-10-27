@@ -10,10 +10,11 @@ class BasicOther extends BasicHolder<Other> {
 }
 
 /**
- * 对比 Unconstrained 与 SelfBounding
+ * // generics/CRGWithBasicHolder.java
  *
- * BasicHolder 可以使用任何类型作为其泛型参数
+ * 不作自限定，让 BasicHolder 可使用任何类型作为其泛型参数
  *
+ * // generics/SelfBounding.java
  */
 public class Unconstrained {
     public static void main(String[] args) {

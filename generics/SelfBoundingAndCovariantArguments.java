@@ -14,17 +14,22 @@ interface Setter extends SelfBoundSetter<Setter> {
 
 
 /**
- * 接 OrdinaryArguments 对比 SelfBoundingAndCovariantArguments
+ * 上接 generics/OrdinaryArguments.java
+ *
+ * 自限定
+ *     解决 方法参数列表中的参数 因为不具备协变能力 而导致 ‘方法重载’ ，使 ‘一个方法名’ 产生 ‘多个版本’ 的问题。
  *
  *
- * 使用自限定类型时：  本示例
- *      在导出类中，只有一个方法，并且 这个方法接受 导出类型(Setter) 而不是 基类型(SelfBoundSetter) 为参数
- *
- * 如果不使用自限定类型： PlainGenericInheritance.java
- *      普通的继承机制就会介入，而你将能够重载，就跟在 非泛型 的情况下(OrdinaryArguments.java)  一样
+ * 使用 “自限定类型” 后，
+ *    在 ‘导出类’(Setter)  中只有 ‘一个方法’(set()方法)，并且 ‘这个方法’  接受 ‘导出类型’(Setter) 而不是 ‘基类型’(SelfBoundSetter) 作为参数
  *
  *
- * 个人总结： 使用自限定，能防止方法的重载。 使方法使用确切的类型
+ * 个人总结： 使用自限定，能防止 “方法重载” 。 使方法使用确切的类型
+ *
+ *
+ * 不使用自限定类型，普通的继承机制就会介入，而你将能够重载，就跟在 非泛型 的情况下(下示例)  一样
+ * 见：  generics/PlainGenericInheritance.java
+ *
  */
 public class SelfBoundingAndCovariantArguments {
 

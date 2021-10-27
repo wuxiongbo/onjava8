@@ -6,13 +6,16 @@
 import java.util.*;
 
 /**
+ * 上接 generics/CovariantArrays.java
+ *
  * 通过查看 ArrayList 的文档，我们发现编译器没有那么聪明。
  *
- * 尽管 add() 接受一个 “泛型参数类型” 的参数，
- * 但  contains() 和 indexOf() 接受的参数类型是 “Object”。
+ * 正如 ArrayList 源码所示，
+ *      尽管 add() 方法 接受的是一个 “泛型参数类型” 的参数，
+ *      但  contains() 和 indexOf() 方法 接受的 是 “Object”类型 的参数 。
  *
- * 因此，当你指定一个 ArrayList<? extends Fruit> 时，add() 的参数就变成了 “? extendsFruit”。
- * 从这个描述的信息中，“编译器” 无法得知这里需要 Fruit的哪个具体子类型，因此它不会接受任何类型的 Fruit。
+ * 因此，当你指定一个 ArrayList<? extends Fruit> 时，add() 的参数就变成了 “? extends Fruit”。
+ * 从这个 约束所描述的信息中，“编译器” 无法得知 这里需要 Fruit的哪个具体子类型，因此它不会接受任何类型的 Fruit。
  *
  * generics/Holder.java
  *
@@ -32,7 +35,8 @@ public class CompilerIntelligence {
         flist.indexOf(new Apple()); // Argument is 'Object'
 
 
-        // add() 的参数列表 涉及通配符，而 contains() 和 indexOf() 的参数类型是 Object 不涉及通配符。
+        // add() 的参数列表 涉及通配符，
+        // contains() 和 indexOf() 的参数列表 不涉及通配符。
         // 这意味着，将由 泛型类的设计者 来决定哪些调用是 “安全的”，并使用 Object 类作为它们的参数类型。
 
     }

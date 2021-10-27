@@ -11,6 +11,23 @@ import java.util.function.*;
  *
  * 测试：将 任何方法 应用于 序列 中的所有对象
  *
+ * 在 Apply 中，我们运气很好，因为碰巧在 Java 中内建了一个由 Java 集合类库使用的 Iterable 接口。
+ * 正由于此，apply() 方法可以接受任何实现了 Iterable 接口的事物，包括诸如 List 这样的所有 Collection 类。
+ * 但是它还可以接受其他任何事物，只要能够使这些事物是 Iterable 的
+ *
+ * 正如 反射解决方案 看起来那样优雅，我们必须观察到反射（尽管在 Java 的最新版本中得到了显着改进）通常比非反射实现要慢，
+ * 因为，在 “运行时” 发生了很多事情。但 这个问题 不应阻止您尝试这种解决方案，不过，这依然是一个值得考虑的问题点。
+ *
+ *
+ * 个人总结，使用反射的方式 实现 对 ‘潜在类型机制’ 的“补偿”，存在以下问题：
+ *      1. 将 “编译期类型检查” 转移到了 “运行时”
+ *      2. 反射 比 非反射 要慢
+ *
+ * 我们可以利用 Java 8 的流和函数工具，对 ApplyTest.java 进行重写，解决上述的两个问题：
+ * generics/ApplyFunctional.java
+ *
+ * 更多示例：
+ * generics/mydemo/LatentReflection1.java
  */
 public class ApplyTest {
     public static void main(String[] args) throws Exception {

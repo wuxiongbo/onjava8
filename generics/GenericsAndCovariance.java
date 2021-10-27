@@ -6,14 +6,24 @@
 import java.util.*;
 
 /**
- * 有时，你想在两个类型间建立某种向上转型关系。  通配符可以产生这种关系
+ * 通配符
+ *
+ * 有时，你想在两个类型间建立某种向上转型关系。  “通配符” 可以产生这种关系
  *
  * 但是，事情开始变得有点走极端了，因为现在，你甚至不能向 刚刚声明过将持有Apple 对象的 List 中放入一个 Apple 对象。
- * 是的，但编译器并不知道这一点。List<? extends Fruit> 可能合法地指向一个 List<Orange>。
- * 一旦执行这种类型的向上转型，你就丢失了向其中传递任何对象的能力，甚至传递 Object 也不行。
+ * 是的，这并没有问题，因为，虽然可能你知道 将添加的是Fruit的哪个具体子类型 ，但编译器并不知道这一点。
+ *
+ * 因为，List<? extends Fruit> 可能合法地指向一个 List<Orange>。 显然，在这种情况下 Apple 是不符合条件的。
+ * 同样，向这样的 List 中添加 Fruit 也是不安全的，假设，List<? extends Fruit> 成功添加了Fruit ，
+ * 这将使这个 List 敞开口子，从而可以向其中添加 任何Fruit型非Apple型的对象(如，同样继承自Fruit的Orange)，而这是违反静态类型安全的。
+ * 所以，编译器在不确定是 Fruit 的哪个具体子类型 的时候，拒绝传递任何对象。
+ *
+ *
+ * 因此，一旦执行这种类型的向上转型，你就丢失了向其中传递任何对象的能力，甚至传递 Object 也不行(因为Object 并不是 Fruit的子类型)。
+ *
  *
  * 编译器有多聪明？
- * generics/CompilerIntelligence.java
+ * 下接  generics/CompilerIntelligence.java
  */
 public class GenericsAndCovariance {
 
@@ -23,14 +33,14 @@ public class GenericsAndCovariance {
 
         // 当你指定一个 ArrayList<? extends Fruit> 时，add() 的参数就变成了 “? extends Fruit”。
         // 从这个描述中，编译器 无法得知这里需要 Fruit 的哪个具体子类型，因此它不会接受任何类型的 Fruit。
-        // Compile Error: can't add any type of object:
-        // flist.add(new Apple());
-        // flist.add(new Fruit());
-        // flist.add(new Object());
+        // 编译错误: 不能添加任何类型的object
+//        flist.add(new Apple());
+//        flist.add(new Fruit());
+//        flist.add(new Object());  // 传递 Object 也不行
 
-        flist.add(null); // Legal but uninteresting
-        // We know it returns at least Fruit:
-        Fruit f = flist.get(0);
+        flist.add(null); // 合法，但无意义
+
+        Fruit f = flist.get(0); //我们知道，它至少返回的是 Fruit类型
 
     }
 

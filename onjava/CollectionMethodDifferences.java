@@ -10,12 +10,14 @@ import java.util.stream.*;
 
 public class CollectionMethodDifferences {
 
+    // 打印类的全部方法名
     static Set<String> methodSet(Class<?> type) {
         return Arrays.stream(type.getMethods())
                 .map(Method::getName)
                 .collect(Collectors.toCollection(TreeSet::new));
     }
 
+    // 打印类的全部接口
     static void interfaces(Class<?> type) {
         System.out.print("Interfaces in " + type.getSimpleName() + ": ");
         System.out.println(
@@ -27,15 +29,15 @@ public class CollectionMethodDifferences {
     }
 
     static Set<String> object = methodSet(Object.class);
-
     static {
         object.add("clone");
     }
 
+    // 打印  类实现的方法、类实现的接口
     static void difference(Class<?> superset, Class<?> subset) {
         System.out.print(superset.getSimpleName() + " extends " + subset.getSimpleName() + ", adds: ");
 
-        Set<String> comp = onjava.Sets.difference( methodSet(superset), methodSet(subset));
+        Set<String> comp = onjava.Sets.difference(methodSet(superset), methodSet(subset));
 
         comp.removeAll(object); // Ignore 'Object' methods
         System.out.println(comp);

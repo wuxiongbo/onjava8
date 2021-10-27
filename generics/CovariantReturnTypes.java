@@ -14,6 +14,10 @@ interface OrdinaryGetter {
 }
 
 /**
+ * 自限定
+ *  演示 参数协变，引出存在的问题
+ *
+ *
  * 注意，这段代码 在Java 5以下 不能编译，Java 5 囊括了 协变返回类型。
  *
  * DerivedGetter 中的 get() 方法覆盖了 OrdinaryGetter 中的 get() ，并返回了一个从 OrdinaryGetter.get() 的返回类型(Base)中导出的类型(Derived)。
@@ -23,6 +27,9 @@ interface OrdinaryGetter {
  *  ）
  *
  * 但是，这在早先的Java 版本(java5以前)中是不合法的。
+ *
+ * generics/GenericsAndReturnTypes.java
+ *
  */
 interface DerivedGetter extends OrdinaryGetter {
     // Overridden method return type can vary:

@@ -19,10 +19,17 @@ class Orange extends Fruit {
 
 
 /**
- * 我们的起始示例要展示数组的一种特殊行为：
- *    你可以将 派生类的数组 赋值给 基类的引用
+ * 通配符
  *
- * generics/NonCovariantGenerics.java
+ * 我们的起始示例要展示数组的一种特殊行为：
+ *    你可以将 派生类数组 赋值给 基类数组的引用
+ *
+ *
+ * 数组的这种赋值并不是那么可怕，因为在运行时你可以发现插入了错误的类型。
+ * 但是泛型的主要目标之一是，将这种错误检测移到 编译期。
+ * 所以当我们试图使用泛型集合代替数组时，会发生什么呢？
+ *
+ * 下接 generics/NonCovariantGenerics.java
  *
  */
 public class CovariantArrays {

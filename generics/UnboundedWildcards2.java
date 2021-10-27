@@ -5,13 +5,16 @@
 
 import java.util.*;
 
-//  arg: new HashMap();   new HashMap<>();
-//  Map
-//      Map
-//  Map<?, ?>
-//      Map<?, ?>
-//  Map<String, ?>
-//      Map<String, ?>
+/**
+ *   无界通配符
+ *
+ *   Map   Map
+ *   Map<?, ?>   Map<?, ?>
+ *   Map<String, ?>   Map<String, ?>
+ *
+ *   <?> 的意义
+ *   当处理多个泛型参数时，有时允许一个参数可以是任何类型，同时为其他参数确定某种特定类型。（如 map3 所示）这种能力会显得很重要
+ */
 public class UnboundedWildcards2 {
     static Map map1;
     static Map<?, ?> map2;
@@ -31,28 +34,11 @@ public class UnboundedWildcards2 {
 
     public static void main(String[] args) {
         assign1(new HashMap());
-
-        // 编译器无法将 Map<?,?> 与 原生 Map 区分开了
+        // 编译器无法将 Map<?,?> 与 原生 Map 区分开
         assign2(new HashMap());
-
-        // 但是，编译器能将 Map<String,?> 与 原生 Map 区分开
+        // 但能将 Map<String,?> 与 原生 Map 区分开
         assign3(new HashMap());
-
-        // warning: [unchecked] unchecked method invocation:
-        // method assign3 in class UnboundedWildcards2
-        // is applied to given types
-        //     assign3(new HashMap());
-        //            ^
-        //   required: Map<String,?>
-        //   found: HashMap
-
-        // warning: [unchecked] unchecked conversion
-        //     assign3(new HashMap());
-        //             ^
-        //   required: Map<String,?>
-        //   found:    HashMap
-
-        // 2 warnings
+        // 这也说明了 <?> 在某些场景下是有意义的。
 
 
         assign1(new HashMap<>());
@@ -60,13 +46,19 @@ public class UnboundedWildcards2 {
         assign3(new HashMap<>());
 
 
+
+
+
+        // 更直观的写法
         Map map1 = new HashMap();
         Map<?, ?> map2 = new HashMap();
         Map<String, ?> map3 = new HashMap();
 
+
         Map map11 = new HashMap<>();
         Map<?, ?> map22 = new HashMap<>();
         Map<String, ?> map33 = new HashMap<>();
+
 
     }
 }

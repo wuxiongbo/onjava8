@@ -8,13 +8,18 @@ import java.util.function.Supplier;
 import java.util.stream.*;
 
 /**
- * 同时实现 “编译期类型检查” 和 “潜在类型机制”
+ * 上接 generics/ApplyTest.java
  *
- * 对比 generics/Apply.java  使用的 Apply.apply() 方式
+ * 潜在类型机制
+ * Java8 中使用流和函数工具 辅助(注意，是 辅助 不是 实现) "潜在类型"，同时，具备 “编译期类型检查”
  *
  * 使用 FilledList 和 shapeQ 调用 forEach() 比 Apply.apply() 代码整洁得多。
  *
- * 在代码简单性和可读性方面，结果比以前的方法好得多。并且，现在也不可能从 main() 引发异常。
+ * 在代码 ‘简单性’ 和 ‘可读性’ 方面，结果 比 以前的方法 好得多。并且，现在也不可能从 main() 引发异常。
+ *
+ * 更多示例：
+ * generics/mydemo/LatentReflection1.java
+ *
  *
  */
 public class ApplyFunctional {

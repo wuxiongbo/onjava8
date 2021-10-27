@@ -17,23 +17,34 @@ class DerivedSetter extends OrdinarySetter {
 }
 
 /**
- * OrdinaryArguments 对比 SelfBoundingAndCovariantArguments
+ * 接 generics/GenericsAndReturnTypes.java
  *
- * 在非泛型代码中，参数类型不能随子类型发生变化
+ * 演示：
+ *   原始类型（非泛型），方法参数列表中的 ‘参数类型’ 不能随 ‘子类型’ 发生变化（即，参数协变）。 而是进行了‘方法重载’
+ *
+ *
+ * generics/SelfBoundingAndCovariantArguments.java
  */
 public class OrdinaryArguments {
 
     public static void main(String[] args) {
+        // 实例化  基类、派生类
         Base base = new Base();
         Derived derived = new Derived();
 
 
+
         DerivedSetter ds = new DerivedSetter();
+
+        // 可设置派生类
         ds.set(derived);
 
+        // 也可设置基类
         // Compiles--overloaded, not overridden!:
         // 重载，而不是覆盖！ 参数类型 不能随着 子类型 发生改变 。
         ds.set(base);
+
+
     }
 
 }

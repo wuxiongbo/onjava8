@@ -43,17 +43,23 @@ class C extends SelfBounded<C> {
 class D {
 }
 
-// 编译报错。不能使用  非自限定 的类型参数
+// 编译报错。不能使用  不是自限定类型 的参数
 // class E extends SelfBounded<D> {}
 
 
 // Alas, you can do this, so you cannot force the idiom:
 // 遗憾的是，自限定惯用法不是可强制执行的。 如下：F 类 可以编译，不会有任何警告
-// 但，如果它确实很重要，可以要求一个外部工具 来确保不会使用 “原生类型” 来替代 “参数化类型”。
+// 如果它确实很重要，可以要求一个外部工具 来确保不会使用 “原生类型” 来替代 “参数化类型”。
 class F extends SelfBounded {
 }
 
 /**
+ * 自限定 将采取额外的步骤，强制泛型当作其自身的边界参数来使用。
+ * 观察所产生的类  可以如何使用 以及 不可以如何使用
+ *
+ *
+ * 移除自限定
+ * generics/NotSelfBounded.java
  *
  */
 public class SelfBounding {
