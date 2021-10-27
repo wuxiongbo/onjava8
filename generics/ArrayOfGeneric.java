@@ -28,8 +28,11 @@ public class ArrayOfGeneric {
         // 虽可以 ‘定义’  “泛型数组”类型的 引用gia ，
         // 但无法 ‘创建’  具有该确切类型（包括类型参数）的数组。
 //        gia = new Generic<Integer>[SIZE];
+
+
+
+        // 似乎可以 创建一个 Object 数组 并将其转换为所需的数组类型。
         try {
-            // 似乎可以 创建一个 Object 数组 并将其转换为所需的数组类型。
             gia = (Generic<Integer>[]) new Object[SIZE];
 
             // 实际上，这确实可以编译，但是会产生 ClassCastException
@@ -45,7 +48,7 @@ public class ArrayOfGeneric {
 
 
 
-        // 成功创建泛型类型的数组的唯一方法是，创建一个 “已擦除泛型的新数组” ，并将其 强制转换为 泛型数组。
+        // 成功创建泛型类型的数组的唯一方法：创建一个 “已擦除泛型的新数组” ，并将其 强制转换为 泛型数组。
         // Runtime type is the raw (erased) type:
         gia = (Generic<Integer>[]) new Generic[SIZE];
 

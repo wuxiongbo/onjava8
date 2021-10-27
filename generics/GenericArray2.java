@@ -7,7 +7,7 @@
 /**
  * 接 generics/GenericArray.java
  *
- * 创建泛型类型的数组：在集合中使用 Object[] ，在 使用数组元素 时 再强转
+ * 创建泛型类型的数组： 在集合中使用Object[] ，在 使用数组元素 时 再强转 为泛型，使用数组 时 再强转为 泛型类型数组
  *
  * 存在问题：
  * 调用 rep() 时，再次尝试将 Object[] 强制转换为 T[] ，这仍然不正确，并 在“编译时”生成 警告，在“运行时”生成 异常。
@@ -44,6 +44,7 @@ public class GenericArray2<T> {
         GenericArray2<Integer> gai = new GenericArray2<>(10);
 
 
+        // 测试 put get 方法。 正常
         for (int i = 0; i < 10; i++)
             gai.put(i, i);
         for (int i = 0; i < 10; i++)
@@ -51,11 +52,13 @@ public class GenericArray2<T> {
         System.out.println();
 
 
+        // 测试 rep 方法
         try {
             Integer[] ia = gai.rep(); // 运行异常
         } catch (Exception e) {
             System.out.println(e);
         }
+
     }
 }
 /* Output:

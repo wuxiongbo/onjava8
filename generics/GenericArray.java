@@ -7,11 +7,12 @@
  * 接  generics/ArrayOfGeneric.java
  *
  * 补偿 泛型擦除
- * 创建泛型类型的数组：先创建一个 ‘Object 数组’ 然后 立即转为 所需的数组类型
+ * 创建泛型类型的数组：创建Object数组 的时候 立即转为 所需的数组类型
  *
  * 为了测试，先创建一个用于包装数组的 简单泛型包装器 GenericArray
- * 然后，我们在main方法中进行测试。
+ * 同 generics/Erased.java 中演示的一样，我们不能 T[] array = new T[sz] ，所以创建了一个 Object数组 然后将其 强制转换。
  *
+ * 然后，我们在main方法中进行测试。
  *
  * 存在的问题：
  * 我们知道，定义 rep()方法 的时候 返回的是 T[] ，那么，在main方法中，rep()方法 返回的 应该是 gai 的 Integer[]  。
@@ -51,21 +52,22 @@ public class GenericArray<T> {
 
 
     public static void main(String[] args) {
-
         GenericArray<Integer> gai = new GenericArray<>(10);
+
+        // 测试 rep 方法
         try {
-
             Integer[] ia = gai.rep();  // 运行时报错
-
         } catch (ClassCastException e) {
             System.out.println(e.getMessage());
         }
 
+        // 测试 put get 方法。 正常
         gai.put(1,1);
         Integer element = gai.get(1);
         System.out.println(element);
 
-        Object[] oa = gai.rep(); // 可以正常返回 Object[]
+        Object[] oa = gai.rep(); // 但是可以正常返回 Object[]
+
     }
 
 }
