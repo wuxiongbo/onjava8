@@ -56,7 +56,7 @@ class F extends SelfBounded {
  * 自限定 将采取额外的步骤，强制泛型当作其自身的边界参数来使用。
  * 观察所产生的类  可以如何使用 以及 不可以如何使用
  *
- *
+ * "自限定限制" 只能强制作用于 "继承关系" 。
  *
  * 移除自限定
  * 下接：generics/NotSelfBounded.java

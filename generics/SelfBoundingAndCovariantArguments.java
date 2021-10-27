@@ -7,27 +7,28 @@
 interface SelfBoundSetter<T extends SelfBoundSetter<T>> {
     void set(T arg);
 }
-
 // 代码解读： 当前定义的 Setter类  是  自限定类型
 interface Setter extends SelfBoundSetter<Setter> {
 }
-
 
 /**
  * 上接 generics/OrdinaryArguments.java
  *
  * 自限定
- *     解决 方法参数列表中的参数 因为不具备协变能力 而导致 ‘方法重载’ ，使 ‘一个方法名’ 产生 ‘多个版本’ 的问题。
+ *
+ * 自限定方法参数的 示例
+ *
+ * 自限定 方法参数 ，解决了 因 方法参数 不具备协变能力 而导致 ‘方法重载’ ，使 ‘一个方法名’ 产生 ‘多个版本’ 的问题。
  *
  *
- * 使用 “自限定类型” 后，
- *    在 ‘导出类’(Setter)  中只有 ‘一个方法’(set()方法)，并且 ‘这个方法’  接受 ‘导出类型’(Setter) 而不是 ‘基类型’(SelfBoundSetter) 作为参数
+ * 在 使用 “自限定类型” 约束后，
+ *    ‘导出类’(Setter) 中只有 ‘一个set()方法’，并且 ‘这个set()方法’ 接受的参数是 ‘导出类型’(Setter) 而不是 ‘基类型’(SelfBoundSetter)
  *
  *
- * 个人总结： 使用自限定，能防止 “方法重载” 。 使方法使用确切的类型
+ * 个人总结： 使用自限定，能避免 “方法重载” 产生同名方法的歧义 而难以选择 。 使 方法 使用 一个 确切的类型 的版本。
  *
  *
- * 不使用自限定类型，普通的继承机制就会介入，而你将能够重载，就跟在 非泛型 的情况下(下示例)  一样
+ * 如果 不使用 自限定类型，普通的 继承机制 就会介入，而你将能够 “重载”，就跟在 非泛型 的情况下(下示例)  一样
  * 见：  generics/PlainGenericInheritance.java
  *
  */
@@ -38,7 +39,7 @@ public class SelfBoundingAndCovariantArguments {
 
         s1.set(s2);
 
-        // 使用了自限定。将只能获得方法的一个版本，它将接受确切的参数类型。  传入 “基类” 会编译报错。
+        // 使用了自限定。将只能获得方法的一个版本，它将接受 确切的参数类型。  传入 “基类” 会编译报错。
 //        s1.set(sbs);
 
     }
