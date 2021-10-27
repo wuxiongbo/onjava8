@@ -3,7 +3,13 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
-// 假设，你有一个实现了 Comparable 接口的 Pet 类。   Pet 宠物
+/**
+ * 泛型存在的问题5：基类劫持接口
+ *
+ * 假设，你有一个实现了 Comparable 接口的 Pet 类。   Pet 宠物
+ *
+ * 接 generics/HijackedInterface.java
+ */
 public class ComparablePet implements Comparable<ComparablePet> {
     @Override
     public int compareTo(ComparablePet arg) {

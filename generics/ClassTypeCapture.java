@@ -13,10 +13,11 @@ class House extends Building {
 /**
  * 上接  generics/Erased.java
  *
- * 引入 “类型标签” 补偿 ‘泛型擦除’
+ * 对于 泛型擦除 的 补偿： 引入 “类型标签”
+ * 本示例：判断 “类型标签” 与 “泛型参数” 是否匹配
  *
  * 由于擦除了类型信息，因此在上一个程序中，尝试使用 instanceof 将会失败。
- * 而本示例中，类型标签 则可以使用动态 isInstance()。  意味着，将由 ‘编译器’ 来保证 “类型标签” 与 “泛型参数” 相匹配。
+ * 而本示例中，‘类型标签’ 则可以使用动态 isInstance()。 这意味着，将由 ‘编译器’ 来判断，保证 “类型标签” 与 “泛型参数” 相匹配。
  *
  * @param <T>
  */
@@ -34,12 +35,12 @@ public class ClassTypeCapture<T> {
     public static void main(String[] args) {
 
         ClassTypeCapture<Building> ctt1 = new ClassTypeCapture<>(Building.class);
-        System.out.println(ctt1.f(new Building())); // 建筑 是 建筑类型
-        System.out.println(ctt1.f(new House()));    // 房子 是 建筑类型
+        System.out.println(ctt1.f(new Building())); // 建筑 是 建筑类型    true
+        System.out.println(ctt1.f(new House()));    // 房子 是 建筑类型    true
 
         ClassTypeCapture<House> ctt2 = new ClassTypeCapture<>(House.class);
-        System.out.println(ctt2.f(new Building())); // 建筑 不是 房子类型
-        System.out.println(ctt2.f(new House()));    // 房子 是   房子类型
+        System.out.println(ctt2.f(new Building())); // 建筑 不是 房子类型   false
+        System.out.println(ctt2.f(new House()));    // 房子 是   房子类型   true
 
     }
 }

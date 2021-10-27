@@ -6,8 +6,15 @@
 import java.util.*;
 import java.util.stream.*;
 
-// 使用带有泛型类型参数的转型或 instanceof 不会有任何效果
-// 下面的集合在内部将各个值存储为 Object，并在获取这些值时，再将它们转型回 T
+/**
+ * 泛型存在的问题3：转型和警告
+ *
+ * 由于泛型擦除，擦除了类型信息，因此，对带有 '泛型类型参数'的类型 ，使用 “转型” 或 “instanceof” 不会有任何效果
+ *
+ * 下面的集合在内部将各个值存储为 Object，并在获取这些值时，再将它们转型回 T
+ *
+ * @param <T>
+ */
 class FixedSizeStack<T> {
     private final int size;
     private Object[] storage;

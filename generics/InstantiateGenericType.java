@@ -16,6 +16,7 @@ class ClassAsFactory<T> implements Supplier<T> {
     @Override
     public T get() {
         try {
+            // “类型标记” 可直接使用 newInstance()方法 创建该类型的新对象。
             return kind.getConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -37,12 +38,10 @@ class Employee {
 /**
  * 上接  generics/Erased.java
  *
- * 补偿擦除 之 泛型类型的实例化方案一：
- * 引入“类型标记”
+ * 对于 泛型擦除 的 补偿： 引入 “类型标签”
+ * 本示例：对 泛型类型 的实例化
  *
- *
- * 最方便的工厂对象是 只传 Class 对象。
- * 如果使用 类型标记，则可以使用 newInstance() 创建该类型的新对象：
+ * 最简便的工厂对象是 只传 Class 对象。 “类型标记” 可直接使用 newInstance()方法 创建该类型的新对象。
  *
  */
 public class InstantiateGenericType {

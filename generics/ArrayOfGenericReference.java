@@ -3,25 +3,29 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
-class Generic<T> {
-}
-
 /**
  * 接 generics/ListOfGenerics.java
  *
- * 有时，仍然会创建泛型类型的数组（例如，ArrayList 在内部使用数组）。
- *
- * 可以通过使编译器满意的方式定义 对数组的通用引用
+ * 补偿 泛型擦除：创建 泛型类型数组
  *
  *
- * 说明：编译器接受此操作而不产生警告。
- *      但是，我们永远无法创建具有该确切类型（包括类型参数）的数组，因此有点令人困惑。
- *      由于，所有数组，无论它们持有什么类型，都具有相同的结构（每个数组插槽的大小和数组布局），
- *      因此，似乎可以创建一个 ‘Object 数组’ 并将其转换为 所需的数组类型。
- *      实际上，这确实可以通过编译，但是 运行时 会产生 ClassCastException 异常
+ * 有时，仍需要 创建 ‘泛型类型数组’（例如，ArrayList 在内部使用数组）。
+ * 可以用 使‘编译器’满意的方式 定义 对数组的“通用引用”
+ *
+ *
+ * 说明：看起来，‘编译器’ 能接受此操作 而不产生警告。
+ *      但是，实际上我们永远无法创建具有该确切类型（包括类型参数）的数组（没有这样的语法，下个示例可以看到），这有点令人困惑。
+ *
+ *      我们沿着其他思路思考解决方案：
+ *          既然，所有数组（无论它们持有什么类型）都具有相同的结构（每个数组 插槽的大小 和 数组布局 ），
+ *          那么，我们似乎可以 先创建一个 ‘Object 数组’ ，然后立即转换为 所需的数组类型。
+ *      实际上，这种方案确实可以通过 编译，但是 “运行时” 会产生 ClassCastException 异常
  *
  * 见： generics/ArrayOfGeneric.java
  */
 public class ArrayOfGenericReference {
     static Generic<Integer>[] gia;
+}
+
+class Generic<T> {
 }

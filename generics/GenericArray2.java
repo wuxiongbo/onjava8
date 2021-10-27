@@ -7,18 +7,14 @@
 /**
  * 接 generics/GenericArray.java
  *
- * 创建泛型类型的数组
- *
- * 解决方式：
- * 在集合中使用 Object[] ，在 使用数组元素 时 再强转
+ * 创建泛型类型的数组：在集合中使用 Object[] ，在 使用数组元素 时 再强转
  *
  * 存在问题：
- * 如果调用 rep() ，它将再次尝试将 Object[] 强制转换为 T[] ，但仍然不正确，并在编译时生成警告，并在运行时生成异常。
- * 因此，无法破坏基础数组的类型，该基础数组只能是 Object[] 。
- *
+ * 调用 rep() 时，再次尝试将 Object[] 强制转换为 T[] ，这仍然不正确，并 在“编译时”生成 警告，在“运行时”生成 异常。
+ * 因此，无法破坏 基础数组的类型，该 基础数组 只能是 Object[] 。
  *
  * 在内部将数组视为 Object[] 而不是 T[] 的优点是：
- *    我们不太可能会忘记数组的 运行时类型 并 意外地引入了 bug， 尽管大多数（也许是全部）此类错误会在运行时被迅速检测到。
+ *    我们不太可能会 因为 忘记数组的 运行时类型 而 意外地引入了 bug， 尽管大多数（也许是全部）此类错误会在运行时被迅速检测到。
  *
  * 接 generics/GenericArrayWithTypeToken.java
  * @param <T>
@@ -29,11 +25,9 @@ public class GenericArray2<T> {
     public GenericArray2(int sz) {
         array = new Object[sz];
     }
-
     public void put(int index, T item) {
         array[index] = item;
     }
-
     @SuppressWarnings("unchecked")
     public T get(int index) {
         return (T) array[index];
@@ -41,20 +35,24 @@ public class GenericArray2<T> {
 
     @SuppressWarnings("unchecked")
     public T[] rep() {
+        // 将 Object[] 强转为 T[] 的操作从构造方法转移到了rep()方法。这仍然不正确，基础数组 只能是 Object[]
         return (T[]) array; // Unchecked cast
     }
 
+
     public static void main(String[] args) {
         GenericArray2<Integer> gai = new GenericArray2<>(10);
+
+
         for (int i = 0; i < 10; i++)
             gai.put(i, i);
         for (int i = 0; i < 10; i++)
             System.out.print(gai.get(i) + " ");
-
         System.out.println();
 
+
         try {
-            Integer[] ia = gai.rep();
+            Integer[] ia = gai.rep(); // 运行异常
         } catch (Exception e) {
             System.out.println(e);
         }

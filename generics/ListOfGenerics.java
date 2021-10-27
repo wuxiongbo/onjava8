@@ -6,12 +6,18 @@
 import java.util.*;
 
 /**
- * 我们无法创建泛型数组。通用解决方案是 在试图创建泛型数组的时候 使用 ArrayList
  *
+ * 补偿 泛型擦除：创建 泛型类型数组
+ *
+ * 我们无法创建泛型类型数组。通用解决方案是，在创建 ‘泛型类型数组’ 的时候 使用 ArrayList
+ *
+ * 优点：
  * 这样做可以获得数组的行为，并且还具有泛型提供的编译时类型安全性。
- * 但有时，仍然需要 创建 泛型类型的数组（例如，ArrayList 在内部使用数组）。
  *
- * 接 generics/ArrayOfGenericReference.java
+ * 存在的问题：
+ * 有时，仍然需要 创建 ‘泛型类型数组’ （例如，ArrayList 在内部使用数组）。
+ *
+ * 下接 generics/ArrayOfGenericReference.java
  *
  * @param <T>
  */
