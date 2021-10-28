@@ -3,27 +3,37 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Configure and execute the greenhouse system
-import innerclasses.controller.*;
+
+import controller.*;
 
 public class GreenhouseController {
-  public static void main(String[] args) {
-    GreenhouseControls gc = new GreenhouseControls();
-    // Instead of using code, you could parse
-    // configuration information from a text file:
-    gc.addEvent(gc.new Bell(900));
-    Event[] eventList = {
-      gc.new ThermostatNight(0),
-      gc.new LightOn(200),
-      gc.new LightOff(400),
-      gc.new WaterOn(600),
-      gc.new WaterOff(800),
-      gc.new ThermostatDay(1400)
-    };
-    gc.addEvent(gc.new Restart(2000, eventList));
-    gc.addEvent(
-      new GreenhouseControls.Terminate(5000));
-    gc.run();
-  }
+
+    public static void main(String[] args) {
+        // 1.初始化系统
+        GreenhouseControls gc = new GreenhouseControls();
+
+
+        // 2.添加所有相应的事件
+
+        // 你从文本文件中解析配置信息，而不是使用代码:
+        gc.addEvent(gc.new Bell(9000));      // 响铃        事件
+
+        Event[] eventList = {
+                gc.new ThermostatNight(0),  // 恒温器的夜间 事件
+                gc.new LightOn(2000),        // 开关照明灯   事件
+                gc.new LightOff(4000),
+                gc.new WaterOn(6000),        // 开关水      事件
+                gc.new WaterOff(8000),
+                gc.new ThermostatDay(14000)  // 恒温器的日间 事件
+        };
+        gc.addEvent(gc.new Restart(20000, eventList));// 重启事件
+
+        gc.addEvent(new GreenhouseControls.Terminate(50000)); // 终止事件
+
+
+        gc.run();
+    }
+
 }
 /* Output:
 Thermostat on night setting
@@ -34,7 +44,9 @@ Greenhouse water is off
 Bing!
 Thermostat on day setting
 Bing!
+
 Restarting system
+
 Thermostat on night setting
 Light is on
 Light is off
@@ -43,12 +55,15 @@ Bing!
 Greenhouse water is off
 Thermostat on day setting
 Bing!
+
 Restarting system
+
 Thermostat on night setting
 Light is on
 Light is off
 Bing!
 Greenhouse water is on
 Greenhouse water is off
+
 Terminating
 */

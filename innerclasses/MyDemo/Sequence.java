@@ -1,4 +1,4 @@
-// innerclasses/Sequence.java
+package MyDemo;// innerclasses/Sequence.java
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
@@ -47,21 +47,44 @@ public class Sequence {
         }
     }
 
+    // 使用内部类，实现 反方向遍历序列 。  实现忽略
+    private class SequenceReverseSelector implements Selector {
+        private int i = 0;
+
+        @Override
+        public boolean end() {
+            return false;
+        }
+
+        @Override
+        public Object current() {
+            return null;
+        }
+
+        @Override
+        public void next() {
+        }
+    }
+
     public Selector selector() {
         return new SequenceSelector();
     }
+    public Selector reverseSelector() {
+        return new SequenceReverseSelector();
+    }
 
     public static void main(String[] args) {
-        Sequence sequence = new Sequence(10);
-        for (int i = 0; i < 10; i++)
-            sequence.add(Integer.toString(i));
+//        Sequence sequence = new Sequence(10);
+//        for (int i = 0; i < 10; i++)
+//            sequence.add(Integer.toString(i));
+//
+//
+//        Selector selector = sequence.selector();
+//        while (!selector.end()) {
+//            System.out.print(selector.current() + " ");
+//            selector.next();
+//        }
 
-
-        Selector selector = sequence.selector();
-        while (!selector.end()) {
-            System.out.print(selector.current() + " ");
-            selector.next();
-        }
     }
 }
 /* Output:
