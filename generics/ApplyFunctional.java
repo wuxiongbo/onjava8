@@ -34,7 +34,7 @@ public class ApplyFunctional {
                 // 尽管 Java 缺少功能语言中经常出现的 flatten() ，但是我们可以使用 flatMap(c->c) 产生相同的结果，
                 // 后者使用 身份映射，将操作简化为 “ flatten ”。
                 .flatMap(c -> c) // 扁平化为一个流
-                // 我们使用 peek() 当做对 rotate() 的调用，因为 peek() 执行一个操作（此处是出于副作用），并在未更改的情况下传递对象。
+                // 我们用 peek() 对 rotate() 调用，因为 peek() 会执行调用操作（此处是出于副作用），并在未更改的情况下传递对象。
                 .peek(Shape::rotate) // 消费方法
                 .forEach(s -> s.resize(7));
 
