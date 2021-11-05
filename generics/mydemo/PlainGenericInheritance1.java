@@ -9,7 +9,7 @@ class Derived extends Base {
 }
 
 
-class GenericSetter<T extends GenericSetter<T>> { // Not self-bounded
+class GenericSetter<T extends GenericSetter<T>> {   // self-bounded
     void set(T arg) {
         System.out.println("GenericSetter.set(Base)");
     }
