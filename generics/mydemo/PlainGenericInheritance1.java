@@ -22,22 +22,28 @@ class DerivedGS extends GenericSetter<DerivedGS> {
 }
 
 /**
- * 使用自限定： 将只能获得方法的一个版本，它将接受 确切的参数类型。
+ * generics/PlainGenericInheritance.java
+ *
+ *
+ * 使用自限定： 将只能获得方法的一个版本，这个版本的方法 只能接受 确切的参数类型。
+ *
  */
 public class PlainGenericInheritance1 {
     public static void main(String[] args) {
 
         Base base = new Base();
         Derived derived = new Derived();
+
+
         DerivedGS dgs = new DerivedGS();
 
 
-        // 在这里， 更具体的类(Derived)、基类(Base) 都可作为方法参数。  从而 触发了继承机制 导致 方法重载
-        // void set(Derived derived)
-        // void set(Base base)
+        // 从编译期 就限制了只能使用 更具体的类(Derived) 可作为方法参数
+//         void set(Derived derived)
+//         void set(Base base)
         dgs.set(derived);
 
-        // 传入基类 编译报错。避免了方法重载
+        // 传入基类(Base) 编译报错。在编译期就阻止了父类方法的调用，从而避免了 “方法重载”
 //        dgs.set(base);
 
     }

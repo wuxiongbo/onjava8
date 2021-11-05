@@ -24,7 +24,7 @@ public class Unconstrained {
         BasicOther b = new BasicOther();
         BasicOther b2 = new BasicOther();
 
-        // ‘参数’ 和 ‘返回值’  可以是任意其他类（Other）
+        // 非自限定泛型类中的方法 ‘参数’ 和 ‘返回值’  可以是任意其他类（Other）
         b.set(new Other());
         Other other = b.get();
 

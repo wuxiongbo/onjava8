@@ -10,7 +10,7 @@ class OrdinarySetter {
 }
 
 class DerivedSetter extends OrdinarySetter {
-    // 方法重载。
+    // 方法重载。  将导致同个方法名存在多个版本
     void set(Derived derived) {
         System.out.println("DerivedSetter.set(Derived)");
     }
@@ -39,10 +39,12 @@ public class OrdinaryArguments {
 
 
 
-        // 可设置 派生类
+        // 普通继承类 可设置 派生类
         ds.set(derived);
-        // 可设置 基类
-        ds.set(base);  // 传递方法参数 将导致 “重载” 而不是 “覆盖”！  这是因为 参数类型 不能随着 子类型 发生改变，即 参数类型 不具备协变能力
+        // 普通继承类 也可设置  基类
+        ds.set(base);
+
+        // 传递方法参数 将导致 “重载” 而不是 “覆盖”！  这是因为 参数类型 不具备协变能力 ，即， 参数类型 不能随着 子类型 发生改变
 
 
     }

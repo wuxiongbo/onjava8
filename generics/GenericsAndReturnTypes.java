@@ -32,17 +32,17 @@ interface Getter extends GenericGetter<Getter> {
 public class GenericsAndReturnTypes {
     void test(Getter g) {
 
-        // 返回了 更加具体的类。
+        // 自限定泛型类  返回了 更加具体的类。
         Getter result = g.get();
 
-        // 返回的 也可以是基类。
+        // 自限定泛型类  返回的 也可以是 更加泛化的基类。
         GenericGetter gg = g.get();
 
 
-        // 协变返回类型，带来的好处。
-        // 子类Getter 的get方法 返回的是 Getter
-        // 父类GenericGetter 的get方法 返回的是 泛型被擦除到的边界GenericGetter
-        // 子类返回更具体的类型，可通 过子类覆盖父类方法 实现， 而不是 重载
+        // 协变返回类型，带来的好处：
+        //     子类Getter 的 get方法 返回的是 Getter类
+        //     父类GenericGetter 的 get方法 返回的是  泛型参数被擦除到的边界类型 GenericGetter类
+        //     也就是说， 子类 返回了 更具体的类型，可通过 子类 ‘覆盖’ 父类方法  的方式来实现， 而非 ‘重载’
 
     }
 }
