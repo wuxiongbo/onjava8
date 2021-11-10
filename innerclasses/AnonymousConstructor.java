@@ -12,8 +12,17 @@ abstract class Base {
     public abstract void f();
 }
 
+
+/**
+ * 匿名内部类‘构造器’传参 使用的 参数引用 不要求 final 修饰
+ *
+ *  innerclasses/Parcel10.java
+ *
+ */
 public class AnonymousConstructor {
-    public static Base getBase(int i) {
+
+    public static Base getBase(int i) {  // 不需要 final 修饰
+
         return new Base(i) {
             {
                 System.out.println(

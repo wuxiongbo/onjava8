@@ -3,10 +3,18 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
+/**
+ *
+ * 匿名内部类‘成员变量’使用的 参数引用最好是 final 修饰
+ *
+ *
+ *  innerclasses/AnonymousConstructor.java
+ *
+ */
 public class Parcel9 {
     // Argument must be final or "effectively final"
     // to use within the anonymous inner class:
-    public Destination destination(final String dest) {
+    public Destination destination(final String dest) {  // 建议 final 修饰。
         return new Destination() {
             private String label = dest;
 

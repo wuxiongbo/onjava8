@@ -18,6 +18,7 @@ class Cups {
     static Cup cup1;
     static Cup cup2;
 
+    // 无论当前类被实例化多少次，静态初始化只执行一次
     static {
         cup1 = new Cup(1);
         cup2 = new Cup(2);
@@ -33,6 +34,7 @@ class Cups {
  * 还是把标为 [1] 的行去掉，让它去运行标为 [2] 的那行代码（去掉 [2] 的注释），Cups 的静态初始化动作都会执行。
  * 如果同时注释 [1] 和 [2] 处，那么 Cups 的静态初始化就不会进行。
  * 此外，把标为 [2] 处的注释都去掉还是只去掉一个，静态初始化只会执行一次。
+ *
  */
 public class ExplicitStatic {
     public static void main(String[] args) {
