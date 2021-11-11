@@ -94,7 +94,8 @@ public class Suppliers {
 //        A a = gen.get();
         // 然后 用 逆变后的Consumer，接收 更具体的A类型。
 //        action.accept(a);
-        // 逆变，使得泛型类的方法 可写。 表达的意思就是，Consumer 具体是什么类型的我不知道，但 Consumer 的方法一定可以接收 更具体的A类型。
+        // 逆变，使得泛型类的方法 可写。
+        // 点开forEach 里面 。表达的意思就是，Consumer 具体是什么类型的我不知道，但 Consumer 的方法一定可以接收 更具体的A类型。
 
 
         // 返回holder
