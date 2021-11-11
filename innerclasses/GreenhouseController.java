@@ -12,13 +12,12 @@ public class GreenhouseController {
         // 1.初始化系统
         GreenhouseControls gc = new GreenhouseControls();
 
-
-        // 2.添加所有相应的事件。  你从文本文件中解析配置信息，而不是使用代码:
+        // 2.添加所有相应的事件。  你可以从文本文件中解析配置信息，而不是使用代码:
 
         // 1)将 “响铃事件” 加入控制器。
         gc.addEvent(gc.new Bell(9000));      // 响铃        事件
 
-        // 构建 事件列表。
+        // 构建 事件列表。  这是 “命令设计模式” 的一个例子—— eventList 中的每个对象都被封装成对象的请求
         Event[] eventList = {
                 gc.new ThermostatNight(0),   // 恒温器 夜间模式 事件
                 gc.new LightOn(2000),
@@ -28,7 +27,7 @@ public class GreenhouseController {
                 gc.new ThermostatDay(14000)  // 恒温器 日间模式 事件
         };
 
-        // 2)将 “重启事件” 加入控制器。  构建重启事件时，将 需要重启的 事件列表 放入 重启事件。
+        // 2)将 “重启事件” 加入控制器。 构造 重启事件 时，要将 需重启的事件列表 作为构造参数传入。
         gc.addEvent(gc.new Restart(20000, eventList));// 重启事件
 
         // 3)将 “终止事件” 加入控制器。

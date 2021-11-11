@@ -10,33 +10,27 @@
 import controller.*;
 
 /**
- * Greenhouse 恒温室
+ * 这是一个控制器的实现。
  *
+ * Greenhouse 恒温室
  * 恒温室控制装置。
  *
- * 这是一个 产生了控制系统的 特定应用程序，所有事件都在这一个外部类中。
- * 内部类允许你 为每种类型的事件封装不同的功能实现。
+ * 这是一个 产生了控制系统的 特定应用程序，所有事件 都在这一个外部类中。
+ * 该外部类的内部类允许你 为每种类型的事件封装不同的功能实现。
  *
  */
 public class GreenhouseControls extends Controller {
 
 
-
-
-    // 控制框架   GreenhouseControls自身   并不包含任何具体的功能信息。
-    // 那些功能信息是 由 继承自Event的内部类  所实现的action()算法  来提供的。
-
-
-
-
-
-
-
-
-
-    // light 照明。 开、关 事件
+    // 控制框架   GreenhouseControls自身   并不包含任何具体的功能信息。仅定义成员属性。 而内部类可以随意访问 这些属性。
+    // 那些功能信息是 由继承自Event类的内部类  实现的action()算法  提供的。
     private boolean light = false;
+    private boolean water = false;
+    private String thermostat = "Day";
 
+
+
+    // light 灯光。 开、关 事件
     public class LightOn extends Event {
         public LightOn(long delayTime) {
             super(delayTime);
@@ -53,7 +47,6 @@ public class GreenhouseControls extends Controller {
             return "Light is on";
         }
     }
-
     public class LightOff extends Event {
         public LightOff(long delayTime) {
             super(delayTime);
@@ -71,12 +64,7 @@ public class GreenhouseControls extends Controller {
         }
     }
 
-
-
-
-    // water 加水。 开、关 事件
-    private boolean water = false;
-
+    // water 水。 开、关 事件
     public class WaterOn extends Event {
         public WaterOn(long delayTime) {
             super(delayTime);
@@ -93,7 +81,6 @@ public class GreenhouseControls extends Controller {
             return "Greenhouse water is on";
         }
     }
-
     public class WaterOff extends Event {
         public WaterOff(long delayTime) {
             super(delayTime);
@@ -111,11 +98,7 @@ public class GreenhouseControls extends Controller {
         }
     }
 
-
-
-
     // thermostat 恒温器。 日、夜  事件
-    private String thermostat = "Day";
     public class ThermostatNight extends Event {
         public ThermostatNight(long delayTime) {
             super(delayTime);
@@ -132,7 +115,6 @@ public class GreenhouseControls extends Controller {
             return "Thermostat on night setting";
         }
     }
-
     public class ThermostatDay extends Event {
         public ThermostatDay(long delayTime) {
             super(delayTime);
@@ -153,7 +135,6 @@ public class GreenhouseControls extends Controller {
 
 
 
-
     // Bell 响铃事件
     // 一个action()的例子。将 自身事件 插入到 事件列表
     public class Bell extends Event {
@@ -163,6 +144,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
+            // 内部类是多么像多重继承：Bell 拥有 Event 的所有方法，也拥有外部类 GreenhouseContrlos 的所有方法
             addEvent(new Bell(delayTime.toMillis()));
         }
 
@@ -174,9 +156,8 @@ public class GreenhouseControls extends Controller {
 
 
 
-
-
     // Restart 重启事件
+
     public class Restart extends Event {
         private Event[] eventList;
 
@@ -185,7 +166,8 @@ public class GreenhouseControls extends Controller {
 
             this.eventList = eventList; // 重启事件的构造方法中，将事件列表   放一份在 重启事件中
 
-            for (Event e : eventList)   // 重启事件的构造方法中，还将事件列表  放一份在了 控制器 中
+            for (Event e : eventList)   // 重启事件的构造方法中，还将事件列表  加到了 控制器 中
+                // 内部类是多么像多重继承：Restart 拥有 父类Event 的所有方法，也拥有 外部类 GreenhouseContrlos 的所有方法
                 addEvent(e);
         }
 
@@ -196,7 +178,7 @@ public class GreenhouseControls extends Controller {
                 addEvent(e);
             }
             start(); // 更新 本重启事件 维护的 “就绪”时刻
-            addEvent(this); // 再添加一遍 重启事件，以实现可无限重启。直到系统终止
+            addEvent(this); // 再添加一遍 重启事件，将自身加入控制器，以实现可无限重启。直到系统终止
         }
         // 在action运行完的这一刻，Restart事件在 控制器 中存有两份。 紧接着，控制器 会remove掉一份。
 
@@ -205,8 +187,6 @@ public class GreenhouseControls extends Controller {
             return "Restarting system";
         }
     }
-
-
 
 
 

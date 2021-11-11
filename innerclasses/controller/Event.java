@@ -9,6 +9,8 @@ import java.time.*; // Java 8 time classes
 
 /**
  *
+ * 这是一个抽象的事件
+ *
  * 为什么使用抽象类，而不是接口？
  * 首先，接口 可以描述要控制的事件。 但因为其默认的行为是基于时间去执行控制，这个逻辑是固定的，所以使用抽象类代替实际的接口，以保持部分实现。
  *
@@ -21,8 +23,8 @@ import java.time.*; // Java 8 time classes
  *
  */
 public abstract class Event {
-    private Instant eventTime;           // 记录事件 “就绪” 的时刻
-    protected final Duration delayTime;  // 延时 “就绪”
+    private Instant eventTime;           // 事件 “就绪” 的时刻
+    protected final Duration delayTime;  // 准备时长
 
     // 因为事件 ‘默认的行为’ 是基于时间去执行控制，这部分 ‘默认的行为’ 可以抽象出来，所以使用的 “抽象类” 而不是 “接口”。
     protected Event(long millisecondDelay) {
