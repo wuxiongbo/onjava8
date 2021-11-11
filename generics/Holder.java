@@ -13,6 +13,7 @@ import java.util.Objects;
  *      一个返回 T 类型对象   的 get() 方法
  *      一个接受 Object 对象 的 equals() 方法。
  *
+ * 逆变。
  * 下接 generics/SuperTypeWildcards.java
  *
  * @param <T>

@@ -17,11 +17,11 @@ import java.util.*;
  *
  * <p>
  * 让我们看一个 能说明这个问题的示例：
- *      假设有个需求，想要创建一个 apply() 方法，该方法 能够将 ‘任何方法’ 应用于 ‘某个序列’（集合） 中的所有对象。
- *      这种情况下，使用接口并不适合，因为你想要将 ‘任何方法’ 应用于一个 ‘对象集合’ ，而 ‘接口’ 不可能描述 ‘任何方法’ 。
+ *    假设有个需求，想要创建一个 apply() 方法，该方法 能够将 ‘任何方法’ 应用于 ‘某个序列’（集合） 中的所有对象。
+ *    这种情况下，使用接口并不适合，因为你想要将 ‘任何方法’ 应用于一个 ‘对象集合’ ，而 ‘接口’ 不可能描述 ‘任何方法’ 。
  *
  * 如何用 Java 来实现这个需求呢？
- * 最初，我们可以用 反射 来解决这个问题，由于有了 Java 的可变参数，这种方式被证明是相当优雅的
+ * 最初，我们可以用 反射 来解决这个问题，由于有了 Java 的可变参数，这种方式被证明是相当优雅的。
  *
  *
  * 为了测试 Apply ，
@@ -39,15 +39,15 @@ public class Apply {
      *
      * @param seq    集合（即上述的 ‘某个序列’ ）
      * @param f      待执行的目标方法
-     * @param args   方法参数列表
+     * @param args   方法参数列表。             引入 可变参数，使反射的调用更加灵活。
      * @param <T>
-     * @param <S>
+     * @param <S>    使用泛型对 方法参数的类型 进行约束。  S 至少是个 Iterable 类型。
      */
     public static <T, S extends Iterable<T>> void apply(S seq, Method f, Object... args) {
 
         try {
 
-            for (T t : seq)
+            for (T t : seq) // 将 S 约束为 Iterable 类型，因此可将其遍历。
                 f.invoke(t, args);
 
         } catch (IllegalAccessException |

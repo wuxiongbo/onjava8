@@ -8,13 +8,13 @@ import java.util.*;
 /**
  * 逆变。即，超类型通配符
  * <p>
- * 可以声明 通配符 是由 ‘某个特定类’的‘任何基类’ 来 “界定” 的，
+ * 逆变，使得代码可以声明 通配符？ 是由 ‘某个特定类’的‘任何基类’ 来 “界定” 的，
  *
  * 方法 指定为 <？super MyClass> 或者 <？super T>
  * （你不能对 “泛型参数” 给出一个 “超类型边界”。 即，不能声明 <T super MyClass> ）
  *
  * <p>
- * 这使得，你可以安全地传递一个类型对象到泛型类型中。
+ * 逆变，使得你可以安全地传递一个 ‘具体的类型对象’ 到 ‘泛型类型’ 中。
  * 也就是说，有了超类型通配符，你就可以向 Collection 写入了。
  *
  * 由于 Apple 是下界，所以，向这样的 List 中添加 Fruit 是不安全的，
@@ -27,10 +27,10 @@ public class SuperTypeWildcards {
     static void writeTo(List<? super Apple> apples) {
 
         // 可以写入了。
-        apples.add(new Apple());
-        apples.add(new Jonathan());
+        apples.add(new Apple());     // 将‘具体的类型对象’ 传递到 ‘泛型类型’
+        apples.add(new Jonathan());  // 将‘具体的类型对象’的子类 传递到 ‘泛型类型’
 
-        // 由于不能确定具体是哪个超类，所以拒绝添加 任意Apple的超类，甚至是Object
+        // 由于不能确定具体是哪个超类，所以拒绝写入  Apple的任何超类，甚至是Object
 //        apples.add(new Fruit()); // Error
 //        apples.add(new Object()); // Error
 

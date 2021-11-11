@@ -26,7 +26,8 @@ public class ApplyFunctional {
 
     public static void main(String[] args) {
 
-        // 我们首先生成两个 Stream ：一个是 Shape ，一个是 Square ，并将它们展平为单个流。
+        // 我们首先生成两个 Stream ：
+        //      一个是 父类Shape ，一个是 子类Square ，并将它们展平为单个流。
         Stream.of(
                     Stream.generate(Shape::new).limit(2),
                     Stream.generate(Square::new).limit(2)
@@ -34,28 +35,34 @@ public class ApplyFunctional {
                 // 尽管 Java 缺少功能语言中经常出现的 flatten() ，但是我们可以使用 flatMap(c->c) 产生相同的结果，
                 // 后者使用 身份映射，将操作简化为 “ flatten ”。
                 .flatMap(c -> c) // 扁平化为一个流
-                // 我们用 peek() 对 rotate() 调用，因为 peek() 会执行调用操作（此处是出于副作用），并在未更改的情况下传递对象。
+
+                // 然后，我们用 peek() 对 rotate()方法进行调用。 因为 peek() 会执行调用操作（此处是出于副作用），并在未更改的情况下传递对象。
                 .peek(Shape::rotate) // 消费方法
+
+                //  遍历集合，并调用元素的方法。
                 .forEach(s -> s.resize(7));
 
 
-        // 往集合填充 Shape元素。个数为2
+
+
+        // 往集合填充 Shape元素。个数为 2
         new FilledList<>(Shape::new, 2)
+                // 遍历集合，并调用元素的方法。
                 .forEach(Shape::rotate);
 
-        // 往集合填充 Square元素。个数为2
+        // 往集合填充 Square元素。个数为 2
         new FilledList<>(Square::new, 2)
+                // 遍历集合，并调用元素的方法。
                 .forEach(Shape::rotate);
 
 
 
-        // 往集合填充元素
-        SimpleQueue<Shape> shapeQ =
-                Suppliers.fill(new SimpleQueue<>(), SimpleQueue::add, Shape::new, 2);
-
-        // 继续，往集合填充元素
+        // 往集合填充 Shape元素。个数为 2
+        SimpleQueue<Shape> shapeQ = Suppliers.fill(new SimpleQueue<>(), SimpleQueue::add, Shape::new, 2);
+        // 继续往集合填充 Shape元素。个数为 2
         Suppliers.fill(shapeQ, SimpleQueue::add, Square::new, 2);
 
+        // 遍历集合，并调用元素的方法。
         shapeQ.forEach(Shape::rotate);
 
 
@@ -63,23 +70,28 @@ public class ApplyFunctional {
 
 
 
-        SimpleQueue<Shape> holder = new SimpleQueue<>();
-        // Suppliers.fill()  的实现不太好理解，我写成下面这种方式，更加便于理解。 等价  SimpleQueue::add
-        BiConsumer<SimpleQueue, Shape> adder = new BiConsumer<SimpleQueue, Shape>(){
+        // Suppliers.fill()  的实现不太好理解，我写成下面这种方式，更加便于理解。
+
+        // 下面这段代码是 BiConsumer匿名内部类  效果等价于  SimpleQueue::add
+        BiConsumer<SimpleQueue<Shape>, Shape> adder = new BiConsumer<SimpleQueue<Shape>, Shape>(){
             @Override
-            public void accept(SimpleQueue simpleQueue, Shape shape) {
+            public void accept(SimpleQueue<Shape> simpleQueue, Shape shape) {
                 simpleQueue.add(shape);
             }
         };
-        // 等价 Square::new
+
+        // 下面这段代码是 Supplier匿名内部类  效果等价于  Square::new
         Supplier<Shape> generator = new Supplier<Shape>(){
             @Override
             public Shape get() {
                 return new Shape();
             }
         };
+
+        SimpleQueue<Shape> holder = new SimpleQueue<>();
         Suppliers.fill(holder, adder, generator , 2);
         holder.forEach(Shape::rotate);
+
     }
 
 }

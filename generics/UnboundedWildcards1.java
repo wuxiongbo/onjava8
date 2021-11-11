@@ -110,22 +110,20 @@ public class UnboundedWildcards1 {
         // 不可写
 //        c3.add(new Apple());
 //        c3.add(new Object());
-        // 可读 上界类型。
+        // 可读取  上界类型。
         Apple apple2 = c3.get(0);
 
 
         // 逆变。
-        List<? super Apple> cc = new ArrayList<Fruit>();
+        List<? super Apple> cc = new ArrayList<Fruit>(); // 苹果 的 某种父类型
         List<? super Apple> c4 =new ArrayList<>();
-        // 可写 下界类型。
+        // 可写入  下界类型。
         c4.add(new Apple());
 //        c4.add(new Fruit());
 
-        // 只可读 Object
-        // List<? super Apple>  只能返回  Object
-        Object obj = c4.get(0);
-        // 除非，你已经知道更多信息
-        Apple apple3 = (Apple)c4.get(0);
+        // 只可读取 Object
+        Object obj = c4.get(0);  // List<? super Apple>  只能返回  Object
+        Apple apple3 = (Apple)c4.get(0);  // 除非，你已经知道更多信息，然后强转
 
     }
 
