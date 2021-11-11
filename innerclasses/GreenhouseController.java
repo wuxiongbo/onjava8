@@ -13,21 +13,25 @@ public class GreenhouseController {
         GreenhouseControls gc = new GreenhouseControls();
 
 
-        // 2.添加所有相应的事件
+        // 2.添加所有相应的事件。  你从文本文件中解析配置信息，而不是使用代码:
 
-        // 你从文本文件中解析配置信息，而不是使用代码:
+        // 1)将 “响铃事件” 加入控制器。
         gc.addEvent(gc.new Bell(9000));      // 响铃        事件
 
+        // 构建 事件列表。
         Event[] eventList = {
-                gc.new ThermostatNight(0),  // 恒温器的夜间 事件
-                gc.new LightOn(2000),        // 开关照明灯   事件
-                gc.new LightOff(4000),
-                gc.new WaterOn(6000),        // 开关水      事件
-                gc.new WaterOff(8000),
-                gc.new ThermostatDay(14000)  // 恒温器的日间 事件
+                gc.new ThermostatNight(0),   // 恒温器 夜间模式 事件
+                gc.new LightOn(2000),
+                gc.new LightOff(4000),       // 开关照明灯      事件
+                gc.new WaterOn(6000),
+                gc.new WaterOff(8000),       // 开关水         事件
+                gc.new ThermostatDay(14000)  // 恒温器 日间模式 事件
         };
+
+        // 2)将 “重启事件” 加入控制器。  构建重启事件时，将 需要重启的 事件列表 放入 重启事件。
         gc.addEvent(gc.new Restart(20000, eventList));// 重启事件
 
+        // 3)将 “终止事件” 加入控制器。
         gc.addEvent(new GreenhouseControls.Terminate(50000)); // 终止事件
 
 

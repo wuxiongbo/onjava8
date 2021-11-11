@@ -15,10 +15,24 @@ import controller.*;
  * 恒温室控制装置。
  *
  * 这是一个 产生了控制系统的 特定应用程序，所有事件都在这一个外部类中。
- * 内部类允许你为每种类型的事件封装不同的功能。
+ * 内部类允许你 为每种类型的事件封装不同的功能实现。
  *
  */
 public class GreenhouseControls extends Controller {
+
+
+
+
+    // 控制框架   GreenhouseControls自身   并不包含任何具体的功能信息。
+    // 那些功能信息是 由 继承自Event的内部类  所实现的action()算法  来提供的。
+
+
+
+
+
+
+
+
 
     // light 照明。 开、关 事件
     private boolean light = false;
@@ -30,8 +44,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
-            // Put hardware control code here to
-            // physically turn on the light.
+            // 把硬件控制的代码放在这里，实现 开灯
             light = true;
         }
 
@@ -48,8 +61,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
-            // Put hardware control code here to
-            // physically turn off the light.
+            //  把硬件控制的代码放在这里，实现 关灯
             light = false;
         }
 
@@ -72,7 +84,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
-            // Put hardware control code here.
+            // 把硬件控制代码放在这里
             water = true;
         }
 
@@ -89,7 +101,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
-            // Put hardware control code here.
+            // 把硬件控制代码放在这里
             water = false;
         }
 
@@ -111,7 +123,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
-            // Put hardware control code here.
+            // 把硬件控制代码放在这里
             thermostat = "Night";
         }
 
@@ -128,7 +140,7 @@ public class GreenhouseControls extends Controller {
 
         @Override
         public void action() {
-            // Put hardware control code here.
+            // 把硬件控制代码放在这里
             thermostat = "Day";
         }
 
@@ -143,7 +155,7 @@ public class GreenhouseControls extends Controller {
 
 
     // Bell 响铃事件
-    // An example of an action() that inserts a new one of itself into the event list:
+    // 一个action()的例子。将 自身事件 插入到 事件列表
     public class Bell extends Event {
         public Bell(long delayTime) {
             super(delayTime);
@@ -171,22 +183,22 @@ public class GreenhouseControls extends Controller {
         public Restart(long delayTime, Event[] eventList) {
             super(delayTime);
 
-            this.eventList = eventList; // 构造重启事件的时候，将事件列表  放一份在 重启事件中
+            this.eventList = eventList; // 重启事件的构造方法中，将事件列表   放一份在 重启事件中
 
-            for (Event e : eventList)   // 构造重启事件的时候，将事件列表  再放一份到 控制器 中
+            for (Event e : eventList)   // 重启事件的构造方法中，还将事件列表  放一份在了 控制器 中
                 addEvent(e);
         }
 
         @Override
         public void action() {
             for (Event e : eventList) {   // 遍历 重启事件中 维护的 事件列表
-                e.start();  // 更新 事件列表中的事件 内部维护 的“就绪”时刻
+                e.start();  // 更新 事件列表 中的事件所维护 的“就绪”时刻
                 addEvent(e);
             }
-            start(); // 更新 当前事件 内部维护的 “就绪”时刻
-            addEvent(this); // 可无限重启。直到系统终止
+            start(); // 更新 本重启事件 维护的 “就绪”时刻
+            addEvent(this); // 再添加一遍 重启事件，以实现可无限重启。直到系统终止
         }
-        // action运行完后，Restart事件在控制器中存有两份。 紧接着remove一份。
+        // 在action运行完的这一刻，Restart事件在 控制器 中存有两份。 紧接着，控制器 会remove掉一份。
 
         @Override
         public String toString() {
@@ -200,7 +212,7 @@ public class GreenhouseControls extends Controller {
 
 
     // Terminate 终止事件
-    // 注意，这是个嵌套类
+    // 注意，这是个static修饰的 嵌套类。
     public static class Terminate extends Event {
         public Terminate(long delayTime) {
             super(delayTime);
