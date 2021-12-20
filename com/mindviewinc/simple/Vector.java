@@ -6,7 +6,7 @@
 package mindviewinc.simple;
 
 public class Vector {
-  public Vector() {
-    System.out.println("com.mindviewinc.simple.Vector");
-  }
+    public Vector() {
+        System.out.println("com.mindviewinc.simple.Vector");
+    }
 }

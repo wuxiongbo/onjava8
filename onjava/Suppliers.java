@@ -63,43 +63,54 @@ public class Suppliers {
     // 因为，此未绑定方法 BiConsumer(adder)， 必须带有一个参数（标识A。 holder中元素的类型），所以，adder 必须是 BiConsumer <H，A>
     // 其中， H 是，要绑定到的 holder 对象的类型（下面 λ表达式中的 holder），
     // 而    A 是，要被添加的绑定元素类型（下面 λ表达式中的 a）。
-    public static <H, A> H fill(H holder,
-                                BiConsumer<H, A> adder,
-                                Supplier<A> gen,
+    public static <Holder, Element> Holder fill(Holder holder,
+                                BiConsumer<Holder, Element> adder,
+                                Supplier<Element> generator,
                                 int n) {
 
 //        Stream.generate(gen)
 //                .limit(n)
 //                .forEach(a -> adder.accept(holder, a));
 
-
-
         // 下面是更好理解的写法。
-        // Consumer匿名内部类。 用于对 BiConsumer 中的方法进行消费。
-        Consumer<? super A> action = new Consumer<A>() {
+
+        // 1.生成 collect
+        List<Element> collect = Stream.generate(generator).limit(n).collect(Collectors.toList());
+
+        // 2.Consumer 匿名内部类。 用于对 BiConsumer 中的方法进行消费。
+        // 注意，这里，创建的Consumer<Element>，我们使用另外更加泛化的 Consumer<? super Element> 来接收。
+        Consumer<? super Element> action = new Consumer<Element>() {
             @Override
-            public void accept(A a) {
-                adder.accept(holder, a);
+            public void accept(Element element) {
+                // BiConsumer
+                adder.accept(holder, element);
             }
         };
 
-        // 生成 collect
-        List<A> collect = Stream.generate(gen).limit(n).collect(Collectors.toList());
-        // 遍历 collect，将元素逐个添加到 holder容器。
+
+        // 3.遍历 collect，遍历的动作是：将 element元素 添加到 holder容器。
         collect.forEach(action);
 
+        // 为什么 forEach中的 Consumer 要使用 逆变？
 
-        // 为什么 Consumer 要使用 逆变？
-        // 先获取一个 A类型的 实例。
-//        A a = gen.get();
-        // 然后 用 逆变后的Consumer，接收 更具体的A类型。
-//        action.accept(a);
-        // 逆变，使得泛型类的方法 可写。
-        // 点开forEach 里面 。表达的意思就是，Consumer 具体是什么类型的我不知道，但 Consumer 的方法一定可以接收 更具体的A类型。
+        // 1）先获取一个 Element类型的 实例。
+//        Element element = generator.get();
+        // 2）然后， 使用 逆变后的 Consumer<? super Element> action 的 accept方法， 输入这个更具体的Element类型。
+//        action.accept(element);
+        // 3）发现 编译可行。
+        // 重点：逆变，使得泛型类的方法 可写(即，方法数据输入)。
+        // 读，方法数据输出。
+        // 写，方法数据输入。
+
+        // 点开forEach 里面。源码表达的意思就是，Consumer 具体是什么类型的我不知道，但 Consumer 的方法一定可以接收  更具体的Element类型参数。
 
 
         // 返回holder
         return holder;
     }
+
+    // Consumer    输入： 消费 一个参数
+    // BiConsumer  输入： 消费 两个参数
+    // Supplier    输出： 生产 返回参数
 
 }

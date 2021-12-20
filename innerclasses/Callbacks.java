@@ -3,6 +3,7 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Using inner classes for callbacks
+// 使用内部类支持回调
 // {java innerclasses.Callbacks}
 
 
@@ -17,9 +18,11 @@ interface Incrementable {
  *
  * 可看到，
  * Callee2 继承自 MyIncrement类，Callee2 已经有了一个increment() 方法，
- * 虽然与 Incrementable 接口 的 increment() 方法 同名，但期望的功能 完全不相关。
+ * 虽然与 Incrementable 接口 的 increment() 方法 同名，但期望的功能 完全不同。
  *
- * 所以，在这种情况下，如果 Callee2 继承了 MyIncrement类，就不能为了 实现Incrementable接口 而覆盖 increment() 方法，
+ * 所以，在这种情况下：
+ *      Callee2 已经继承了 MyIncrement类，不能为了 实现Incrementable接口 而覆盖 继承的increment() 方法。
+ *
  * 继承的类 与 将要实现的接口  方法相冲突该怎么办？
  * 于是，在此场景下，只能使用  内部类 独立地实现 Incrementable接口
  *
@@ -60,6 +63,7 @@ class Callee2 extends MyIncrement {  // 被调用者 Callee2
     Incrementable getCallbackReference() {
         return new Closure();
     }
+
 }
 class MyIncrement {
     public void increment() {
@@ -85,12 +89,12 @@ class Caller {  // 调用者
 
     private Incrementable callbackReference;
 
-    // Caller 的构造器需要 一个Incrementable接口类型的引用 作为构造参数。（虽然，可以在任意时刻捕获 “回调引用”callbackReference）
+    // Caller 的构造器接受 一个Incrementable接口类型的引用 作为构造参数。（不过，可以在任意时刻捕获 “回调引用”callbackReference）
     Caller(Incrementable cbh) {
         callbackReference = cbh;
     }
 
-    // Caller对象 可以在以后的任意时刻，使用“此引用”(callbackReference) 来 回调Callee 类
+    // Caller对象 可以在以后的任意时刻，使用 callbackReference“引用” 来 回调Callee 类
     void go() {
         callbackReference.increment();
     }

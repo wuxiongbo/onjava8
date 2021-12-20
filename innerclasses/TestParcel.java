@@ -6,7 +6,7 @@
 class Parcel4 {
 
     /**
-     * private 内部类给类的设计者提供了一种方式，通过这种方式可以完全阻止任何依赖于类型的编码，并且完全隐藏了实现的细节。（即，面向接口编程）
+     * private 内部类给类的设计者提供了一种方式，通过这种 private内部类 的方式，可以完全阻止任何依赖于类型的编码，并且完全隐藏了实现的细节。（即，面向接口编程）
      */
     private class PContents implements Contents {
         private int i = 11;
@@ -57,6 +57,6 @@ public class TestParcel {
         Contents c = p.contents();
         Destination d = p.destination("Tasmania");
         // Illegal -- can't access private class:
-        //- Parcel4.PContents pc = p.new PContents();
+        // Parcel4.PContents pc = p.new PContents();
     }
 }

@@ -10,10 +10,11 @@ public class DotThis {
     }
 
     public class Inner {
+
         public DotThis outer() {
             // 通过一个特殊的 this 引用 可以链接到 其 外部类对象。
             return DotThis.this;
-            // A plain "this" would be Inner's "this"
+            // 如果直接写“this”，引用的会是Inner的“this”
         }
 
         // 内部类不能包含静态关键字

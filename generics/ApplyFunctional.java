@@ -72,6 +72,9 @@ public class ApplyFunctional {
 
         // Suppliers.fill()  的实现不太好理解，我写成下面这种方式，更加便于理解。
 
+        SimpleQueue<Shape> holder = new SimpleQueue<>();
+
+
         // 下面这段代码是 BiConsumer匿名内部类  效果等价于  SimpleQueue::add
         BiConsumer<SimpleQueue<Shape>, Shape> adder = new BiConsumer<SimpleQueue<Shape>, Shape>(){
             @Override
@@ -88,7 +91,7 @@ public class ApplyFunctional {
             }
         };
 
-        SimpleQueue<Shape> holder = new SimpleQueue<>();
+
         Suppliers.fill(holder, adder, generator , 2);
         holder.forEach(Shape::rotate);
 

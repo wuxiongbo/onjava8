@@ -9,21 +9,28 @@ interface Counter {
 }
 
 /**
+ * 局部内部类
  *
+ * 内部类标识符
  * Counter.class                          接口
- * LocalInnerClass$1.class                匿名内部类
+ * LocalInnerClass$1.class                匿名内部类                 编译器会以数字作为内部类标识符
  * LocalInnerClass$LocalCounter.class     普通内部类 或 局部内部类
  * LocalInnerClass.class                  类
+ *
  */
 public class LocalInnerClass {
 
     private int count = 0;
 
     Counter getCounter(final String name) {
-        // A local inner class:  局部内部类 不能有访问说明符，局部内部类的名字在方法外是不可见的
+
+        // 局部内部类  不能使用访问权限修饰符，
+        // 因为它不是外围类的组成部分，但是它可以访问当前代码块中的常量，以及外围类中的所有成员。
+        // 局部内部类的名字在方法外是不可见的
         class LocalCounter implements Counter {
+
+            // 局部内部类 与 匿名内部类 的区别—— 局部内部类可以有 具名的构造器。 因此可以产生 不止一个该内部类的实例对象
             LocalCounter() {
-                // 局部内部类 与 匿名内部类 的区别—— 可以有已命名的构造器。 因此可以产生 不止一个该内部类的实例对象
                 System.out.println("LocalCounter()");
             }
 
@@ -33,6 +40,8 @@ public class LocalInnerClass {
                 return count++;
             }
         }
+
+
         return new LocalCounter();
     }
 
