@@ -31,7 +31,7 @@ import java.util.function.*;
  * generics/ApplyFunctional.java
  *
  * 更多示例：
- * generics/mydemo/LatentReflection1.java
+ * generics/mydemo1/LatentReflection1.java
  */
 public class ApplyTest {
     public static void main(String[] args) throws Exception {

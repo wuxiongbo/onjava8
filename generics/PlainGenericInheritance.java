@@ -28,7 +28,7 @@ class DerivedGS extends GenericSetter<Base> {
  * 自限定类型，则避免了这种 方法重载 的情况。  见上个示例： SelfBoundingAndCovariantArguments.java
  *
  * 对比
- * generics/mydemo/PlainGenericInheritance1.java
+ * generics/mydemo1/PlainGenericInheritance1.java
  *
  * @author Administrator
  */

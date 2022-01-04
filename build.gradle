@@ -11,13 +11,16 @@ buildscript {
 
 apply plugin: 'com.mindviewinc.example-output-verification'
 
+
+// 导入其他的 gradle 配置文件
+
 subprojects {
     apply from: "$rootProject.projectDir/gradle/java.gradle"
     apply from: "$rootProject.projectDir/gradle/junit-jupiter.gradle"
     apply from: "$rootProject.projectDir/gradle/jmh.gradle"
     // apply from: "$rootProject.projectDir/gradle/checkstyle.gradle"
     apply from: "$rootProject.projectDir/gradle/findbugs.gradle"
-    apply plugin: 'com.mindviewinc.tagging'
+//    apply plugin: 'com.mindviewinc.tagging'
 }
 
 apply from: 'gradle/subprojects.gradle'

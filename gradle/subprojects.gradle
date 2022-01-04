@@ -1,3 +1,5 @@
+// 记录所有的子项目 以及，为子项目引入依赖
+
 project(':validating') {
     jmh {
         include = 'validating.jmh.*'
@@ -64,6 +66,16 @@ project(':patterns') {
     }
 }
 
+project(':concurrent') {
+    dependencies {
+        compile 'com.google.guava:guava:21.0'
+
+        // https://mvnrepository.com/artifact/com.google.guava/guava
+//        implementation group: 'com.google.guava', name: 'guava', version: '31.0.1-jre'
+    }
+}
+
+//  配置 onjava项目
 configure(subprojects - project(':onjava')) {
     dependencies {
         compile project(':onjava')

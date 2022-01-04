@@ -18,7 +18,7 @@ import java.util.stream.*;
  * 在代码 ‘简单性’ 和 ‘可读性’ 方面，结果 比 以前的方法 好得多。并且，现在也不可能从 main() 引发异常。
  *
  * 更多示例：
- * generics/mydemo/LatentReflection1.java
+ * generics/mydemo1/LatentReflection1.java
  *
  *
  */

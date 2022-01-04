@@ -3,7 +3,8 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java generics.coffee.CoffeeSupplier}
-package generics.coffee;
+package coffee;
+
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
@@ -13,64 +14,70 @@ public class CoffeeSupplier implements
         Supplier<generics.coffee.Coffee>,
         Iterable<generics.coffee.Coffee> {
 
-  private Class<?>[] types = { generics.coffee.Latte.class, generics.coffee.Mocha.class,
-    generics.coffee.Cappuccino.class, generics.coffee.Americano.class, generics.coffee.Breve.class, };
+    private Class<?>[] types = {generics.coffee.Latte.class, generics.coffee.Mocha.class,
+            generics.coffee.Cappuccino.class, generics.coffee.Americano.class, generics.coffee.Breve.class,};
 
 
-  private static Random rand = new Random(47);
+    private static Random rand = new Random(47);
 
-  public CoffeeSupplier() {}
-
-  // For iteration:
-  private int size = 0;
-
-  public CoffeeSupplier(int sz) { size = sz; }
-
-
-  @Override
-  public generics.coffee.Coffee get() {
-    try {
-      return (generics.coffee.Coffee)types[rand.nextInt(types.length)].getConstructor().newInstance();
-      // Report programmer errors at run time:
-      } catch(InstantiationException |
-              NoSuchMethodException |
-              InvocationTargetException |
-              IllegalAccessException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  class CoffeeIterator implements Iterator<generics.coffee.Coffee> {
-    int count = size;
-    @Override
-    public boolean hasNext() { return count > 0; }
-
-    @Override
-    public generics.coffee.Coffee next() {
-      count--;
-      return CoffeeSupplier.this.get();
+    public CoffeeSupplier() {
     }
 
-    @Override
-    public void remove() { // Not implemented
-      throw new UnsupportedOperationException();
+    // For iteration:
+    private int size = 0;
+
+    public CoffeeSupplier(int sz) {
+        size = sz;
     }
-  }
-
-  @Override
-  public Iterator<generics.coffee.Coffee> iterator() {
-    return new CoffeeIterator();
-  }
 
 
-  public static void main(String[] args) {
-    Stream.generate(new CoffeeSupplier())
-      .limit(5)
-      .forEach(System.out::println);
+    @Override
+    public generics.coffee.Coffee get() {
+        try {
+            return (generics.coffee.Coffee) types[rand.nextInt(types.length)].getConstructor().newInstance();
+            // Report programmer errors at run time:
+        } catch (InstantiationException |
+                NoSuchMethodException |
+                InvocationTargetException |
+                IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    for(generics.coffee.Coffee c : new CoffeeSupplier(5))
-      System.out.println(c);
-  }
+    class CoffeeIterator implements Iterator<generics.coffee.Coffee> {
+        int count = size;
+
+        @Override
+        public boolean hasNext() {
+            return count > 0;
+        }
+
+        @Override
+        public generics.coffee.Coffee next() {
+            count--;
+            return CoffeeSupplier.this.get();
+        }
+
+        @Override
+        public void remove() { // Not implemented
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override
+    public Iterator<generics.coffee.Coffee> iterator() {
+        return new CoffeeIterator();
+    }
+
+
+    public static void main(String[] args) {
+        Stream.generate(new CoffeeSupplier())
+                .limit(5)
+                .forEach(System.out::println);
+
+        for (generics.coffee.Coffee c : new CoffeeSupplier(5))
+            System.out.println(c);
+    }
 }
 /* Output:
 Americano 0
