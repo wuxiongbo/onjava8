@@ -3,10 +3,14 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Ensuring proper cleanup
+// 确保正确的初始化
 // {java reuse.CADSystem}
-package reuse;
 
-class Shape {
+//package reuse;
+
+// 形状
+class Shape { // 它本身是一种Object类型，因为它隐式继承了这个根类
+
     Shape(int i) {
         System.out.println("Shape constructor");
     }
@@ -16,6 +20,7 @@ class Shape {
     }
 }
 
+// 圆
 class Circle extends Shape {
     Circle(int i) {
         super(i);
@@ -29,6 +34,7 @@ class Circle extends Shape {
     }
 }
 
+// 三角形
 class Triangle extends Shape {
     Triangle(int i) {
         super(i);
@@ -42,6 +48,7 @@ class Triangle extends Shape {
     }
 }
 
+// 直线
 class Line extends Shape {
     private int start, end;
 
@@ -78,22 +85,26 @@ public class CADSystem extends Shape {
     @Override
     public void dispose() {
         System.out.println("CADSystem.dispose()");
-        // The order of cleanup is the reverse
-        // of the order of initialization:
+
+        // 清理顺序 与 初始化顺序 相反：
         t.dispose();
         c.dispose();
         for (int i = lines.length - 1; i >= 0; i--)
             lines[i].dispose();
+
         super.dispose();
     }
 
     public static void main(String[] args) {
+
         CADSystem x = new CADSystem(47);
+
         try {
-            // Code and exception handling...
+            // 代码与异常处理……
         } finally {
             x.dispose();
         }
+
     }
 }
 /* Output:

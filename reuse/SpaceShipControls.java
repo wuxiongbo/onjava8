@@ -3,12 +3,26 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
+// 太空船的控制模块
 public class SpaceShipControls {
-  void up(int velocity) {}
-  void down(int velocity) {}
-  void left(int velocity) {}
-  void right(int velocity) {}
-  void forward(int velocity) {}
-  void back(int velocity) {}
-  void turboBoost() {}
+    void up(int velocity) {
+    }
+
+    void down(int velocity) {
+    }
+
+    void left(int velocity) {
+    }
+
+    void right(int velocity) {
+    }
+
+    void forward(int velocity) {
+    }
+
+    void back(int velocity) {
+    }
+
+    void turboBoost() {
+    }
 }

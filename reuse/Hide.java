@@ -4,34 +4,43 @@
 // Visit http://OnJava8.com for more book information.
 // Overloading a base-class method name in a derived
 // class does not hide the base-class versions
+// 在子类中 重载 基类方法 并不会隐藏基类版本
 
 class Homer {
-  char doh(char c) {
-    System.out.println("doh(char)");
-    return 'd';
-  }
-  float doh(float f) {
-    System.out.println("doh(float)");
-    return 1.0f;
-  }
+
+    char doh(char c) {
+        System.out.println("doh(char)");
+        return 'd';
+    }
+
+    float doh(float f) {
+        System.out.println("doh(float)");
+        return 1.0f;
+    }
 }
 
-class Milhouse {}
+class Milhouse {
+}
 
 class Bart extends Homer {
-  void doh(Milhouse m) {
-    System.out.println("doh(Milhouse)");
-  }
+    void doh(Milhouse m) {
+        System.out.println("doh(Milhouse)");
+    }
 }
 
+
 public class Hide {
-  public static void main(String[] args) {
-    Bart b = new Bart();
-    b.doh(1);
-    b.doh('x');
-    b.doh(1.0f);
-    b.doh(new Milhouse());
-  }
+    public static void main(String[] args) {
+
+        Bart b = new Bart();
+
+        b.doh(1);
+        b.doh('x');
+        b.doh(1.0f);
+
+        b.doh(new Milhouse());
+
+    }
 }
 /* Output:
 doh(float)
