@@ -35,9 +35,11 @@ public class GenericArray2<T> {
 
     @SuppressWarnings("unchecked")
     public T[] rep() {
-        // 将 Object[] 强转为 T[] 的操作从构造方法转移到了rep()方法。这仍然不正确，基础数组 只能是 Object[]
+        // 将 Object[] 强转为 T[] 的操作，从 构造方法 转移到了  rep()方法。
+        // 这仍然不正确，基础数组 只能是 Object[]
         return (T[]) array; // Unchecked cast
     }
+    // JDK源码中的解决方式是。直接返回 Object[]，转型操作交给 客户端
 
 
     public static void main(String[] args) {

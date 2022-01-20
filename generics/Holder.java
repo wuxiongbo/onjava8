@@ -19,10 +19,12 @@ import java.util.Objects;
  * @param <T>
  */
 public class Holder<T> {
+
     private T value;
 
     public Holder() {
     }
+
     public Holder(T val) {
         value = val;
     }
@@ -30,6 +32,7 @@ public class Holder<T> {
     public void set(T val) {
         value = val;
     }
+
     public T get() {
         return value;
     }

@@ -3,7 +3,9 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {WillNotCompile}
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * generics/CovariantArrays.java
@@ -34,6 +36,45 @@ import java.util.*;
  *
  */
 public class NonCovariantGenerics {
+
     // 编译报错：不兼容的类型
-    // List<Fruit> flist = new ArrayList<Apple>();
+//    List<Fruit> flist = new ArrayList<Apple>();
+
+
+
+    private static List<Fruit> getFruit(List<Fruit> fruit){
+        return fruit;
+    }
+
+    // 运行报错：类型转换异常
+    public static void main(String[] args){
+
+        List raw = new ArrayList();
+        raw.add(new Object());
+        raw.add("12321321");
+        raw.add(new Apple());
+        raw.add(new Fruit());
+
+
+        // 使用原生类，意味着 放弃编译检查。
+        List<Fruit> fruitList = raw;
+
+
+
+        // getFruit() 放弃了编译检查，然后，就可以 开始欺骗 编译器了。
+        // 导致的结果是， “Apple 的 List”  接受了  “Fruit 的 List”
+        List<Apple> appleList = getFruit(raw);
+
+
+        // 编译器以为我们存的是Apple。 骗过了编译期
+        // 但是，在运行期，发现转型出问题了
+        Apple apple = appleList.get(0);
+
+    }
+
 }
+
+/*
+  输出：
+  Exception in thread "main" java.lang.ClassCastException: java.lang.Object cannot be cast to Apple
+ */

@@ -31,7 +31,7 @@ public class ArrayOfGeneric {
 
 
 
-        // 似乎可以 创建一个 Object 数组 并将其转换为所需的数组类型。
+        // 似乎可以 创建一个 Object 数组 并 将其转换为所需的数组类型。
         try {
             gia = (Generic<Integer>[]) new Object[SIZE];
 
@@ -48,7 +48,9 @@ public class ArrayOfGeneric {
 
 
 
-        // 成功创建泛型类型的数组的唯一方法：创建一个 “已擦除泛型的新数组” ，并将其 强制转换为 泛型数组。
+        // 成功创建泛型类型的数组的唯一方法：
+        //      创建一个 “已擦除泛型的新数组” ，
+        //      并 将其 强制转换为 泛型数组。
         // Runtime type is the raw (erased) type:
         gia = (Generic<Integer>[]) new Generic[SIZE];
 
