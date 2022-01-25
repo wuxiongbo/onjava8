@@ -2,10 +2,12 @@
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// Proper inheritance of an inner class
+// 正确继承内部类
 
 class Egg2 {
+
     protected class Yolk {
+
         public Yolk() {
             System.out.println("Egg2.Yolk()");
         }
@@ -15,7 +17,7 @@ class Egg2 {
         }
     }
 
-    private Yolk y = new Yolk();
+    private Yolk y = new Yolk(); // 第一次调用 Egg2.Yolk()
 
     Egg2() {
         System.out.println("New Egg2()");
@@ -26,6 +28,7 @@ class Egg2 {
     }
 
     public void g() {
+        // 用到的是，子类对 f()的重写版本
         y.f();
     }
 }
@@ -34,7 +37,11 @@ public class BigEgg2 extends Egg2 {
 
     // 明确地继承 Egg2的内部类
     public class Yolk extends Egg2.Yolk {
+
         public Yolk() {
+
+            super(); // 第二次调用 Egg2.Yolk()
+
             System.out.println("BigEgg2.Yolk()");
         }
 
@@ -45,12 +52,16 @@ public class BigEgg2 extends Egg2 {
     }
 
     public BigEgg2() {
+        super();  // Egg2()
+        // 多态。BigEgg2.Yolk对象  向上转型为  Egg2.Yolk对象
         insertYolk(new Yolk());
     }
 
     public static void main(String[] args) {
         Egg2 e2 = new BigEgg2();
+
         e2.g();
+
     }
 }
 /* Output:

@@ -14,6 +14,10 @@ interface Incrementable {
 
 
 /**
+ *
+ * 这个示例展示了，在外围类中实现接口  和  在内部类中实现接口 的进一步区别
+ *
+ *
  * Callee2 在继承类的同时还实现接口。
  *
  * 可看到，
@@ -30,7 +34,8 @@ interface Incrementable {
  *
  * 这里，创建内部类时有点要注意：
  *   在 Callee2 中除了 getCallbackReference() 成员方法 以外，其他 成员方法、属性 以及 内部类  都是 private 修饰的。
- *   所以，要想  内部类Closure  与 ‘外部世界’ 建立 任何连接，实现 Incrementable接口  是必需的。
+ *   所以，要想  内部类Closure  与 ‘外部世界’ 建立 任何连接，接口 Incrementable 都是必不可少的的。
+ *   在这里你可以看到，接口 是如何支持 接口 与 实现 完全分离的。
  *
  * 内部类，不仅与 out-Class（外部类） 的 ‘私有成员’ 进行了连接，又通过 ‘接口’ 实现了与 ‘外部世界’ 的连接。
  * 相当于，内部类 为 ‘外部世界’ 提供了一个间接访问 out-Class‘私有成员’ 的通道。
@@ -46,17 +51,19 @@ class Callee2 extends MyIncrement {  // 被调用者 Callee2
         System.out.println(i);
     }
 
-    // 内部类 实现 Incrementable 接口。 Closure 闭包
+    // 内部类 实现了 Incrementable 接口。 Closure 是一个 “闭包”
+    // 这是个 用来提供指回Callee2的 "钩子"，而且是一个安全的 "钩子"。
+    // 不管是谁获得这个 Incrementable引用，都只能调用increment()，没有其他能力（因此不像指针那样可能会失去控制）。
     private class Closure implements Incrementable { // 如果你的类必须以其他方式再次实现 increment()，此时，你只能使用内部类
         @Override
-        public void increment() { // 这是个钩子方法（hook），而且是一个安全的钩子
+        public void increment() { // 这是个钩子方法（hook），用来提供  指回Callee2 的能力
 
-            Callee2.this.increment(); // 需指定为外部类的increment方法，否则将无限递归
+            Callee2.this.increment(); // 指回了 Callee2 。需指定为外部类的increment方法，否则将无限递归
 
         }
     }
     // 什么是钩子方法？ 我的理解是：
-    // 在调用目标方法的过程中，被 ‘额外的方法’ 所拦截 并在拦截前后加入新的逻辑，这里，‘额外的方法’就是 钩子方法。
+    // 在调用目标方法的过程中，被 ‘额外的方法’ 所 “拦截” ， 并在 “拦截” 前后加入新的逻辑，这里，‘额外的方法’就是 钩子方法。
     // 如上例，目标方法 是 Callee2.increment()， 钩子方法（拦截方法） 是 Closure.increment()
 
 
@@ -89,17 +96,23 @@ class Caller {  // 调用者
 
     private Incrementable callbackReference;
 
-    // Caller 的构造器接受 一个Incrementable接口类型的引用 作为构造参数。（不过，可以在任意时刻捕获 “回调引用”callbackReference）
+    // Caller 依赖注入 一个Incrementable接口的引用。（不过，可以在任意时刻捕获 “回调引用”callbackReference）
     Caller(Incrementable cbh) {
         callbackReference = cbh;
     }
 
-    // Caller对象 可以在以后的任意时刻，使用 callbackReference“引用” 来 回调Callee 类
+    // Caller对象 可以在以后的任意时刻，使用 callbackReference“回调引用” 来 回调Callee 类
     void go() {
+
+        // ...其他逻辑...
+
         callbackReference.increment();
+
+        // ...其他逻辑...
+
     }
 
-    // 回调的价值 在于它的灵活性——可以在 “运行时” 动态地决定 需要调用什么方法。
+    // 回调的价值 在于它的灵活性——可以在 “运行时” 动态地决定 需要调用什么方法。（多态）
 }
 
 
