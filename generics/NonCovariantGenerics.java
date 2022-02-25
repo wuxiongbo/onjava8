@@ -5,6 +5,7 @@
 // {WillNotCompile}
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -46,6 +47,19 @@ public class NonCovariantGenerics {
         return fruit;
     }
 
+    private static List<Fruit> getFruit1(List fruit){
+        List<Fruit> list = Collections.checkedList(fruit, Fruit.class);
+        return list;
+    }
+
+
+    private static<T> List<T> getList(List<T> fruit){
+        return fruit;
+    }
+
+
+
+
     // 运行报错：类型转换异常
     public static void main(String[] args){
 
@@ -56,12 +70,14 @@ public class NonCovariantGenerics {
         raw.add(new Fruit());
 
 
+        // 示例1：
         // 使用原生类，意味着 放弃编译检查。
         List<Fruit> fruitList = raw;
 
 
 
-        // getFruit() 放弃了编译检查，然后，就可以 开始欺骗 编译器了。
+        // 示例2：
+        // raw，使 getFruit() 方法 放弃了 编译检查，然后，就可以 开始欺骗 编译器了。
         // 导致的结果是， “Apple 的 List”  接受了  “Fruit 的 List”
         List<Apple> appleList = getFruit(raw);
 
@@ -69,6 +85,15 @@ public class NonCovariantGenerics {
         // 编译器以为我们存的是Apple。 骗过了编译期
         // 但是，在运行期，发现转型出问题了
         Apple apple = appleList.get(0);
+
+
+        // 示例3：泛型擦除后，任何泛型都可以接收
+        fruitList = getList(raw);
+        appleList = getList(raw);
+
+
+        // 示例4: 对于泛型擦除的补偿
+        fruitList  = getFruit1(raw);
 
     }
 

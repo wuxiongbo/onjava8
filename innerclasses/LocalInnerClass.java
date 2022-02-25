@@ -15,7 +15,7 @@ interface Counter {
  * Counter.class                          接口
  * LocalInnerClass$1.class                匿名内部类                 编译器会以数字作为内部类标识符
  * LocalInnerClass$LocalCounter.class     普通内部类 或 局部内部类
- * LocalInnerClass.class                  类
+ * LocalInnerClass.class                  外围类
  *
  */
 public class LocalInnerClass {
@@ -24,9 +24,10 @@ public class LocalInnerClass {
 
     Counter getCounter(final String name) {
 
-        // 局部内部类  不能使用访问权限修饰符，
-        // 因为它不是外围类的组成部分，但是它可以访问当前代码块中的常量，以及外围类中的所有成员。
-        // 局部内部类的名字在方法外是不可见的
+        // <局部内部类>
+        // 不能使用  访问权限修饰符，
+        // 因为，它 ‘不是’ 外围类 的 组成部分，但是它可以访问  当前代码块中的常量，以及 外围类中的所有成员。
+        // ‘局部内部类’ 的名字，在方法外 是不可见的。
         class LocalCounter implements Counter {
 
             // 局部内部类 与 匿名内部类 的区别—— 局部内部类可以有 具名的构造器。 因此可以产生 不止一个该内部类的实例对象
@@ -45,18 +46,18 @@ public class LocalInnerClass {
         return new LocalCounter();
     }
 
-    // Repeat, but with an anonymous inner class:
+    // 使用匿名内部类实现同样的功能：
     Counter getCounter2(final String name) {
         return new Counter() {
-            // Anonymous inner class cannot have a named
-            // constructor, only an instance initializer:
+            // 匿名内部类不能有具名的构造器，
+            // 只有一个 ‘实例初始化’ 部分
             {
                 System.out.println("Counter()");
             }
 
             @Override
             public int next() {
-                System.out.print(name); // Access local final
+                System.out.print(name); // 访问局部 final变量
                 return count++;
             }
         };

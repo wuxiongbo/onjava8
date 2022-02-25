@@ -25,7 +25,7 @@ public class TupleTest2 {
         );
     }
 
-    static Tuple5<Vehicle, Amphibian,String, Integer, Double> k() {
+    static Tuple5<Vehicle, Amphibian, String, Integer, Double> k() {
         return Tuple.tuple(new Vehicle(), new Amphibian(),
                 "hi", 47, 11.1);
     }

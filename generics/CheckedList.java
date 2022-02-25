@@ -24,22 +24,26 @@ public class CheckedList {
 
     public static void main(String[] args) {
 
+        // 示例1： 旧方法
         // 给dogs1列表，添加一直猫。
         List<Dog> dogs1 = new ArrayList<>();
         oldStyleMethod(dogs1); // Quietly accepts a Cat
 
 
 
-        // 给dogs2列表，添加一直猫。 抛异常
+        // 示例2： 动态类型检查
+
+        // 给dogs2列表：
+
+        // 添加 一只猫。 抛异常
         List<Dog> dogs2 = Collections.checkedList(new ArrayList<>(), Dog.class);
         try {
-            oldStyleMethod(dogs2); // Throws an exception
+            oldStyleMethod(dogs2); // Throws an exception。  运行时异常
         } catch (Exception e) {
             System.out.println("Expected: " + e);
         }
 
-
-        // Derived types work fine:  派生类型 可以很好的运行
+        // 添加 派生类型。 可以正常工作
         List<Pet> pets = Collections.checkedList(new ArrayList<>(), Pet.class);
         pets.add(new Dog());
         pets.add(new Cat());

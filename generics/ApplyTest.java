@@ -9,7 +9,7 @@ import java.util.function.*;
 /**
  * 接 generics/Apply.java
  *
- * 测试：将 任何方法 应用于 序列 中的所有对象
+ * 测试：将 任何方法 应用于 队列(序列) 中的所有对象
  *
  * 在 Apply 中，我们运气很好，因为碰巧在 Java 中内建了一个由 Java 集合类库使用的 Iterable 接口。
  * 正由于此，apply() 方法可以接受任何实现了 Iterable 接口的事物，包括诸如 List 这样的所有 Collection 类。
