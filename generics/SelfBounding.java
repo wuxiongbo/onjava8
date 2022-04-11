@@ -23,7 +23,7 @@ class SelfBounded<T extends SelfBounded<T>> {
 /**
  * 自限定的参数可以保证 ‘类型参数’ 必须与 ‘正在被定义的类’  相同。
  *
- * “自限定” 所做的，就是要求 “在继承关系中”  像下面A 类 这样 定义这个类:
+ * “自限定” 所做的就是，要求 “在继承关系中”  像下面A 类 这样 定义这个类:
  */
 class A extends SelfBounded<A> {
 }

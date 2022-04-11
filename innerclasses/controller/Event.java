@@ -26,9 +26,13 @@ public abstract class Event {
     private Instant eventTime;           // 事件 “就绪” 的时刻
     protected final Duration delayTime;  // 准备时长
 
-    // 因为事件 ‘默认的行为’ 是基于时间去执行控制，这部分 ‘默认的行为’ 可以抽象出来，所以使用的 “抽象类” 而不是 “接口”。
+    // 因为，事件 ‘默认的行为’ 是基于“时间” ，去执行 控制，
+    // 所以，这部分 ‘默认的行为’ 可以抽象出来，
+    // 所以，这里使用 “抽象类” 而不是 “接口”。
     protected Event(long millisecondDelay) {
+        // 初始化 准备时长。
         delayTime = Duration.ofMillis(millisecondDelay);
+
         start(); // 构造事件的时候，写入一次 “就绪” 时刻
     }
 
@@ -49,9 +53,11 @@ public abstract class Event {
     }
 
     /**
-     * 控制算法
+     * 控制算法(算法骨架、模板)：
+     *    这里的“算法骨架” 就是“模板”。
+     *    这部分逻辑，推迟到子类中实现
      *
-     * 控制框架并不包含任何 具体的信息。
+     * 控制框架 Controller ， 并不包含任何 具体的信息。
      * 那些信息，是由 继承类 的action()方法 实现的算法 来提供的。
      */
     public abstract void action();

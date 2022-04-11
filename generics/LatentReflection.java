@@ -10,6 +10,11 @@ import java.lang.reflect.*;
 // 没有实现 Performs 接口
 class Mime {
     public void walkAgainstTheWind() {
+        System.out.println("walk Against The Wind");
+    }
+
+    public <T> void walkAgainstTheWind(T t) {
+        System.out.println(t + " walk Against The Wind");
     }
 
     public void sit() {
@@ -17,11 +22,15 @@ class Mime {
     }
 
     public void pushInvisibleWalls() {
+        System.out.println("push Invisible Walls");
+    }
+    public <T> void pushInvisibleWalls(T t) {
+        System.out.println(t+" push Invisible Walls");
     }
 
     @Override
     public String toString() {
-        return "Mime";
+        return "Mime"+this.hashCode();
     }
 }
 

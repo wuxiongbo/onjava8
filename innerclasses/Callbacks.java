@@ -18,7 +18,7 @@ interface Incrementable {
  * 这个示例展示了，在外围类中实现接口  和  在内部类中实现接口 的进一步区别
  *
  *
- * Callee2 在继承类的同时还实现接口。
+ * Callee2 在 继承 MyIncrement类 的同时，还实现了 Incrementable接口。
  *
  * 可看到，
  * Callee2 继承自 MyIncrement类，Callee2 已经有了一个increment() 方法，
@@ -35,10 +35,14 @@ interface Incrementable {
  * 这里，创建内部类时有点要注意：
  *   在 Callee2 中除了 getCallbackReference() 成员方法 以外，其他 成员方法、属性 以及 内部类  都是 private 修饰的。
  *   所以，要想  内部类Closure  与 ‘外部世界’ 建立 任何连接，接口 Incrementable 都是必不可少的的。
- *   在这里你可以看到，接口 是如何支持 接口 与 实现 完全分离的。
+ *   同时，在这里你还可以看到，接口 是如何支持 接口 与 实现 完全分离的。
  *
- * 内部类，不仅与 out-Class（外部类） 的 ‘私有成员’ 进行了连接，又通过 ‘接口’ 实现了与 ‘外部世界’ 的连接。
+ * 内部类 不仅 与 out-Class（外部类） 的 ‘私有成员’ 进行了连接，还 通过 ‘接口’ 实现了与 ‘外部世界’ 的连接。
  * 相当于，内部类 为 ‘外部世界’ 提供了一个间接访问 out-Class‘私有成员’ 的通道。
+ *
+ *
+ * 内部类的承上启下：
+ * 外部类 -》 内部类 -》 外部世界
  *
  */
 class Callee2 extends MyIncrement {  // 被调用者 Callee2

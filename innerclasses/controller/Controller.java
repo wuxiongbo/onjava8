@@ -30,18 +30,22 @@ import java.util.*;
 public class Controller {
     // A class from java.util to hold Event objects:
     private List<Event> eventList = new ArrayList<>();
-
     public void addEvent(Event c) {
         eventList.add(c);
     }
 
 
+    // 包含 “算法骨架”(模板) 的方法（action），就是 “模板方法”
     public void run() {
         while (eventList.size() > 0){
+
+            // 消费各个事件
             // Make a copy so you're not modifying the list while you're selecting the elements in it:
             // 复制一份集合，这样 修改原集合 就不会影响  迭代新集合中的元素:
             for (Event e : new ArrayList<>(eventList)){
+                // 判断事件是否就绪。
                 if (e.ready()) {
+
                     System.out.println(e);
 
                     e.action();          // 可能会有 为集合新增元素的动作

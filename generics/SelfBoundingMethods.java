@@ -7,7 +7,7 @@
  * 接 generics/NotSelfBounded.java
  *
  * 将自限定用于泛型方法:
- *      这可以防止这个方法被应用于除  上述形式的自限定参数(如，A类)  之外的任何事物上。
+ *      这可以防止这个方法被应用于 除 上述形式的自限定参数(如，A类)  之外的任何事物上。
  *
  */
 public class SelfBoundingMethods {

@@ -20,10 +20,10 @@ public class GreenhouseController {
         // 构建 事件列表。  这是 “命令设计模式” 的一个例子—— eventList 中的每个对象都被封装成对象的请求
         Event[] eventList = {
                 gc.new ThermostatNight(0),   // 恒温器 夜间模式 事件
-                gc.new LightOn(2000),
-                gc.new LightOff(4000),       // 开关照明灯      事件
-                gc.new WaterOn(6000),
-                gc.new WaterOff(8000),       // 开关水         事件
+                gc.new LightOn(2000),        // 开关照明灯      事件
+                gc.new LightOff(4000),
+                gc.new WaterOn(6000),        // 开关水         事件
+                gc.new WaterOff(8000),
                 gc.new ThermostatDay(14000)  // 恒温器 日间模式 事件
         };
 

@@ -68,12 +68,12 @@ public class Suppliers {
                                 Supplier<Element> generator,
                                 int n) {
 
-//        Stream.generate(gen)
+        // 一：最简约的写法
+//        Stream.generate(generator)
 //                .limit(n)
-//                .forEach(a -> adder.accept(holder, a));
+//                .forEach(element -> adder.accept(holder, element));
 
-        // 下面是更好理解的写法。
-
+        // 二：是更好理解的写法。
         // 1.生成 collect
         List<Element> collect = Stream.generate(generator).limit(n).collect(Collectors.toList());
 
@@ -87,30 +87,31 @@ public class Suppliers {
             }
         };
 
-
         // 3.遍历 collect，遍历的动作是：将 element元素 添加到 holder容器。
         collect.forEach(action);
 
-        // 为什么 forEach中的 Consumer 要使用 逆变？
 
-        // 1）先获取一个 Element类型的 实例。
-//        Element element = generator.get();
-        // 2）然后， 使用 逆变后的 Consumer<? super Element> action 的 accept方法， 输入这个更具体的Element类型。
-//        action.accept(element);
-        // 3）发现 编译可行。
-        // 重点：逆变，使得泛型类的方法 可写(即，方法数据输入)。
-        // 读，方法数据输出。
-        // 写，方法数据输入。
-
-        // 点开forEach 里面。源码表达的意思就是，Consumer 具体是什么类型的我不知道，但 Consumer 的方法一定可以接收  更具体的Element类型参数。
-
-
-        // 返回holder
         return holder;
     }
 
     // Consumer    输入： 消费 一个参数
     // BiConsumer  输入： 消费 两个参数
     // Supplier    输出： 生产 返回参数
+
+
+
+    // 为什么 forEach中的 Consumer 要使用 逆变？
+
+    // 1）先获取一个 Element类型的 实例。
+//        Element element = generator.get();
+    // 2）然后， 使用 逆变后的 Consumer<? super Element> action 的 accept方法， 输入这个更具体的Element类型。
+//        action.accept(element);
+    // 3）发现 编译可行。
+    // 重点：逆变，使得泛型类的方法 可写(即，方法数据输入)。
+    // 读，方法数据输出。
+    // 写，方法数据输入。
+
+    // 点开forEach 里面。源码表达的意思就是，Consumer 具体是什么类型的我不知道，但 Consumer 的方法一定可以接收  更具体的Element类型参数。
+
 
 }

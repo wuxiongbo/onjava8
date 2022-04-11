@@ -17,12 +17,14 @@
  *
  */
 public class TestBed {
+
     public void f() {
         System.out.println("f()");
     }
 
 
 
+    // 测试代码 放在内部类中，实现 业务代码 与 测试代码 的解耦
     public static class Tester {
         public static void main(String[] args) {
             TestBed t = new TestBed();
