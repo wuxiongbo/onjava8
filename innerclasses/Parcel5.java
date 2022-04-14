@@ -15,7 +15,7 @@ public class Parcel5 {
 
             @Override
             public String readLabel() {
-                return label;
+                return "fly to "+label;
             }
         }
         return new PDestination(s);
@@ -24,5 +24,6 @@ public class Parcel5 {
     public static void main(String[] args) {
         Parcel5 p = new Parcel5();
         Destination d = p.destination("Tasmania");
+        System.out.println(d.readLabel());
     }
 }

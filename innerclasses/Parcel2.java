@@ -26,8 +26,9 @@ public class Parcel2 {
         }
     }
 
-    // 更典型的情况是：外部类 有一种方法函数，该 方法 返回一个指向内部类的引用
-    // 就像在 to() 和 contents() 方法中看到的那样：
+    // 更普遍的情况是：
+    // 外部类 有一种方法函数，该 方法 返回一个指向内部类的引用
+    // 正如在 to() 和 contents() 方法中看到的那样：
     public Destination to(String s) {
         return new Destination(s);
     }

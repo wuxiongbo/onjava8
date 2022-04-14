@@ -1,4 +1,4 @@
-// innerclasses/GreenhouseControls.java
+package controller.impl;// innerclasses/controller.impl.GreenhouseControls.java
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
@@ -170,7 +170,7 @@ public class GreenhouseControls extends Controller {
             for (Event e : eventList)
                 // 内部类 多么的像 “多重继承”：
                 //    Restart类 拥有 父类Event 的所有方法，
-                //    同时，也拥有 外部类 GreenhouseControls 的所有方法
+                //    同时，也拥有 外部类 controller.impl.GreenhouseControls 的所有方法
                 addEvent(e);            // 将事件列表  加到 控制器 Controller  中
         }
 
