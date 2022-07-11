@@ -34,7 +34,8 @@ public class ParameterizedTypeDemo {
     }
 
     /**
-     * 虽然泛型会在字节码编译过程中被擦除，但是Class对象会通过java.lang.reflect.Type记录其 "实现的接口" 或 "继承的父类" 信息。
+     * 虽然泛型会在字节码编译过程中被擦除，但是，Class对象 会通过  java.lang.reflect.Type 接口
+     * 记录其 "实现的接口" 或 "继承的父类" 信息。
      */
     static void test(){
         ArrayList<String> strings = new ArrayList<>();
@@ -44,13 +45,13 @@ public class ParameterizedTypeDemo {
 
 
         System.out.println("genericSuperclass = " + genericSuperclass);
-        // genericInterfaces = java.util.AbstractList<E>
+        // print:  genericInterfaces = java.util.AbstractList<E>
         // 可以看到 ArrayList 的 父类 AbstractList，以及父类的泛型标识。
 
 
         TypeVariable<? extends Class<? extends ArrayList>>[] typeParameters = aClass.getTypeParameters();
         System.out.println(Arrays.toString(typeParameters));
-        // [E]
+        // print:  [E]
         // 我们可能期望能够获得真实的泛型参数，但是仅仅获得了声明时泛型参数占位符。
         // getTypeParameters 方法的 Javadoc 也是这么解释的：仅返回声明时的泛型参数。
         // 所以，通过 getTypeParameters 方法无法获得运行时的泛型信息。
@@ -59,12 +60,12 @@ public class ParameterizedTypeDemo {
     /**
      * Class.getGenericSuperclass() 获取到的具体类型
      *
-     * 以下四个 接口和类 ，均 继承/实现 了Type接口：
+     * 以下四个 接口/类 ，均 继承/实现 了Type接口：
      *
      *      ParameterizedType 用来描述  参数化类型
      *
      *      GenericArrayType  用来描述  一个参数泛型化的数组。
-     *      WildcardType      用来描述  通配符? 相关的泛型，包含  通配符 '?' 、下界通配符 '? super E' 、上界通配符 '? extend E'
+     *      WildcardType      用来描述  通配符? 相关的泛型，包含:  通配符 '?' 、下界通配符 '? super E' 、上界通配符 '? extend E'
      *      Class<T>          用来描述  类的Class对象。
      *
      */

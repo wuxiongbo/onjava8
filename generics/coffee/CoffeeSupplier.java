@@ -11,11 +11,11 @@ import java.util.stream.*;
 import java.lang.reflect.InvocationTargetException;
 
 public class CoffeeSupplier implements
-        Supplier<generics.coffee.Coffee>,
-        Iterable<generics.coffee.Coffee> {
+        Supplier<Coffee>,
+        Iterable<Coffee> {
 
-    private Class<?>[] types = {generics.coffee.Latte.class, generics.coffee.Mocha.class,
-            generics.coffee.Cappuccino.class, generics.coffee.Americano.class, generics.coffee.Breve.class,};
+    private Class<?>[] types = {Latte.class, Mocha.class,
+            Cappuccino.class, Americano.class, Breve.class,};
 
 
     private static Random rand = new Random(47);
@@ -32,9 +32,9 @@ public class CoffeeSupplier implements
 
 
     @Override
-    public generics.coffee.Coffee get() {
+    public Coffee get() {
         try {
-            return (generics.coffee.Coffee) types[rand.nextInt(types.length)].getConstructor().newInstance();
+            return (Coffee) types[rand.nextInt(types.length)].getConstructor().newInstance();
             // Report programmer errors at run time:
         } catch (InstantiationException |
                 NoSuchMethodException |
@@ -44,7 +44,7 @@ public class CoffeeSupplier implements
         }
     }
 
-    class CoffeeIterator implements Iterator<generics.coffee.Coffee> {
+    class CoffeeIterator implements Iterator<Coffee> {
         int count = size;
 
         @Override
@@ -53,7 +53,7 @@ public class CoffeeSupplier implements
         }
 
         @Override
-        public generics.coffee.Coffee next() {
+        public Coffee next() {
             count--;
             return CoffeeSupplier.this.get();
         }
@@ -65,7 +65,7 @@ public class CoffeeSupplier implements
     }
 
     @Override
-    public Iterator<generics.coffee.Coffee> iterator() {
+    public Iterator<Coffee> iterator() {
         return new CoffeeIterator();
     }
 
@@ -75,7 +75,7 @@ public class CoffeeSupplier implements
                 .limit(5)
                 .forEach(System.out::println);
 
-        for (generics.coffee.Coffee c : new CoffeeSupplier(5))
+        for (Coffee c : new CoffeeSupplier(5))
             System.out.println(c);
     }
 }

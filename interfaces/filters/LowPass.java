@@ -10,7 +10,7 @@ public class LowPass extends Filter {
     this.cutoff = cutoff;
   }
   @Override
-  public interfaces.filters.Waveform process(interfaces.filters.Waveform input) {
+  public Waveform process(Waveform input) {
     return input; // Dummy processing
   }
 }

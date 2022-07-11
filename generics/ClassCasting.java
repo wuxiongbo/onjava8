@@ -26,7 +26,7 @@ import java.util.*;
  */
 public class ClassCasting {
 
-//    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public void f(String[] args) throws Exception {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(args[0]));
 
