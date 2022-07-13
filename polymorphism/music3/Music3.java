@@ -4,8 +4,8 @@
 // Visit http://OnJava8.com for more book information.
 // An extensible program
 // {java polymorphism.music3.Music3}
-package polymorphism.music3;
-import polymorphism.music.Note;
+package music3;
+import music.Note;
 
 class Instrument {
   void play(Note n) {

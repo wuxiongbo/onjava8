@@ -7,6 +7,9 @@ package interfaceprocessor;
 
 import filters.*;
 
+/**
+ * 适配 Processor接口
+ */
 class FilterAdapter implements Processor {
     Filter filter;
 

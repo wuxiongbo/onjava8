@@ -4,6 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 package filters;
 
+/**
+ * 波形
+ */
 public class Waveform {
     private static long counter;
     private final long id = counter++;

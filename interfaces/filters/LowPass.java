@@ -4,6 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 package filters;
 
+/**
+ * 低通滤波器
+ */
 public class LowPass extends Filter {
   double cutoff;
   public LowPass(double cutoff) {

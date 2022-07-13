@@ -4,6 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 package filters;
 
+/**
+ * 带通滤波器
+ */
 public class BandPass extends Filter {
   double lowCutoff, highCutoff;
   public BandPass(double lowCut, double highCut) {

@@ -17,6 +17,7 @@
  */
 public class SpaceShipDelegation {
     private String name;
+
     private SpaceShipControls controls = new SpaceShipControls();
 
     public SpaceShipDelegation(String name) {

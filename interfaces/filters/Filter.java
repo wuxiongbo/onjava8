@@ -4,6 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 package filters;
 
+/**
+ * 电子过滤器
+ */
 public class Filter {
   public String name() {
     return getClass().getSimpleName();

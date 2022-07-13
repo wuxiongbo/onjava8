@@ -3,7 +3,7 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // A "factory" that randomly creates shapes
-package polymorphism.shape;
+package shape;
 import java.util.*;
 
 public class RandomShapes {
