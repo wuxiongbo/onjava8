@@ -7,7 +7,6 @@
 // {java patterns.trash.ParseTrash}
 package patterns.trash;
 import java.util.*;
-import java.util.stream.*;
 import java.io.*;
 import java.nio.file.*;
 import java.nio.file.Files;
@@ -19,7 +18,7 @@ public class ParseTrash {
     DynaFactory factory =
       new DynaFactory(packageName);
     try {
-      Files.lines(Paths.get("trash", source))
+      Files.lines(Paths.get("patterns/trash", source))
         // Remove comments and empty lines:
         .filter(line -> line.trim().length() != 0)
         .filter(line -> !line.startsWith("//"))
@@ -44,7 +43,7 @@ public class ParseTrash {
   // Basic test:
   public static void main(String[] args) {
     List<Trash> bin = new ArrayList<>();
-    fillBin("trash", bin);
+    fillBin("patterns/trash", bin);
     bin.forEach(System.out::println);
   }
 }

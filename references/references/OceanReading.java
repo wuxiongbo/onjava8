@@ -6,12 +6,12 @@
 package references;
 
 public class OceanReading implements Cloneable {
-  private DepthReading depth;
-  private TemperatureReading temperature;
+  private references.DepthReading depth;
+  private references.TemperatureReading temperature;
   public
   OceanReading(double tdata, double ddata) {
-    temperature = new TemperatureReading(tdata);
-    depth = new DepthReading(ddata);
+    temperature = new references.TemperatureReading(tdata);
+    depth = new references.DepthReading(ddata);
   }
   @Override public OceanReading clone() {
     OceanReading or = null;
@@ -21,22 +21,22 @@ public class OceanReading implements Cloneable {
       throw new RuntimeException(e);
     }
     // Must clone references:
-    or.depth = (DepthReading)or.depth.clone();
+    or.depth = (references.DepthReading)or.depth.clone();
     or.temperature =
-      (TemperatureReading)or.temperature.clone();
+      (references.TemperatureReading)or.temperature.clone();
     return or;
   }
-  public TemperatureReading getTemperatureReading() {
+  public references.TemperatureReading getTemperatureReading() {
     return temperature;
   }
   public void
-  setTemperatureReading(TemperatureReading tr) {
+  setTemperatureReading(references.TemperatureReading tr) {
     temperature = tr;
   }
-  public DepthReading getDepthReading() {
+  public references.DepthReading getDepthReading() {
     return depth;
   }
-  public void setDepthReading(DepthReading dr) {
+  public void setDepthReading(references.DepthReading dr) {
     this.depth = dr;
   }
   @Override public String toString() {

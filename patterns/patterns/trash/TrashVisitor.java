@@ -55,7 +55,7 @@ class WeightVisitor extends Visitor {
 public class TrashVisitor {
   public static void main(String[] args) {
     List<Trash> bin = new ArrayList<>();
-    ParseTrash.fillBin("trash", bin);
+    ParseTrash.fillBin("patterns/trash", bin);
     List<Visitor> visitors = Arrays.asList(
       new PriceVisitor(), new WeightVisitor());
     bin.forEach(

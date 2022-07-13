@@ -10,7 +10,7 @@ import java.util.*;
 public class RecycleB {
   public static void main(String[] args) {
     List<Trash> bin = new ArrayList<>();
-    ParseTrash.fillBin("trash", bin);
+    ParseTrash.fillBin("patterns/trash", bin);
     Bins bins = new Bins(bin);
     bins.show();
   }

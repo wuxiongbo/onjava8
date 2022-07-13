@@ -1,15 +1,14 @@
-// patterns/doubledispatch/Aluminum.java
+// patterns/doubledispatch/Glass.java
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// Aluminum with double dispatching.
+// Glass with double dispatching.
 package patterns.doubledispatch;
-import patterns.trash.*;
 import java.util.*;
 
-public class Aluminum extends patterns.trash.Aluminum
+public class Glass extends patterns.trash.Glass
 implements TypedBinMember {
-  public Aluminum(double wt) { super(wt); }
+  public Glass(double wt) { super(wt); }
   @Override
   public boolean addToBin(List<TypedBin> tbins) {
     return tbins.stream()

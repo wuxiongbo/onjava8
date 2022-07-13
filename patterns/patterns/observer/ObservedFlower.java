@@ -6,7 +6,6 @@
 // {java patterns.observer.ObservedFlower}
 package patterns.observer;
 import java.util.*;
-import java.util.function.*;
 
 @SuppressWarnings("deprecation")
 class Flower {

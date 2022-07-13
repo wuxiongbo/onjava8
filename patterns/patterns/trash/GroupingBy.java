@@ -10,7 +10,7 @@ import java.util.stream.*;
 public class GroupingBy {
   public static void main(String[] args) {
     List<Trash> bin = new ArrayList<>();
-    ParseTrash.fillBin("trash", bin);
+    ParseTrash.fillBin("patterns/trash", bin);
     Map<Class, List<Trash>> m =
       bin.stream().collect(
         Collectors.groupingBy(Object::getClass));

@@ -57,7 +57,7 @@ class TrashBinSet {
 public class DoubleDispatch {
   public static void main(String[] args) {
     List<Trash> bin = new ArrayList<>();
-    ParseTrash.fillBin("doubledispatch", bin);
+    ParseTrash.fillBin("patterns/doubledispatch", bin);
     TrashBinSet bins = new TrashBinSet();
     // Sort from the master bin into the
     // individually-typed bins:

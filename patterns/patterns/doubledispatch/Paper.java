@@ -1,15 +1,14 @@
-// patterns/doubledispatch/Glass.java
+// patterns/doubledispatch/Paper.java
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// Glass with double dispatching.
+// Paper with double dispatching.
 package patterns.doubledispatch;
-import patterns.trash.*;
 import java.util.*;
 
-public class Glass extends patterns.trash.Glass
+public class Paper extends patterns.trash.Paper
 implements TypedBinMember {
-  public Glass(double wt) { super(wt); }
+  public Paper(double wt) { super(wt); }
   @Override
   public boolean addToBin(List<TypedBin> tbins) {
     return tbins.stream()

@@ -24,7 +24,7 @@ public class TypeMapTrash {
   public static void main(String[] args) {
     TypeMap<Trash> bin = new TypeMap<>();
     ParseTrash.fillBin(
-      "trash", new TypeMapAdapter(bin));
+            "patterns/trash", new TypeMapAdapter(bin));
     ClassToListOfTrashMap.show(bin.map);
   }
 }

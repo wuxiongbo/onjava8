@@ -56,7 +56,7 @@ public class RecycleC {
   public static void main(String[] args) {
     TrashBin<Trash> bin =
       new TrashBin<>(Trash.class);
-    ParseTrash.fillBin("trash", bin);
+    ParseTrash.fillBin("patterns/trash", bin);
     @SuppressWarnings("unchecked")
     TrashBinList<Trash> trashBins =
       new TrashBinList<>(
