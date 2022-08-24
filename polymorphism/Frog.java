@@ -31,11 +31,14 @@ class Description {
     }
 }
 
+
+
+
+
+// 生物
 class LivingCreature {
-    private Characteristic p =
-            new Characteristic("is alive");
-    private Description t =
-            new Description("Basic Living Creature");
+    private Characteristic p = new Characteristic("is alive");
+    private Description t = new Description("Basic Living Creature");
 
     LivingCreature() {
         System.out.println("LivingCreature()");
@@ -48,11 +51,10 @@ class LivingCreature {
     }
 }
 
+// 动物
 class Animal extends LivingCreature {
-    private Characteristic p =
-            new Characteristic("has heart");
-    private Description t =
-            new Description("Animal not Vegetable");
+    private Characteristic p = new Characteristic("has heart");
+    private Description t = new Description("Animal not Vegetable");
 
     Animal() {
         System.out.println("Animal()");
@@ -67,11 +69,10 @@ class Animal extends LivingCreature {
     }
 }
 
+// 两栖动物
 class Amphibian extends Animal {
-    private Characteristic p =
-            new Characteristic("can live in water");
-    private Description t =
-            new Description("Both water and land");
+    private Characteristic p = new Characteristic("can live in water");
+    private Description t = new Description("Both water and land");
 
     Amphibian() {
         System.out.println("Amphibian()");
@@ -86,9 +87,9 @@ class Amphibian extends Animal {
     }
 }
 
+// 青蛙
 public class Frog extends Amphibian {
-    private Characteristic p =
-            new Characteristic("Croaks");
+    private Characteristic p = new Characteristic("Croaks");
     private Description t = new Description("Eats Bugs");
 
     public Frog() {
