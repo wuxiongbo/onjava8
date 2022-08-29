@@ -24,9 +24,10 @@ public class AnonymousConstructor {
     public static Base getBase(int i) {  // 不需要 final 修饰
 
         return new Base(i) {
+
+            // 为匿名内部类创建一个构造器
             {
-                System.out.println(
-                        "Inside instance initializer");
+                System.out.println("Inside instance initializer");
             }
 
             @Override

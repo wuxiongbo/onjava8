@@ -14,7 +14,8 @@
 public class Parcel9 {
     // Argument must be final or "effectively final"
     // to use within the anonymous inner class:
-    public Destination destination(final String dest) {  // 建议 final 修饰。
+    public Destination destination(final String dest) {  // 建议 final 修饰。这里不写final也没有任何问题，但把它写上，当作提醒通常更好。
+
         return new Destination() {
             private String label = dest;
 

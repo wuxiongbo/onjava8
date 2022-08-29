@@ -27,15 +27,18 @@ interface Incrementable {
  * 所以，在这种情况下：
  *      Callee2 已经继承了 MyIncrement类，不能为了 实现Incrementable接口 而覆盖 继承的increment() 方法。
  *
- * 继承的类 与 将要实现的接口  方法相冲突该怎么办？
+ * 继承的类 与 将要实现的接口  方法 '相冲突' 该怎么办？
  * 于是，在此场景下，只能使用  内部类 独立地实现 Incrementable接口
  *
  * 这里还有个好处，当创建了一个内部类时，并没有在外部类的接口中添加东西，也没有修改外部类的接口。
  *
  * 这里，创建内部类时有点要注意：
- *   在 Callee2 中除了 getCallbackReference() 成员方法 以外，其他 成员方法、属性 以及 内部类  都是 private 修饰的。
- *   所以，要想  内部类Closure  与 ‘外部世界’ 建立 任何连接，接口 Incrementable 都是必不可少的的。
- *   同时，在这里你还可以看到，接口 是如何支持 接口 与 实现 完全分离的。
+ *   在 Callee2 中除了 getCallbackReference() 成员方法 以外，
+ *   其他 成员方法、属性 以及 内部类  都是 private 修饰的。
+ *
+ * 所以，要想  内部类Closure  与 ‘外部世界’ 建立 任何连接，接口 Incrementable 都是必不可少的的。
+ * 同时，在这里你还可以看到，接口 是如何支持 接口 与 实现 完全分离的。
+ *
  *
  * 内部类 不仅 与 out-Class（外部类） 的 ‘私有成员’ 进行了连接，还 通过 ‘接口’ 实现了与 ‘外部世界’ 的连接。
  * 相当于，内部类 为 ‘外部世界’ 提供了一个间接访问 out-Class‘私有成员’ 的通道。
@@ -55,7 +58,7 @@ class Callee2 extends MyIncrement {  // 被调用者 Callee2
         System.out.println(i);
     }
 
-    // 内部类 实现了 Incrementable 接口。 Closure 是一个 “闭包”
+    // 私有内部类 实现了 Incrementable 接口。 Closure 是一个 “闭包”
     // 这是个 用来提供指回Callee2的 "钩子"，而且是一个安全的 "钩子"。
     // 不管是谁获得这个 Incrementable引用，都只能调用increment()，没有其他能力（因此不像指针那样可能会失去控制）。
     private class Closure implements Incrementable { // 如果你的类必须以其他方式再次实现 increment()，此时，你只能使用内部类
@@ -168,7 +171,7 @@ public class Callbacks {
         caller2.go();  // 调用 Callee2 内部类实现Incrementable接口的 increment() 方法。  打印结果：2
         caller2.go();  // 调用 Callee2 内部类实现Incrementable接口的 increment() 方法。  打印结果：3
 
-        // 回调的价值在于 它的灵活性——可以在 运行时 动态地决定需要调用什么方法。如 caller1 caller2 所示
+        // 回调的价值在于 它的灵活性。 即，———— 可以在 运行时 动态地决定需要调用什么方法。如 caller1 caller2 所示
     }
 
 }
