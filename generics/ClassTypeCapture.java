@@ -18,8 +18,10 @@ class House extends Building {
  *
  * 本示例：判断 “类型标签” 与 “泛型参数” 是否匹配
  *
- * 由于擦除了类型信息，因此在上一个程序中，尝试使用 instanceof 将会失败。
- * 而本示例中，‘类型标签’ 则可以使用动态 isInstance()。 这意味着，将由 ‘编译器’ 来判断，保证 “类型标签” 与 “泛型参数” 相匹配。
+ * 在前面的程序中，由于类型信息被擦除了，因此使用instanceof的尝试失败了。
+ * 而类型标签，则可以提供动态的isInstance()能力
+ * 编译器保证了  '类型标签'  能够和  '泛型参数'  匹配
+ *
  *
  * @param <T>
  */
@@ -35,8 +37,6 @@ public class ClassTypeCapture<T> {
     public boolean f(Object arg) {
         return kind.isInstance(arg);  // 引入 class“类型标签” ，解决了泛型不能作 类型判断 的问题。error: arg instanceof T
     }
-
-
 
 
 

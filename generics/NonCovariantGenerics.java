@@ -47,6 +47,7 @@ public class NonCovariantGenerics {
         return fruit;
     }
 
+    // 对泛型擦除的补偿
     private static List<Fruit> getFruit1(List fruit){
         List<Fruit> list = Collections.checkedList(fruit, Fruit.class);
         return list;

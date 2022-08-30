@@ -5,9 +5,8 @@
 // Creating non-embedded tests
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/AUComposition.class}
-package annotations;
-import onjava.atunit.*;
-import onjava.*;
+
+import atunit.Test;
 
 public class AUComposition {
   AtUnitExample1 testObject = new AtUnitExample1();

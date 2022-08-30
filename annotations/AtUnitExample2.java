@@ -5,10 +5,10 @@
 // Assertions and exceptions can be used in @Tests
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/AtUnitExample2.class}
-package annotations;
+
+import atunit.Test;
+
 import java.io.*;
-import onjava.atunit.*;
-import onjava.*;
 
 public class AtUnitExample2 {
   public String methodOne() {

@@ -41,8 +41,11 @@ class Employee {
  * 对于 泛型擦除 的 补偿： 引入 “类型标签”
  * 本示例：对 泛型类型 的实例化
  *
- * 最简便的工厂对象是 只传 Class 对象。 “类型标记” 可直接使用 newInstance()方法 创建该类型的新对象。
+ * Class对象就是一个方便的工厂对象，
+ * 因此，如果你使用了 类型标签，便可以通过 newInstance() 来创建该类型的新对象
  *
+ *
+ * @see FactoryConstraint
  */
 public class InstantiateGenericType {
 

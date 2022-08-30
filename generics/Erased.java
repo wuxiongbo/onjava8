@@ -7,6 +7,8 @@
 /**
  * 创建泛型的实例
  *
+ * Erased  擦除
+ *
  * 因为泛型擦除，我们将失去执行泛型代码中某些操作的能力。
  *
  * 1.无法在 ‘运行时’ 知道 确切类型
@@ -30,9 +32,9 @@
  * 下接  “类型标签” 的两个示例：
  *
  *       泛型类型 的判断
- *       generics/ClassTypeCapture.java
+ *       {@link ClassTypeCapture}
  *       泛型类型 的实例化
- *       generics/InstantiateGenericType.java
+ *       {@link InstantiateGenericType}
  *
  *
  * 如何 创建 泛型数组？
@@ -49,13 +51,20 @@ public class Erased<T> {
 
     public void f(Object arg) {
 
+        // 由于 类型信息 T 被擦除了，因此，使用instanceof的尝试失败了。
+        // 类型标签Class，则可以提供动态的 isInstance() 能力
+        // error: illegal generic type for instanceof
 //        if(arg instanceof T) {}
 
+        // error: unexpected type
 //        T var = new T();
 
+        // error: generic array creation
 //        T[] array = new T[SIZE];
 
-        T[] array = (T[]) new Object[SIZE]; // warning: [unchecked] unchecked cast
+        // warning: [unchecked] unchecked cast
+        T[] array = (T[]) new Object[SIZE];
+
     }
 
 

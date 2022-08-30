@@ -13,10 +13,10 @@
 */
 
 template<class T> class Foo {
-    T x; // Create a field of type T
-    T* y; // Pointer to T
+    T x;  // Create a field of type T
+    T* y; // 指向T的指针
     public:
-      // Initialize the pointer:
+      // 初始化指针 y ：
       Foo() { y = new T(); }
 };
 
@@ -24,5 +24,5 @@ class Bar {};
 
 int main() {
   Foo<Bar> fb;
-  Foo<int> fi; // ... and it works with primitives
+  Foo<int> fi; // ……还可以使用基本类型
 }

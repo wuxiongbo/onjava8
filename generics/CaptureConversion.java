@@ -21,7 +21,7 @@ public class CaptureConversion {
 
     /**
      * 捕获参数类型
-     * 要求在传递 Holder<?> 时，同时传递一个具体类型。
+     * 要求在传递 Holder<?> 时，额外传递一个具体类型。
      *    捕获转换只有在这样的情况下可以工作：即在方法内部，你需要使用确切的类型。
      * @param args
      */
@@ -31,6 +31,7 @@ public class CaptureConversion {
         Holder raw = new Holder<>(1);
 //        f1(raw);
         f2(raw); // No warnings
+
 
         Holder<Integer> qualify = new Holder<>(1);
         f2(qualify); // No warnings

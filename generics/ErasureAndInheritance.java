@@ -26,8 +26,8 @@ class Derived2 extends GenericBase {
 } // No warning
 
 
-// class Derived3 extends GenericBase<?> {}
-// Strange error:
+//class Derived3 extends GenericBase<?> {}
+// 奇怪的错误:
 //   unexpected type
 //   required: class or interface without bounds
 
@@ -39,8 +39,7 @@ public class ErasureAndInheritance {
         Derived2 d2 = new Derived2();
         Object obj = d2.get();
 
-        d2.set(obj);
-        // Warning here!
+        d2.set(obj); // 此处出现警告”
 
     }
 

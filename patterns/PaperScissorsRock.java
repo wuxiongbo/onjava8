@@ -13,7 +13,6 @@ import enums.Paper;
 import enums.Scissors;
 import enums.Rock;
 import onjava.*;
-import static onjava.Tuple.*;
 
 class ItemFactory {
   static List<Supplier<Item>> items =
@@ -26,7 +25,7 @@ class ItemFactory {
     return items.get(rand.nextInt(SZ)).get();
   }
   public static Tuple2<Item,Item> newPair() {
-    return tuple(newItem(), newItem());
+    return Tuple.tuple(newItem(), newItem());
   }
 }
 

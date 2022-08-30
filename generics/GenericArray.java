@@ -34,7 +34,8 @@ public class GenericArray<T> {
     private T[] array;
 
     @SuppressWarnings("unchecked")
-    // 我们不能 T[] array = new T[sz] ，所以创建Object数组并将其强转。强转后的类型信息 仅在 编译时 存在，在 运行时，它仍然是一个Object 数组
+    // 我们无法声明 T[] array = new T[sz] ，因此，我们可以创建一个Object数组并将其强转。
+    // 强转后的类型信息 仅在 编译时 存在，在 运行时，它仍然是一个Object 数组
     public GenericArray(int sz) {
         array = (T[]) new Object[sz];  // 强转仅 编译期 有效
     }

@@ -5,9 +5,8 @@
 // Creating non-embedded tests
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/AUExternalTest.class}
-package annotations;
-import onjava.atunit.*;
-import onjava.*;
+
+import atunit.Test;
 
 public class
 AUExternalTest extends AtUnitExample1 {

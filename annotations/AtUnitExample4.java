@@ -5,9 +5,10 @@
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/AtUnitExample4.class}
 // {VisuallyInspectOutput}
-package annotations;
+
 import java.util.*;
-import onjava.atunit.*;
+
+import atunit.Test;
 import onjava.*;
 
 public class AtUnitExample4 {
@@ -29,12 +30,12 @@ public class AtUnitExample4 {
       result.append(ch);
     return result.toString();
   }
-  @TestProperty
+  @onjava.atunit.TestProperty
   static List<String> input =
     Arrays.asList(theory.split(" "));
-  @TestProperty
+  @onjava.atunit.TestProperty
   static Iterator<String> words = input.iterator();
-  @TestObjectCreate
+  @onjava.atunit.TestObjectCreate
   static AtUnitExample4 create() {
     if(words.hasNext())
       return new AtUnitExample4(words.next());

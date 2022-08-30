@@ -33,31 +33,35 @@ public class UnboundedWildcards2 {
     }
 
     public static void main(String[] args) {
+        // 原生 Map   原生 Map
         assign1(new HashMap());
+
         // 编译器无法将 Map<?,?> 与 原生 Map 区分开
-        assign2(new HashMap());
+        assign2(new HashMap(16));
+
         // 但能将 Map<String,?> 与 原生 Map 区分开
-        assign3(new HashMap());
+        assign3(new HashMap(16));
+
         // 这也说明了 <?> 在某些场景下是有意义的。
 
 
-        assign1(new HashMap<>());
-        assign2(new HashMap<>());
-        assign3(new HashMap<>());
+        assign1(new HashMap<>(16));
+        assign2(new HashMap<>(16));
+        assign3(new HashMap<>(16));
 
 
 
 
 
         // 更直观的写法
-        Map map1 = new HashMap();
-        Map<?, ?> map2 = new HashMap();
-        Map<String, ?> map3 = new HashMap();
+        Map map1 = new HashMap(16);
+        Map<?, ?> map2 = new HashMap(16);
+        Map<String, ?> map3 = new HashMap(16);
 
 
-        Map map11 = new HashMap<>();
-        Map<?, ?> map22 = new HashMap<>();
-        Map<String, ?> map33 = new HashMap<>();
+        Map map11 = new HashMap<>(16);
+        Map<?, ?> map22 = new HashMap<>(16);
+        Map<String, ?> map33 = new HashMap<>(16);
 
 
     }

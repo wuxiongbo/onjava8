@@ -37,7 +37,7 @@ public class LostInformation {
         System.out.println(Arrays.toString(quark.getClass().getTypeParameters()));
         System.out.println(Arrays.toString(p.getClass().getTypeParameters()));
 
-        // 如上例中输出所示，你只能看到用作参数占位符的标识符，这并非有用的信息。——因为泛型擦除
+        // 如上例中输出所示，你只能看到用作参数占位符的标识符，这并非有用的信息。————因为泛型擦除
     }
 
 }

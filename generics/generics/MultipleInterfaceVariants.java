@@ -20,11 +20,20 @@ interface Payable<T> {}
 
 // 基类
 class Employee implements Payable<Employee> {}
-// 派生类。不能编译。这是因为，擦除 会将 Payable<Employe> 和 Payable<Hourly> 简化为相同的接口 Payable，这意味着，重复两次实现相同的接口。
+
+// 派生类。不能编译。
+// 这是因为，类型擦除将Payable<Employee> 和 Payable<Hourly>降级为相同的类Payable，
+// 所以，上述代码意味着你会将同一个接口实现两次，因此Hourly是无法编译的。
+
 //class Hourly extends Employee implements Payable<Hourly> {}  // 编译错误
+
+
+
+
 class Hourly extends Employee implements Payable<Employee> {}  // ok
 
 
-// 不过，十分有趣的是，如果 将 基类、衍生类 分别实现的Payable接口，都移除掉 泛型参数（就像编译器在擦除阶段所做的那样），这段代码就可以编译。
+// 不过，十分有趣的是，如果 将 基类、衍生类 分别实现的Payable接口，都移除掉 泛型参数（就像编译器在擦除阶段所做的那样），
+// 这段代码就可以编译。
 class Employee1 implements Payable {}
 class Hourly1 extends Employee1 implements Payable {}

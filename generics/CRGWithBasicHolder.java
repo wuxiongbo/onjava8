@@ -18,6 +18,7 @@ class Subtype extends BasicHolder<Subtype> {
  *      新定义的 Subtype类  接受的 ‘参数’ 和 ‘返回值’  是确切的Subtype类型 而不仅仅是 基类 BasicHolder 类型。
  * 这就是 CRG 的本质：
  *      泛型基类(BasicHolder)  用 导出类(Subtype)  替代其 泛型参数。
+ *      “基类  用  子类  替换了其 参数”
  *
  * 这意味着，‘泛型基类’(BasicHolder)  变成了一种  所有‘导出类’(如Subtype)  的公共功能的模版，
  * 而且，这些功能对于其所有 ‘参数’ 和 ‘返回值’ ，都将使用 ‘导出类’ 。
@@ -28,9 +29,10 @@ class Subtype extends BasicHolder<Subtype> {
  */
 public class CRGWithBasicHolder {
     public static void main(String[] args) {
-        Subtype st1 = new Subtype(), st2 = new Subtype();
+        Subtype st1 = new Subtype(),
+                st2 = new Subtype();
 
-        //  ‘参数’ 和 ‘返回值’，都被限制为 使用 导出类型(Subtype)
+        //  ‘参数’ 和 ‘返回值’，“类型都是Subtype，而不只是基类BasicHolder
         st1.set(st2);
         Subtype st3 = st1.get();
 

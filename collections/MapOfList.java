@@ -3,8 +3,8 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java collections.MapOfList}
-package collections;
-import reflection.pets.*;
+import pets.*;
+
 import java.util.*;
 
 public class MapOfList {

@@ -4,7 +4,6 @@
 // Visit http://OnJava8.com for more book information.
 // How to read from standard input
 import java.io.*;
-import onjava.TimedAbort;
 
 public class Echo {
   public static void main(String[] args) {

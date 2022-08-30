@@ -6,11 +6,10 @@
 import java.util.*;
 import java.util.stream.*;
 import java.util.concurrent.*;
-import static onjava.HTMLColors.*;
 
 public class FunctionalMap {
   public static void main(String[] args) {
-    MAP.entrySet().stream()
+    HTMLColors.MAP.entrySet().stream()
       .map(Map.Entry::getValue)
       .filter(v -> v.startsWith("Dark"))
       .map(v -> v.replaceFirst("Dark", "Hot"))

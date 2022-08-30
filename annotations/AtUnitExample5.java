@@ -4,10 +4,11 @@
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/AtUnitExample5.class}
-package annotations;
+
 import java.io.*;
-import onjava.atunit.*;
-import onjava.*;
+
+import atunit.Test;
+
 
 public class AtUnitExample5 {
   private String text;
@@ -15,11 +16,11 @@ public class AtUnitExample5 {
     this.text = text;
   }
   @Override public String toString() { return text; }
-  @TestProperty
+  @onjava.atunit.TestProperty
   static PrintWriter output;
-  @TestProperty
+  @onjava.atunit.TestProperty
   static int counter;
-  @TestObjectCreate
+  @onjava.atunit.TestObjectCreate
   static AtUnitExample5 create() {
     String id = Integer.toString(counter++);
     try {
@@ -29,7 +30,7 @@ public class AtUnitExample5 {
     }
     return new AtUnitExample5(id);
   }
-  @TestObjectCleanup
+  @onjava.atunit.TestObjectCleanup
   static void cleanup(AtUnitExample5 tobj) {
     System.out.println("Running cleanup");
     output.close();

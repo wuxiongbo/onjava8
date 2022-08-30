@@ -4,7 +4,8 @@
 // Visit http://OnJava8.com for more book information.
 // {java enums.menu.Meal2}
 package enums.menu;
-import onjava.*;
+
+import enums.Enums;
 
 public enum Meal2 {
   APPETIZER(Food.Appetizer.class),

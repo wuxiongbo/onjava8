@@ -2,18 +2,17 @@
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-import static onjava.HTMLColors.*;
 
 public class HTMLColorTest {
   static final int DISPLAY_SIZE = 20;
   public static void main(String[] args) {
-    show(MAP, DISPLAY_SIZE);
-    border();
-    showInv(INVMAP, DISPLAY_SIZE);
-    border();
-    show(LIST, DISPLAY_SIZE);
-    border();
-    showrgb(RGBLIST, DISPLAY_SIZE);
+    HTMLColors.show(HTMLColors.MAP, DISPLAY_SIZE);
+    HTMLColors.border();
+    HTMLColors.showInv(HTMLColors.INVMAP, DISPLAY_SIZE);
+    HTMLColors.border();
+    HTMLColors.show(HTMLColors.LIST, DISPLAY_SIZE);
+    HTMLColors.border();
+    HTMLColors.showrgb(HTMLColors.RGBLIST, DISPLAY_SIZE);
   }
 }
 /* Output:

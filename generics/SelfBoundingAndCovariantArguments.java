@@ -31,7 +31,7 @@ interface Setter extends SelfBoundSetter<Setter> {
  * 如果 不使用 自限定类型，普通的 继承机制 就会介入，而导致 “重载” ，就跟在 非泛型 的情况下(下示例)  一样
  *
  * 见：  generics/PlainGenericInheritance.java
- *
+ * @see PlainGenericInheritance
  */
 public class SelfBoundingAndCovariantArguments {
 
@@ -40,7 +40,8 @@ public class SelfBoundingAndCovariantArguments {
 
         s1.set(s2);
 
-        // 使用了自限定。将只能获得方法的一个版本，它将接受 确切的参数类型。  传入 “基类” 会编译报错。
+        // 使用了自限定。编译器无法识别出 想要将基类类型作为参数传入set()的意图，因为，并不存在匹配这种签名的方法。该参数实际上已经被重写了。
+        // 使用自限定，将只能获得方法的一个版本，它将接受 确切的参数类型。  传入 “基类” 会编译报错。
 //        s1.set(sbs);
 
     }
@@ -58,3 +59,6 @@ public class SelfBoundingAndCovariantArguments {
     }
 
 }
+/*
+ * s1.set()
+ */

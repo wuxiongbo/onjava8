@@ -18,12 +18,12 @@ public class ArrowInSwitch {
     }
   }
   static void arrows(int i) {
-    switch(i) {
-      case 1 -> System.out.println("one");
-      case 2 -> System.out.println("two");
-      case 3 -> System.out.println("three");
-      default -> System.out.println("default");
-    }
+//    switch(i) {
+//      case 1 -> System.out.println("one");
+//      case 2 -> System.out.println("two");
+//      case 3 -> System.out.println("three");
+//      default -> System.out.println("default");
+//    }
   }
   public static void main(String[] args) {
     range(0, 4).forEach(i -> colons(i));

@@ -4,10 +4,11 @@
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/HashSetTest.class}
-package annotations;
+
+import atunit.Test;
+
 import java.util.*;
-import onjava.atunit.*;
-import onjava.*;
+
 
 public class HashSetTest {
   HashSet<String> testObject = new HashSet<>();

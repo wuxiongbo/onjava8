@@ -15,10 +15,10 @@ public class SmartCasting {
     }
   }
   static void smart(Object x) {
-    if(x instanceof String s && s.length() > 0) {
-      System.out.format(
-        "%d %s%n", s.length(), s.toUpperCase());
-    }
+//    if(x instanceof String s && s.length() > 0) {
+//      System.out.format(
+//        "%d %s%n", s.length(), s.toUpperCase());
+//    }
   }
   static void wrong(Object x) {
     // "Or" never works:

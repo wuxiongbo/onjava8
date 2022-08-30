@@ -4,9 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/AtUnitExample3.class}
-package annotations;
-import onjava.atunit.*;
-import onjava.*;
+
+
+import atunit.Test;
 
 public class AtUnitExample3 {
   private int n;
@@ -19,7 +19,7 @@ public class AtUnitExample3 {
     System.out.println("This is methodTwo");
     return 2;
   }
-  @TestObjectCreate
+  @onjava.atunit.TestObjectCreate
   static AtUnitExample3 create() {
     return new AtUnitExample3(47);
   }

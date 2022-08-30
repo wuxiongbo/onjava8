@@ -18,7 +18,7 @@ public class PrivateOverride2 {
 
 class Derived2 extends PrivateOverride2 {
     //使用@Override来检测意外重写
-    @Override
+//    @Override
     public void f() {
         System.out.println("public f()");
     }

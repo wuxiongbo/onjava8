@@ -17,7 +17,11 @@ interface Weight {
 }
 
 
-// 一个边界
+
+
+
+
+// 单个边界
 class WithColor<T extends HasColor> {
     // 冗余
     T item;
@@ -35,9 +39,11 @@ class WithColor<T extends HasColor> {
     }
 }
 
+
 // 这样写，编译会报错。因为 类 必须在首位, 然后才能是 接口:
 // class WithColorCoord<T extends HasColor & Coord> {}
-// 二个边界
+
+// 多重边界
 class WithColorCoord<T extends Coord & HasColor> {
     // 冗余
     T item;
@@ -66,7 +72,7 @@ class WithColorCoord<T extends Coord & HasColor> {
     }
 }
 
-// 多个边界
+// 多重边界
 // 和继承一样，你只能继承一个具体类，但可以继承多个接口:
 class Solid<T extends Coord & HasColor & Weight> {
     // 冗余
@@ -118,6 +124,9 @@ class Bounded extends Coord implements HasColor, Weight {
 /**
  * 边界
  * 示例
+ *
+ * 相较于extends关键字的常规用法，它在泛型边界上下文中代表着完全不同的意义
+ *
  *
  */
 public class BasicBounds {

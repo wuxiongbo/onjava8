@@ -5,9 +5,10 @@
 // Applying @Unit to generics
 // {java onjava.atunit.AtUnit
 // build/classes/java/main/annotations/StackLStringTst.class}
-package annotations;
-import onjava.atunit.*;
-import onjava.*;
+
+
+import atunit.Test;
+
 
 public class
 StackLStringTst extends StackL<String> {

@@ -5,6 +5,7 @@
 #include <iostream>
 using namespace std;
 
+// “Manipulator类中存放了一个T类型的对象obj，manipulate()方法则调用了obj上的f()方法。”
 template<class T> class Manipulator {
   T obj;
 public:

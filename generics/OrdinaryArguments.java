@@ -11,6 +11,7 @@ class OrdinarySetter {
 
 class DerivedSetter extends OrdinarySetter {
     // 方法重载。  将导致同个方法名存在多个版本
+//    @Override  “使用@Override，则会通过错误消息指出问题所在”
     void set(Derived derived) {
         System.out.println("DerivedSetter.set(Derived)");
     }
@@ -35,6 +36,7 @@ public class OrdinaryArguments {
         // 实例化  基类、派生类、派生测试类
         Base base = new Base();
         Derived derived = new Derived();
+
         DerivedSetter ds = new DerivedSetter();
 
 

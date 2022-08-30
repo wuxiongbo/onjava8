@@ -94,6 +94,7 @@ public class EpicBattle {
     public static void main(String[] args) {
         DogPerson dogPerson = new DogPerson();
 
+        // 边界 在 泛型方法
         useSuperHearing(dogPerson);
         superFind(dogPerson);
 

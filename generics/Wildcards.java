@@ -167,7 +167,7 @@ public class Wildcards { // Wildcards 通配符
         // exact2() 参数列表为 确切类型 并 带有额外的约束参数
         Long r5 = exact2(raw, lng);  // 传递 原生类型。 编译警告
         Long r6 = exact2(qualified, lng);
-//        Long r7 = exact2(unbounded, lng); // 编译报错。 带 通配符？ 的类型，无法传入到 参数列表 需要“确切类型”的方法。
+//        Long r7 = exact2(unbounded, lng); // 编译报错。 带 通配符 ？ 的类型，无法传入到 参数列表 需要“确切类型”的方法。
 //        Long r8 = exact2(bounded, lng); // 编译报错。 同上
 
 

@@ -31,7 +31,7 @@ import java.util.*;
 public class GenericsAndCovariance {
 
     public static void main(String[] args) {
-        // Wildcards allow covariance:
+        // 通配符提供了协变性的能力
         List<? extends Fruit> flist = new ArrayList<>();
 
         // 当你指定一个 ArrayList<? extends Fruit> 时，add() 的参数就变成了 “? extends Fruit”。
@@ -43,6 +43,7 @@ public class GenericsAndCovariance {
 
         flist.add(null); // 合法，但无意义
 
+        // 我们知道至少能返回Fruit
         Fruit f = flist.get(0); //我们知道，它至少返回的是 Fruit类型
 
     }

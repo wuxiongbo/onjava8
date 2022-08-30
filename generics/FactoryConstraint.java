@@ -72,7 +72,7 @@ class Foo2<T> {
  * IntegerFactory 本身就是通过实现 Supplier<Integer> 的工厂。
  * Widget 包含一个内部类，它是一个工厂。
  * 还要注意，Fudge 并没有做任何类似于工厂的操作，但是传递 Fudge::new 仍然会产生工厂行为，
- *  这是因为，编译器将对函数方法 ::new 的调用转换为对get() 的调用。
+ * 这是因为，编译器将对  函数方法 ::new 的调用  转换为对  get() 的调用。
  *
  */
 public class FactoryConstraint {

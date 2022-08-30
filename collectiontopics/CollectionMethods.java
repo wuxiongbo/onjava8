@@ -4,16 +4,15 @@
 // Visit http://OnJava8.com for more book information.
 // Things you can do with all Collections
 import java.util.*;
-import static onjava.HTMLColors.*;
 
 public class CollectionMethods {
   public static void main(String[] args) {
     Collection<String> c =
-        new ArrayList<>(LIST.subList(0, 4));
+        new ArrayList<>(HTMLColors.LIST.subList(0, 4));
     c.add("ten");
     c.add("eleven");
-    show(c);
-    border();
+    HTMLColors.show(c);
+    HTMLColors.border();
     // Make an array from the List:
     Object[] array = c.toArray();
     // Make a String array from the List:
@@ -25,26 +24,26 @@ public class CollectionMethods {
       "Collections.max(c) = " + Collections.max(c));
     System.out.println(
       "Collections.min(c) = " + Collections.min(c));
-    border();
+    HTMLColors.border();
     // Add a Collection to another Collection
     Collection<String> c2 =
-        new ArrayList<>(LIST.subList(10, 14));
+        new ArrayList<>(HTMLColors.LIST.subList(10, 14));
     c.addAll(c2);
-    show(c);
-    border();
-    c.remove(LIST.get(0));
-    show(c);
-    border();
+    HTMLColors.show(c);
+    HTMLColors.border();
+    c.remove(HTMLColors.LIST.get(0));
+    HTMLColors.show(c);
+    HTMLColors.border();
     // Remove all components that are
     // in the argument collection:
     c.removeAll(c2);
-    show(c);
-    border();
+    HTMLColors.show(c);
+    HTMLColors.border();
     c.addAll(c2);
-    show(c);
-    border();
+    HTMLColors.show(c);
+    HTMLColors.border();
     // Is an element in this Collection?
-    String val = LIST.get(3);
+    String val = HTMLColors.LIST.get(3);
     System.out.println(
       "c.contains(" + val  + ") = " + c.contains(val));
     // Is a Collection in this Collection?
@@ -55,14 +54,14 @@ public class CollectionMethods {
     // Keep all the elements that are in both
     // c2 and c3 (an intersection of sets):
     c2.retainAll(c3);
-    show(c2);
+    HTMLColors.show(c2);
     // Discard all c2 elements that also appear in c3:
     c2.removeAll(c3);
     System.out.println(
       "c2.isEmpty() = " +  c2.isEmpty());
-    border();
+    HTMLColors.border();
     // Functional operation:
-    c = new ArrayList<>(LIST);
+    c = new ArrayList<>(HTMLColors.LIST);
     c.removeIf(s -> !s.startsWith("P"));
     c.removeIf(s -> s.startsWith("Pale"));
     // Stream operation:

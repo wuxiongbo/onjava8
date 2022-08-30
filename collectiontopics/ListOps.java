@@ -4,7 +4,6 @@
 // Visit http://OnJava8.com for more book information.
 // Things you can do with Lists
 import java.util.*;
-import onjava.HTMLColors;
 
 public class ListOps {
   // Create a short list for testing:

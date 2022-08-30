@@ -4,7 +4,6 @@
 // Visit http://OnJava8.com for more book information.
 // Relying on a common resource
 import java.util.*;
-import onjava.Timer;
 
 public class BadMicroBenchmark2 {
   // SIZE reduced to make it run faster:

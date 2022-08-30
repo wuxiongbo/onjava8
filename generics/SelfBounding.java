@@ -43,8 +43,9 @@ class C extends SelfBounded<C> {
 // 普通类
 class D {
 }
+
 // 类型参数使用普通类。编译报错。因为不能使用 非自限定类型 的参数
-// class E extends SelfBounded<D> {}
+//class E extends SelfBounded<D> {}
 
 
 // F 类 可以编译，不会有任何警告。所以，很遗憾，自限定 惯用法不是可强制执行的。
