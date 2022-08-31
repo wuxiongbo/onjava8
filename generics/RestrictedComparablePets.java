@@ -6,15 +6,18 @@
 /**
  * 泛型存在的问题5：基类劫持接口
  *
- * Hamster（仓鼠） 展示了 重新实现 ComparablePet 相同的接口是可行的，只要接口（包括参数类型）完全相同。
- * Gecko（壁虎） 以上实现方式 与 “直接覆写 基类 的方法”  完全相同。
+ * Hamster（仓鼠） 展示了 重复实现 ComparablePet 中的相同的接口是可行的，只要接口（包括参数类型）完全相同即可。
+ *
+ * Gecko（壁虎） 展示了 “直接重写 基类 的方法”  的方式。
  *
  * 结论： 基类(ComparablePet)  劫持了  接口(Comparable) 的参数类型。
- *       子类 无法重写接口的参数类型
+ *       子类 无法再次重写接口的参数类型
+ *
+ *       除非，重复实现 ComparablePet 中的相同的接口，
+ *       但是，这和直接重写 基类中的接口  没有任何区别
+ *
  */
 class Hamster extends ComparablePet
-        // 可以重复实现ComparablePet中的相同接口，只要接口是完全相同的即可，包括参数类型
-        // 不过，这和只是在基类中重写接口（如Gecko中所示）没什么区别了
         implements Comparable<ComparablePet> {
     @Override
     public int compareTo(ComparablePet arg) {

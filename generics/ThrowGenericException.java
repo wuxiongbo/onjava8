@@ -93,6 +93,8 @@ public class ThrowGenericException {
         for (int i = 0; i < 3; i++)
             runner.add(new Processor1());
 
+
+        // 异常 1
         try {
             System.out.println(runner.processAll());
         } catch (Failure1 e) {
@@ -105,11 +107,14 @@ public class ThrowGenericException {
         for (int i = 0; i < 3; i++)
             runner2.add(new Processor2());
 
+        // 异常 2
         try {
             System.out.println(runner2.processAll());
         } catch (Failure2 e) {
             System.out.println(e);
         }
+
+        // catch子句无法捕获到泛型类型的异常
 
     }
 
