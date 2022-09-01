@@ -48,7 +48,9 @@ class MixinProxy implements InvocationHandler {
             interfaces[i] = (Class) pairs[i].a2;
         }
 
+        // 获取类加载器
         ClassLoader cl = pairs[0].a1.getClass().getClassLoader();
+
         return Proxy.newProxyInstance(
                 cl, interfaces, new MixinProxy(pairs));
     }
@@ -58,7 +60,7 @@ class MixinProxy implements InvocationHandler {
  * 因为只有 “动态类型” 而不是 “静态类型” 才包含所有的 混入类型，因此，这仍旧不如 C++ 的方式好，
  *
  * 只有 “动态类型” 而不是 “静态类型” 才包含所有的 混入类型。 这句话可以这么理解，
- * 动态的 运行时期才动态代理增强，使包含所有的混入类型。
+ * 动态的 运行时期，才动态代理增强，使包含所有的混入类型。
  * 静态的 编译时期，并不包含混入类型。
  *
  * 因为，在 具有这些类型的对象的方法 可以调用之前，你被强制要求 必须先将这 些对象向下转型到恰当的类型。
@@ -71,7 +73,6 @@ class MixinProxy implements InvocationHandler {
  */
 public class DynamicProxyMixin {
     public static void main(String[] args) {
-        @SuppressWarnings("unchecked")
         Object mixin = MixinProxy.newInstance(
                 Tuple.tuple(new BasicImp(), Basic.class),
                 Tuple.tuple(new TimeStampedImp(), TimeStamped.class),
@@ -86,15 +87,6 @@ public class DynamicProxyMixin {
         System.out.println(t.getStamp());
         System.out.println(s.getSerialNumber());
 
-
-
-
-        Mixin1 mix = (Mixin1)mixin;
-        b.set("Hello11111");
-        System.out.println(mix.get());
-        System.out.println(mix.getStamp());
-        System.out.println(mix.getSerialNumber());
-
     }
 }
 /* Output:
@@ -102,6 +94,3 @@ Hello
 1611503350927
 1
 */
-
-//  代理类 实现了 Basic,TimeStamped, SerialNumbered 这三个接口。 类似 Mixin1
-interface Mixin1 extends Basic,TimeStamped, SerialNumbered { }

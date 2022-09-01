@@ -40,7 +40,7 @@ class FixedSizeStack<T> {
      */
     @SuppressWarnings("unchecked")
     public T pop() {
-        return index == 0 ? null : (T) storage[--index];  // 转型 失效
+        return index == 0 ? null : (T) storage[--index];  // 转型 失效，实际上是将 Object 转型为 Object
     }
 
     @SuppressWarnings("unchecked")

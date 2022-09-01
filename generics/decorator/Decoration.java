@@ -5,8 +5,7 @@
 // {java generics.decorator.Decoration}
 package decorator;
 
-import java.util.*;
-
+// 被装饰者 或 被装饰者抽象
 class Basic {
     private String value;
 
@@ -19,9 +18,9 @@ class Basic {
     }
 }
 
-// 装饰者
+// 装饰者抽象
 class Decorator extends Basic {
-    protected Basic basic;
+    protected Basic basic; // 委托
 
     Decorator(Basic basic) {
         this.basic = basic;
@@ -37,20 +36,20 @@ class Decorator extends Basic {
         return basic.get();
     }
 }
-
+// 装饰者实现1
 class TimeStamped extends Decorator {
     private final long timeStamp;
 
     TimeStamped(Basic basic) {
         super(basic);
-        timeStamp = new Date().getTime();
+        timeStamp = System.currentTimeMillis();
     }
 
     public long getStamp() {
         return timeStamp;
     }
 }
-
+// 装饰者实现2
 class SerialNumbered extends Decorator {
     private static long counter = 1;
     private final long serialNumber = counter++;
@@ -89,7 +88,7 @@ public class Decoration {
         TimeStamped t2 = new TimeStamped(new SerialNumbered(new Basic()));
         t2.get();
         t2.getStamp();
-//        t2.getSerialNumber(); // 无法获取
+//        t2.getSerialNumber(); // 虽然包装了一层 SerialNumbered，但无法获取到 SerialNumbered.getSerialNumber() 函数
 
 
 
@@ -99,7 +98,7 @@ public class Decoration {
         SerialNumbered s2 = new SerialNumbered(new TimeStamped(new Basic()));
         s2.get();
         s2.getSerialNumber();
-//        s2.getStamp(); // 无法获取
+//        s2.getStamp();       // 虽然包装了一层 TimeStamped，但无法获取到 TimeStamped.getStamp() 函数
 
     }
 }
