@@ -29,9 +29,10 @@ public class Suppliers {
 
 
     /**
+     * 填充已有集合
      * Fill an existing collection:
      * fill() 的第一个版本，将元素放入 Collection 的现有子类型中。
-     * 请注意，还会返回传入的容器的确切类型，因此不会丢失类型信息。
+     * 请注意，同时，还返回了传入的容器的确切类型，因此不会丢失类型信息。
      * @param coll   集合容器
      * @param gen    元素生成工厂
      * @param n      元素个数
@@ -53,10 +54,11 @@ public class Suppliers {
 
 
     // Use an unbound method reference to produce a more general method:
+    // 使用未绑定的方法引用生成更为通用的方法：
     // fill() 的第二个版本，适用于任何类型的 holder 。
     //
     // 相对于第一版，它需要一个附加参数：
-    //      即，未绑定方法 BiConsumer(adder)。
+    //      即，未绑定方法的方法引用 adder   BiConsumer。
     //
     // 引用 fill()，需要使用 “辅助潜在类型” 来使，  BiConsumer(adder)   与  具有添加元素(标识A)功能的holder容器(标识H)  一起使用。
     //
@@ -75,7 +77,9 @@ public class Suppliers {
 
         // 二：是更好理解的写法。
         // 1.生成 collect
-        List<Element> collect = Stream.generate(generator).limit(n).collect(Collectors.toList());
+        Stream<Element> collect = Stream
+                .generate(generator)
+                .limit(n);
 
         // 2.Consumer 匿名内部类。 用于对 BiConsumer 中的方法进行消费。
         // 注意，这里，创建的Consumer<Element>，我们使用另外更加泛化的 Consumer<? super Element> 来接收。

@@ -2,8 +2,7 @@
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// No (direct) latent typing in Java
-
+// Java中并无（直接的）潜在类型机制
 import pets.Dog;
 
 // 表演的狗
@@ -59,6 +58,8 @@ class Communicate { // 去泛型 版本，见下个示例。
  *
  *  这里，泛型不是必须的，因此，可改写成以下版本：
  *  generics/SimpleDogsAndRobots.java
+ *
+ * @see SimpleDogsAndRobots
  */
 public class DogsAndRobots {
     public static void main(String[] args) {

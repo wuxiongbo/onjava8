@@ -3,37 +3,48 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Dynamically changing the behavior of an object
-// via composition (the "State" design pattern)
+// 通过组合动态的改变对象的行为（状态设计模式）
 
 class Actor {
-  public void act() {}
+    public void act() {
+    }
 }
 
 class HappyActor extends Actor {
-  @Override public void act() {
-    System.out.println("HappyActor");
-  }
+    @Override
+    public void act() {
+        System.out.println("HappyActor");
+    }
 }
 
 class SadActor extends Actor {
-  @Override public void act() {
-    System.out.println("SadActor");
-  }
+    @Override
+    public void act() {
+        System.out.println("SadActor");
+    }
 }
 
 class Stage {
-  private Actor actor = new HappyActor();
-  public void change() { actor = new SadActor(); }
-  public void performPlay() { actor.act(); }
+    // Stage使用组合来允许其状态发生改变
+    private Actor actor = new HappyActor();
+
+    public void change() {
+        actor = new SadActor();
+    }
+
+    public void performPlay() {
+        actor.act();
+    }
 }
 
 public class Transmogrify {
-  public static void main(String[] args) {
-    Stage stage = new Stage();
-    stage.performPlay();
-    stage.change();
-    stage.performPlay();
-  }
+    public static void main(String[] args) {
+        Stage stage = new Stage();
+        stage.performPlay();
+
+        stage.change();
+        stage.performPlay();
+    }
 }
 /* Output:
 HappyActor

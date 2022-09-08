@@ -31,7 +31,7 @@ import java.util.*;
  *          generics/Square.java
  * 现在，我们开始测试 Apply :
  *      见， generics/ApplyTest.java
- *
+ * @see ApplyTest
  */
 public class Apply {
 

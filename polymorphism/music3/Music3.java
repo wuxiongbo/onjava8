@@ -98,8 +98,7 @@ class Woodwind extends Wind {
 }
 
 public class Music3 {
-    // Doesn't care about type, so new types
-    // added to the system still work right:
+    // 并不关心类型，所以添加到系统的新类型仍然正常工作：
     public static void tune(Instrument i) {
         // ...
         i.play(Note.MIDDLE_C);
@@ -111,7 +110,7 @@ public class Music3 {
     }
 
     public static void main(String[] args) {
-        // Upcasting during addition to the array:
+        // 在数组填充时会向上转型：
         Instrument[] orchestra = {new Wind(), new Percussion(), new Stringed(), new Brass(), new Woodwind()};
         tuneAll(orchestra);
     }

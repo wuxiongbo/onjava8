@@ -32,11 +32,11 @@ public class ApplyFunctional {
                     Stream.generate(Shape::new).limit(2),
                     Stream.generate(Square::new).limit(2)
                 )
-                // 尽管 Java 缺少功能语言中经常出现的 flatten() ，但是我们可以使用 flatMap(c->c) 产生相同的结果，
+                // 尽管 Java 缺少函数式语言中经常出现的 flatten() ，但是我们可以使用 flatMap(c->c) 起到相同的作用，
                 // 后者使用 身份映射，将操作简化为 “ flatten ”。
                 .flatMap(c -> c) // 扁平化为一个流
 
-                // 然后，我们用 peek() 对 rotate()方法进行调用。 因为 peek() 会执行调用操作（此处是出于副作用），并在未更改的情况下传递对象。
+                // 然后，我们用 peek() 对 rotate()方法进行调用。 因为 peek() 会执行调用操作（此处是出于副作用），并在不更改原始对象的情况下传递对象。
                 .peek(Shape::rotate) // 消费方法
 
                 //  遍历集合，并调用元素的方法。

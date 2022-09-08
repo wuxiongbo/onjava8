@@ -64,7 +64,7 @@ class CommunicateA {
  */
 public class DogsAndRobotMethodReferences {
     public static void main(String[] args) {
-        // 之所以称其为 “辅助”，是因为您必须 显式地为 perform() 提供要使用的方法引用。它不能只按名称调用方法。
+        // 之所以称其为 “辅助”，是因为您必须 显式地为 perform() 提供要使用的方法引用。它无法仅靠方法名称来调用方法。
         CommunicateA.perform(new PerformingDogA(), PerformingDogA::speak, PerformingDogA::sit);
         CommunicateA.perform(new RobotA(), RobotA::speak, RobotA::sit);
         CommunicateA.perform(new Mime(), Mime::walkAgainstTheWind, Mime::pushInvisibleWalls);

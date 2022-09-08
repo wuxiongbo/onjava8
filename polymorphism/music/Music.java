@@ -6,6 +6,11 @@
 // {java polymorphism.music.Music}
 package music;
 
+/**
+ * 它接收一个Instrument引用。
+ * 那么，编译器怎么可能知道这个Instrument引用在这里指的是Wind，而不是Brass或Stringed？
+ *
+ */
 public class Music {
     public static void tune(Instrument i) {
         // ...
