@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/class-diagram
+'子类中接口的扩展部分在基类中是不可用的，因此一旦向上转型，就无法调用新方法了
+
+class Useful {
+void f()
+void g()
+}
+
+class MoreUseful {
+void f()
+void g()
+--
+void u()
+void v()
+void w()
+}
+
+Useful <|-- MoreUseful
+
+@enduml

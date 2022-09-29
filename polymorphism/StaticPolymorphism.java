@@ -15,6 +15,10 @@ class StaticSuper {
 }
 
 class StaticSub extends StaticSuper {
+    /**
+     * 静态方法不会被重写
+     * @return
+     */
     public static String staticGet() {
         return "Derived staticGet()";
     }
@@ -25,6 +29,11 @@ class StaticSub extends StaticSuper {
     }
 }
 
+/**
+ * 如果一个方法是静态的，那它的行为就不会是多态的
+ * 静态方法 与 类 相关联，而不是 与 单个对象 相关联。
+ *
+ */
 public class StaticPolymorphism {
     public static void main(String[] args) {
         StaticSuper sup = new StaticSub(); // Upcast

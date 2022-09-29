@@ -6,6 +6,7 @@ package filters;
 
 /**
  * 电子过滤器
+ * {@link Applicator}
  */
 public class Filter {
   public String name() {

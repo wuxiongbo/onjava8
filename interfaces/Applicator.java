@@ -37,6 +37,9 @@ class Splitter extends Processor {
     }
 }
 
+/**
+ * 策略设计模式
+ */
 public class Applicator {
     public static void apply(Processor p, Object s) {
         System.out.println("Using Processor " + p.name());

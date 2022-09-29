@@ -28,6 +28,9 @@ class FilterAdapter implements Processor {
     }
 }
 
+/**
+ * 适配器 设计模式
+ */
 public class FilterProcessor {
     public static void main(String[] args) {
         Waveform w = new Waveform();

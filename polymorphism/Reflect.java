@@ -39,15 +39,17 @@ public class Reflect {
         };
         x[0].f();
         x[1].g();
-        // 编译时错误：无法在Useful中发现方法: x[1].u();
-        ((MoreUseful) x[1]).u(); // Downcast/Reflect
-        ((MoreUseful) x[0]).u(); // Exception thrown
+
+        // 编译时错误：无法在Useful中发现方法:
+        // x[1].u();
+
+        // 向下转型。
+        ((MoreUseful) x[1]).u(); // 向下转型/反射
+        ((MoreUseful) x[0]).u(); // 抛异常
     }
 }
 /* Output:
 ___[ Error Output ]___
-Exception in thread "main"
-java.lang.ClassCastException: Useful cannot be cast to
-MoreUseful
-        at Reflect.main(Reflect.java:28)
+Exception in thread "main" java.lang.ClassCastException: Useful cannot be cast to MoreUseful
+    at Reflect.main(Reflect.java:46)
 */
