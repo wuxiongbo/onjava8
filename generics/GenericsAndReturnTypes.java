@@ -3,6 +3,7 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
+// 基类
 interface GenericGetter<T extends GenericGetter<T>> {
     T get();
 }
@@ -42,7 +43,9 @@ public class GenericsAndReturnTypes {
         // 协变返回类型，带来的好处：
         //     子类Getter 的 get方法 返回的是 Getter类
         //     父类GenericGetter 的 get方法 返回的是  泛型参数被擦除到的边界类型 GenericGetter类
-        //     也就是说， 子类 返回了 更具体的类型，可通过 子类 ‘覆盖’ 父类方法  的方式来实现， 而非 ‘重载’
+        //     也就是说，子类 返回了 更具体的类型，
+        //          可通过 子类 ‘覆盖’ 父类方法  的方式来实现，
+        //          而非  ‘重载’
 
     }
 }

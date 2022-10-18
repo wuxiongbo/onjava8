@@ -16,7 +16,8 @@ interface Processor<T, E extends Exception> {
 }
 
 /**
- * 存放 Processor，并收集 各Processor 的 执行结果。
+ * 存放 Processor
+ * 收集 各Processor 的 执行结果。
  * @param <T>
  * @param <E>
  */
@@ -85,34 +86,49 @@ class Processor2 implements Processor<Integer, Failure2> {
     }
 }
 
+/**
+ * 参数化异常
+ *     类型参数可以用于方法声明中的throws子句。
+ *     这意味着，你可以编写 能够随 受检查的异常类型 而变化 的 泛型代码
+ */
 public class ThrowGenericException {
 
     public static void main(String[] args) {
 
+
         ProcessRunner<String, Failure1> runner = new ProcessRunner<>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             runner.add(new Processor1());
+        }
 
 
-        // 异常 1
+        // catch 异常1
         try {
             System.out.println(runner.processAll());
         } catch (Failure1 e) {
             System.out.println(e);
         }
 
+//        System.out.println(runner.processAll());
+
+
+
 
 
         ProcessRunner<Integer, Failure2> runner2 = new ProcessRunner<>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             runner2.add(new Processor2());
+        }
 
-        // 异常 2
+        // catch 异常2
         try {
             System.out.println(runner2.processAll());
         } catch (Failure2 e) {
             System.out.println(e);
         }
+
+//        System.out.println(runner2.processAll());
+
 
         // catch子句无法捕获到泛型类型的异常
 

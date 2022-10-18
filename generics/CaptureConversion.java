@@ -29,7 +29,7 @@ public class CaptureConversion {
     public static void main(String[] args) {
 
         Holder raw = new Holder<>(1);
-//        f1(raw);
+        f1(raw);
         f2(raw); // No warnings
 
 
@@ -41,7 +41,8 @@ public class CaptureConversion {
         f2(rawBasic); // No warnings
 
 
-        Holder<?> wildcarded = new Holder<>(1.0); // Upcast to Holder<?>, still figures it out:
+        // Upcast to Holder<?>, still figures it out:
+        Holder<?> wildcarded = new Holder<>(1.0);
         f2(wildcarded);
 
 

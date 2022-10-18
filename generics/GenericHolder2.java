@@ -29,10 +29,12 @@
  *    21:   astore_2
  *    22:   return
  *
+ * 与 {@link SimpleHolder}
  * 得到的代码（字节码）完全相同。
  *
- *
  * 泛型所有的行为都发生在边界———— 包括对 传入值 额外的编译时检查，和对 输出值 插入的类型转换。
+ *
+
  *
  *
  * @param <T>
@@ -52,5 +54,16 @@ public class GenericHolder2<T> {
         GenericHolder2<String> holder = new GenericHolder2<>();
         holder.set("Item");
         String s = holder.get();
+
+
+        // ClassCastException
+//        Integer a = holder.get1();
+
     }
+
+//    @SuppressWarnings("unchecked")
+//    public <V> V get1(){
+//        return (V)obj;
+//    }
+
 }

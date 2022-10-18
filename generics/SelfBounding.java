@@ -5,6 +5,8 @@
 
 /**
  * 自限定。 采取额外的步骤，强制 泛型当作其自身的边界参数来使用。
+ *
+ * 这会强制要求你必须将你要定义的类作为参数传给基类。
  * @param <T>
  */
 class SelfBounded<T extends SelfBounded<T>> {
@@ -29,7 +31,7 @@ class A extends SelfBounded<A> {
 }
 
 // 尽管 在 A 类 中 看到的用法才是主要的用法
-// 但 实际上，还可以像 B 类这样， 从  “使用了 另一个 自限定参数的SelfBounded”  中导出。（一般不会这么用，有违初衷）
+// 但 实际上，还可以像 B 类这样， 从  “使用了 另一个 自限定参数的SelfBounded” 中派生出类。（一般不会这么用，有违初衷）
 class B extends SelfBounded<A> {
 } // Also OK
 

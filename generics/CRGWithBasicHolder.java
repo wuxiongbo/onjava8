@@ -15,7 +15,7 @@ class Subtype extends BasicHolder<Subtype> {
  *
  *
  * 注意，这里有些东西很重要：
- *      新定义的 Subtype类  接受的 ‘参数’ 和 ‘返回值’  是确切的Subtype类型 而不仅仅是 基类 BasicHolder 类型。
+ *      新定义的 Subtype类  接受的 ‘参数’ 和 ‘返回值’ 是确切的Subtype类型 ，而不仅仅是 基类 BasicHolder 类型。
  * 这就是 CRG 的本质：
  *      泛型基类(BasicHolder)  用 导出类(Subtype)  替代其 泛型参数。
  *      “基类  用  子类  替换了其 参数”
