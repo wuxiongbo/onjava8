@@ -3,6 +3,7 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Using isInstance()
+
 import pets.Pet;
 import pets.PetCreator;
 
@@ -11,39 +12,42 @@ import java.util.stream.*;
 
 
 public class PetCounter3 {
-  static class Counter extends
-  HashMap<Class<? extends Pet>, Integer> {
-    Counter() {
-      super(PetCreator.ALL_TYPES.stream()
-        .map(type -> Pair.make(type, 0))
-        .collect(
-          Collectors.toMap(Pair::key, Pair::value)));
+    static class Counter extends HashMap<Class<? extends Pet>, Integer> {
+        Counter() {
+            super(PetCreator.ALL_TYPES.stream()
+                    .map(type -> Pair.make(type, 0))
+                    .collect(
+                            Collectors.toMap(Pair::key, Pair::value)));
+        }
+
+        public void count(Pet pet) {
+            // Class.isInstance() eliminates instanceofs:
+            entrySet().stream()
+                    .filter(pair -> pair.getKey().isInstance(pet))
+                    .forEach(pair ->
+                            put(pair.getKey(), pair.getValue() + 1));
+        }
+
+        @Override
+        public String toString() {
+            String result = entrySet().stream()
+                    .map(pair -> String.format("%s=%s",
+                            pair.getKey().getSimpleName(),
+                            pair.getValue()))
+                    .collect(Collectors.joining(", "));
+            return "{" + result + "}";
+        }
     }
-    public void count(Pet pet) {
-      // Class.isInstance() eliminates instanceofs:
-      entrySet().stream()
-        .filter(pair -> pair.getKey().isInstance(pet))
-        .forEach(pair ->
-          put(pair.getKey(), pair.getValue() + 1));
+
+    public static void main(String[] args) {
+        Counter petCount = new Counter();
+        new PetCreator().stream()
+                .limit(20)
+                .peek(petCount::count)
+                .forEach(p -> System.out.print(
+                        p.getClass().getSimpleName() + " "));
+        System.out.println("\n" + petCount);
     }
-    @Override public String toString() {
-      String result = entrySet().stream()
-        .map(pair -> String.format("%s=%s",
-          pair.getKey().getSimpleName(),
-          pair.getValue()))
-        .collect(Collectors.joining(", "));
-      return "{" + result + "}";
-    }
-  }
-  public static void main(String[] args) {
-    Counter petCount = new Counter();
-    new PetCreator().stream()
-      .limit(20)
-      .peek(petCount::count)
-      .forEach(p -> System.out.print(
-        p.getClass().getSimpleName() + " "));
-    System.out.println("\n" + petCount);
-  }
 }
 /* Output:
 Rat Manx Cymric Mutt Pug Cymric Pug Manx Cymric Rat

@@ -4,13 +4,13 @@
 // Visit http://OnJava8.com for more book information.
 
 public class ExceptionSilencer {
-  public static void main(String[] args) {
-    try {
-      throw new RuntimeException();
-    } finally {
-      // Using 'return' inside the finally block
-      // will silence any thrown exception.
-      return;
+    public static void main(String[] args) {
+        try {
+            throw new RuntimeException();
+        } finally {
+            // 在finally块中使用return，
+            // 会把任何被抛出的异常都压制下来
+            return;
+        }
     }
-  }
 }
