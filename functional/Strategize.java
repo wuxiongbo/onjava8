@@ -55,6 +55,7 @@ public class Strategize {
     public static void main(String[] args) {
         Strategy[] strategies = {
                 new Strategy() {                    // [2]
+                    @Override
                     public String approach(String msg) {
                         return msg.toUpperCase() + "!";
                     }
