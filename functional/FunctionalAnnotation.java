@@ -30,11 +30,13 @@ public class FunctionalAnnotation {
     }
 
     public static void main(String[] args) {
-        FunctionalAnnotation fa =
-                new FunctionalAnnotation();
+        FunctionalAnnotation fa = new FunctionalAnnotation();
+
         Functional f = fa::goodbye;
         FunctionalNoAnn fna = fa::goodbye;
-        // Functional fac = fa; // Incompatible
+
+        // Functional fac = fa; // Incompatible  不兼容
+
         Functional fl = a -> "Goodbye, " + a;
         FunctionalNoAnn fnal = a -> "Goodbye, " + a;
     }

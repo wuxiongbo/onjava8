@@ -26,6 +26,10 @@ interface ThreeArgs {
 interface FourArgs {
     void call4(This athis, int i, double d, String s, char c);
 }
+interface FourArgs1 {
+    // 未绑定方法引用 赋值。函数式方法 第一个参数 必须是方法引用 所在类。
+    void call4(int i,This athis, double d, String s, char c);
+}
 
 public class MultiUnbound {
     public static void main(String[] args) {
@@ -40,6 +44,8 @@ public class MultiUnbound {
 
 
 //        ThreeArgs threeargs1 = This::two;
+//        FourArgs1 fourargs1 = This::four;
+
     }
 
 
