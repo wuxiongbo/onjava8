@@ -42,7 +42,7 @@ class Cleanser {  // 省略 ‘访问权限修饰符’，则该 类/类成员 �
 /**
  * Cleanser在其接口中有一组方法：append()、dilute()、apply()、scrub()和toString()。
  *
- * 因为，Detergent继承了Cleanser（通过extends关键字），
+ * 因为，Detergent 继承了Cleanser（通过extends关键字），
  * 所以，它的接口就自动获得了这些方法，即使并没有在Detergent中显式定义它们。
  *
  * 因此，可以将 “继承” 视作 ‘对类的复用’。
@@ -69,6 +69,8 @@ public class Detergent extends Cleanser {
     public void foam() {
         append(" foam()");
     }
+
+
 
     // 测试新类
     public static void main(String[] args) {

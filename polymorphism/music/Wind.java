@@ -4,8 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 package music;
 
-// Wind objects are instruments
-// because they have the same interface:
+// 管乐器（Wind）是一种乐器（Instrument）。因此，Wind可以继承Instrument：
+// Wind对象是一种Instrument
+// 因为它们有相同的接口：
 public class Wind extends Instrument {
     // Redefine interface method:
     @Override

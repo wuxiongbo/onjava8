@@ -32,7 +32,7 @@ public class ApplyFunctional {
                     Stream.generate(Shape::new).limit(2),
                     Stream.generate(Square::new).limit(2)
                 )
-                // 尽管 Java 缺少函数式语言中经常出现的 flatten() ，但是我们可以使用 flatMap(c->c) 起到相同的作用，
+                // 尽管 Java 缺少函数式语言中经常出现的 flatten() 扁平化 ，但是我们可以使用 flatMap(c->c) 起到相同的作用，
                 // 后者使用 身份映射，将操作简化为 “ flatten ”。
                 .flatMap(c -> c) // 扁平化为一个流
 

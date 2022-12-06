@@ -10,7 +10,7 @@ public class AnonymousClosure {
         int i = 0;
         // 同样的规则适用于
         // i++; // 并非“实际上的最终变量”
-        // x++; // Ditto  同上
+        // x++; // 同上
         return new IntSupplier() {
             @Override
             public int getAsInt() {

@@ -4,7 +4,6 @@
 // Visit http://OnJava8.com for more book information.
 // The difference between instanceof and class
 // {java reflection.FamilyVsExactType}
-package reflection;
 
 class Base {}
 class Derived extends Base {}

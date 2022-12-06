@@ -8,7 +8,9 @@ package music;
 
 /**
  * 它接收一个Instrument引用。
- * 那么，编译器怎么可能知道这个Instrument引用在这里指的是Wind，而不是Brass或Stringed？
+ * 那么，编译器怎么可能知道这个 Instrument引用 在这里 指的  是Wind 而 不是Brass 或 Stringed ？
+ *
+ * 答案是，编译器是不知道的
  *
  */
 public class Music {

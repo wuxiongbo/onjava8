@@ -26,8 +26,12 @@ interface ThreeArgs {
 interface FourArgs {
     void call4(This athis, int i, double d, String s, char c);
 }
+
+/**
+ *  未绑定方法引用 赋值。
+ *  函数式方法 第一个参数 必须是方法引用 所在类。
+ */
 interface FourArgs1 {
-    // 未绑定方法引用 赋值。函数式方法 第一个参数 必须是方法引用 所在类。
     void call4(int i,This athis, double d, String s, char c);
 }
 

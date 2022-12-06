@@ -20,6 +20,11 @@ class Brass extends Instrument {
     }
 }
 
+
+/**
+ * 如果不使用多态，那么，每种类型的Instrument 都需要编写一个新的tune()方法。
+ *
+ */
 public class Music2 {
     public static void tune(Wind i) {
         i.play(Note.MIDDLE_C);

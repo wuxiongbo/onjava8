@@ -20,10 +20,13 @@ interface TransformX {
 
 /**
  *
+ * 方法签名不相同的引用（未绑定方法引用）
+ *
+ *
  * [1] 我们尝试对 X 中的 f() 做同样的事情，将其赋值给 MakeString。
  *     编译器会报错，提示“无效方法引用”（invalid method reference），即使  make()的 签名 和 f() 相同
  *
- *     问题在于，这里，事实上还涉及另一个（隐藏的）参数： 我们的老朋友this。
+ *     问题在于，这里，事实上还涉及另一个（隐藏的）参数： 我们的老朋友 this。
  *     如果，没有一个可供附着的  X对象，就无法调用 f()。
  *     因此，X::f 代表的是一个 未绑定方法引用，因为，它没有“绑定到”某个对象。
  *
@@ -48,7 +51,9 @@ public class UnboundMethodReference {
         TransformX sp = X::f;
         X x = new X();
         System.out.println(sp.transform(x));    // [2]
-
+        // TransformX 的 transform 方法实现
+        // 引用了，
+        // X          的 f 方法实现
 
 
         System.out.println(x.f());              // Same effect

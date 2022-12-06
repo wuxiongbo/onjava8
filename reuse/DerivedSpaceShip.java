@@ -5,8 +5,8 @@
 
 /**
  * 太空船
- * DerivedSpaceShip并非真正的SpaceShipControls类型，即使你可以“告诉”一个DerivedSpaceShip  调用forward()方法。
- * 更准确地说，一艘太空船中包含了SpaceShipControls，同时 SpaceShipControls中的所有方法 也都在 太空船中暴露给了外部。
+ * DerivedSpaceShip 并非真正的 SpaceShipControls类型，即使你可以“告诉”一个DerivedSpaceShip  调用forward()方法。
+ * 更准确地说，一艘太空船中包含了 SpaceShipControls，同时 SpaceShipControls中的所有方法 也都在 太空船中暴露给了外部。
  *
  *
  * 委托解决了以下难题
