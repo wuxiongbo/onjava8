@@ -12,6 +12,12 @@ class Two {
 }
 
 public class ConsumeFunction {
+    /**
+     * 要接受并使用函数，方法 必须在其参数列表中，正确地描述 函数类型
+     *
+     * @param onetwo
+     * @return
+     */
     static Two consume(Function<One, Two> onetwo) {
         return onetwo.apply(new One());
     }

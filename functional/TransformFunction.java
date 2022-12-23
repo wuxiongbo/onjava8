@@ -27,11 +27,21 @@ public class TransformFunction {
         });
     }
 
+    // I  -> Object
+    // Object -> O
+    static Function<I, O> transform1(Function<I, Object> in) {
+        return in.andThen(object -> {
+            System.out.println(object);
+            return (O)object;
+        });
+    }
+
     public static void main(String[] args) {
         Function<I, O> f2 = transform(i -> {
             System.out.println(i);
             return new O();
         });
+
         O o = f2.apply(new I());
     }
 }

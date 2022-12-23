@@ -5,13 +5,21 @@
 
 import java.util.function.*;
 
-interface
-FuncSS extends Function<String, String> {
-}   // [1]
+/**
+ * 高阶函数，只是一个  能接受函数作为参数  或   能把函数当返回值的函数。
+ *
+ * 这里 produce() 就是高阶函数。
+ *
+ * [1] 使用继承，可以轻松地为专门的接口创建一个别名。
+ * [2] 有了lambda表达式，在方法中创建并返回一个函数简直不费吹灰之力。
+ *
+ */
+interface FuncSS extends Function<String, String> { // [1]
+}
 
 public class ProduceFunction {
     static FuncSS produce() {
-        return s -> s.toLowerCase();             // [2]
+        return s -> s.toLowerCase();                // [2]
     }
 
     public static void main(String[] args) {
