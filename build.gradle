@@ -9,7 +9,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.mindviewinc.example-output-verification'
+//apply plugin: 'com.mindviewinc.example-output-verification'
 
 
 // 导入其他的 gradle 配置文件

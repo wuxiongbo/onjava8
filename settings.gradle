@@ -5,7 +5,8 @@ def isSubproject = { File file ->
             !file.name.contains('.idea') &&
             !file.name.contains('build') &&
             !file.name.contains('gradle') &&
-            !file.name.contains('test')
+            !file.name.contains('test') &&
+            !file.name.contains('.fastRequest')
 }
 
 String[] subprojects = rootDir.listFiles().findAll(isSubproject).collect { it.name }
