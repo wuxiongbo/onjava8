@@ -7,12 +7,12 @@ import java.util.Objects;
 
 /**
  * 验证 编译器有多聪明?
- *
+ * <p>
  * Holder 有
- *      一个接受 T 类型对象   的 set() 方法，
- *      一个返回 T 类型对象   的 get() 方法
- *      一个接受 Object 对象 的 equals() 方法。
- *
+ * 一个接受 T 类型对象   的 set() 方法，
+ * 一个返回 T 类型对象   的 get() 方法
+ * 一个接受 Object 对象 的 equals() 方法。
+ * <p>
  * 逆变。
  * 下接 generics/SuperTypeWildcards.java
  *
@@ -34,9 +34,9 @@ public class HolderClass<T> {
 
     public void set(T val) {
 
-        if(clazz.isInstance(val)){
+        if (clazz.isInstance(val)) {
             value = val;
-        }else {
+        } else {
             throw new UnsupportedOperationException();
         }
 
@@ -57,7 +57,6 @@ public class HolderClass<T> {
     public int hashCode() {
         return Objects.hashCode(value);
     }
-
 
 
     public static void main(String[] args) {
