@@ -15,8 +15,9 @@ public interface Operation {
      * @param ops
      */
     static void runOps(Operation... ops) {
-        for (Operation op : ops)
+        for (Operation op : ops) {
             op.execute();
+        }
     }
 
     static void show(String msg) {

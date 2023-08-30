@@ -4,6 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 // Create arrays initialized with integer values.
 
+/**
+ * @author 10027088
+ */
 public class Range {
 
     //  创建序列[start, ..., end)，按 步长 增加
@@ -15,16 +18,15 @@ public class Range {
 
 
         // 初始化数组
-        int sz = Math.max(
-                0,
+        int sz = Math.max(0,
                 step >= 0 ? (end + step - 1 - start) / step : (end + step + 1 - start) / step
         );
         int[] result = new int[sz];
 
-
         // 填充数据
-        for (int i = 0; i < sz; i++)
+        for (int i = 0; i < sz; i++) {
             result[i] = start + (i * step);
+        }
 
 
         return result;

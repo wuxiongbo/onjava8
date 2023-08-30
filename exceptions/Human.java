@@ -20,6 +20,8 @@ public class Human {
         } catch (Annoyance a) {
             System.out.println("Caught Annoyance");
         }
+
+
         // Catch the base type:
         try {
             throw new Sneeze();

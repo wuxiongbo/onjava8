@@ -42,13 +42,19 @@ class Parcel4 {
         }
     }
 
+
+
     public Destination destination(String s) {
         return new PDestination(s);
     }
 
+
+
     public Contents contents() {
         return new PContents();
     }
+
+
 }
 
 public class TestParcel {
