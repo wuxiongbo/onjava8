@@ -86,6 +86,10 @@ public class DynamicFields {
         if (fieldNumber == -1) {
             fieldNumber = makeField(id);
         }
+
+        // setField()会使用getField()取得这个数据项位置的原来的值，并将其作为返回值，而这个过程可能会抛出一个NoSuchFieldException。
+        // 如果客户程序员调用getField()，他们要负责处理NoSuchFieldException，但如果这个异常是在setField()里面抛出的，那就是编程错误了，
+        // 所以，我们会使用接受 cause 的构造器，将 NoSuchFieldException 转为 RuntimeException。
         Object result = null;
         try {
             result = getField(id); // 得到原来的值
@@ -121,7 +125,11 @@ public class DynamicFields {
 //            df.getField("434343");
 
 
-        } catch (NoSuchFieldException | DynamicFieldsException e) {
+        }
+        // catch子句看起来很不一样，它以“|”操作符连接，用同一个子句处理了两种不同类型的异常。
+        // 这个Java 7的特性有助于减少代码的重复，并使得指定所要捕捉的多个确切类型更容易了，而不是只能捕捉一个基类类型。
+        // 我们可以通过这种方式组合众多的异常类型。
+        catch (NoSuchFieldException | DynamicFieldsException e) {
             e.printStackTrace(System.out);
         }
     }

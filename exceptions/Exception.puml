@@ -1,0 +1,16 @@
+@startuml
+
+class Throwable{
+}
+class Error extends Throwable{
+}
+class Exception extends Throwable{
+}
+class RuntimeException extends Exception{
+}
+class MyException extends Exception{
+}
+
+
+
+@enduml
