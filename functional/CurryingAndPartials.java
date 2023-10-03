@@ -7,9 +7,11 @@ import java.util.function.*;
 
 /**
  * 柯里化（Currying）是以其发明者之一的Haskell Curry的姓氏命名的。
- * 而Haskell Curry也可能是唯一一位姓氏和名字都被用来命名重要事物的 计算机科学家，Haskell编程语言就是以他的名字命名的。
+ * 而Haskell Curry也可能是唯一一位姓氏和名字都被用来命名重要事物的 计算机科学家，
+ * Haskell编程语言就是以他的名字命名的。
  * <p>
- * 柯里化的意思是，将一个接受多个参数的函数转变为一系列只接受一个参数的函数。
+ * 柯里化的意思是，
+ * 将一个 接受多个参数 的函数，转变为  一系列 只接受一个参数 的函数。
  *
  * @author 10027088
  */
@@ -39,8 +41,12 @@ public class CurryingAndPartials {
                 };
 
 
+        // 函数1
         Function<String, String> hi = sum.apply("Hi ");   // [2]
-        System.out.println(hi.apply("Ho"));
+        System.out.println(
+                // 函数2
+                hi.apply("Ho")
+        );
 
 
         // 部分应用:
