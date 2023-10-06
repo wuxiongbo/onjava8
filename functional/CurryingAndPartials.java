@@ -10,7 +10,7 @@ import java.util.function.*;
  * 而Haskell Curry也可能是唯一一位姓氏和名字都被用来命名重要事物的 计算机科学家，
  * Haskell编程语言就是以他的名字命名的。
  * <p>
- * 柯里化的意思是，
+ * 柯里化的意思是：
  * 将一个 接受多个参数 的函数，转变为  一系列 只接受一个参数 的函数。
  *
  * @author 10027088
@@ -23,7 +23,8 @@ public class CurryingAndPartials {
 
     public static void main(String[] args) {
 
-        System.out.println(uncurried("Hi ", "Ho"));
+        // 未柯里化
+        println(uncurried("Hi ", "Ho"));
 
 
         // 柯里化函数:
@@ -42,8 +43,10 @@ public class CurryingAndPartials {
 
 
         // 函数1
-        Function<String, String> hi = sum.apply("Hi ");   // [2]
-        System.out.println(
+        Function<String, String> hi =
+                sum.apply("Hi ");   // [2]
+
+        println(
                 // 函数2
                 hi.apply("Ho")
         );
@@ -51,9 +54,13 @@ public class CurryingAndPartials {
 
         // 部分应用:
         Function<String, String> sumHi = sum.apply("Hup ");
-        System.out.println(sumHi.apply("Ho"));
-        System.out.println(sumHi.apply("Hey"));
+        println(sumHi.apply("Ho"));
+        println(sumHi.apply("Hey"));
 
+    }
+
+    private static void println(String s){
+        System.out.println(s);
     }
 
 }

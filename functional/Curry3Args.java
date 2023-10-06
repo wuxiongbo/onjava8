@@ -11,9 +11,10 @@ import java.util.function.*;
 public class Curry3Args {
     public static void main(String[] args) {
 
-        Function<String,
-                Function<String,
-                        Function<String, String>>> sum =
+        Function<String, // arg1
+                Function<String, // arg2
+                        Function<String, // arg3
+                                String>>> sum =
                 a -> b -> c -> a + b + c;
 
 
