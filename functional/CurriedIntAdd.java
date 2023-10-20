@@ -7,10 +7,16 @@ import java.util.function.*;
 
 public class CurriedIntAdd {
     public static void main(String[] args) {
+
         IntFunction<IntUnaryOperator>
                 curriedIntAdd = a -> b -> a + b;
-        IntUnaryOperator add4 = curriedIntAdd.apply(4);
-        println(add4.applyAsInt(5));
+
+        IntUnaryOperator add4 =
+                curriedIntAdd.apply(4);
+
+        println(
+                add4.applyAsInt(5)
+        );
     }
 
     private static void println(Object s){
