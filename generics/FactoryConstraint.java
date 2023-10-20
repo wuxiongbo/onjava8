@@ -62,6 +62,7 @@ class Foo2<T> {
 
 /**
  * 接 generics/InstantiateGenericType.java
+ * @see InstantiateGenericType
  *
  * 补偿擦除 之 泛型类型的实例化方案二：
  * 使用 显式工厂（Supplier）并 “约束类型”

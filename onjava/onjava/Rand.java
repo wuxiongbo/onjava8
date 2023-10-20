@@ -11,8 +11,7 @@ import java.util.function.*;
 public interface Rand {
     int MOD = 10_000;
 
-    class Boolean
-            implements Supplier<java.lang.Boolean> {
+    class Boolean implements Supplier<java.lang.Boolean> {
         SplittableRandom r = new SplittableRandom(47);
 
         @Override
@@ -119,8 +118,7 @@ public interface Rand {
         }
     }
 
-    class Integer
-            implements Supplier<java.lang.Integer> {
+    class Integer implements Supplier<java.lang.Integer> {
         SplittableRandom r = new SplittableRandom(47);
 
         @Override
@@ -159,8 +157,7 @@ public interface Rand {
         }
     }
 
-    class Long
-            implements Supplier<java.lang.Long> {
+    class Long implements Supplier<java.lang.Long> {
         SplittableRandom r = new SplittableRandom(47);
 
         @Override
@@ -199,8 +196,7 @@ public interface Rand {
         }
     }
 
-    class Float
-            implements Supplier<java.lang.Float> {
+    class Float implements Supplier<java.lang.Float> {
         SplittableRandom r = new SplittableRandom(47);
 
         @Override
@@ -275,8 +271,7 @@ public interface Rand {
         }
     }
 
-    class String
-            implements Supplier<java.lang.String> {
+    class String implements Supplier<java.lang.String> {
         SplittableRandom r = new SplittableRandom(47);
         private int strlen = 7; // Default length
 
