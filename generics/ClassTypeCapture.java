@@ -22,7 +22,7 @@ class House extends Building {
  * 而类型标签，则可以提供动态的isInstance()能力
  * 编译器保证了  '类型标签'  能够和  '泛型参数'  匹配
  *
- *
+ * @see InstantiateGenericType
  * @param <T>
  */
 public class ClassTypeCapture<T> {

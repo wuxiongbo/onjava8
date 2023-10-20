@@ -36,8 +36,9 @@ class Employee {
 }
 
 /**
- * 上接  generics/Erased.java
+ * 上接 {@link ClassTypeCapture}
  *
+ * 补偿擦除 之 泛型类型的实例化方案一：
  * 对于 泛型擦除 的 补偿： 引入 “类型标签”
  * 本示例：对 泛型类型 的实例化
  *
@@ -58,7 +59,6 @@ public class InstantiateGenericType {
         // 对于 ClassAsFactory<Integer> ，虽说可以编译，但会 运行失败，这是因为 Integer 没有无参构造函数。
         // 由于错误不是在 “编译时” 捕获的，因此语言创建者不赞成这种方法。
         ClassAsFactory<Integer> fi = new ClassAsFactory<>(Integer.class);
-
 
         try {
             System.out.println(fi.get());

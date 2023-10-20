@@ -13,10 +13,15 @@ public class ExceptionMethods {
             throw new Exception("My Exception");
         } catch (Exception e) {
             System.out.println("Caught Exception");
-            System.out.println("getMessage():" + e.getMessage());
-            System.out.println("getLocalizedMessage():" + e.getLocalizedMessage());
-            System.out.println("toString():" + e.toString());
 
+            // 信息量递增
+            // 1
+            System.out.println("getMessage():" + e.getMessage());
+            // 2
+            System.out.println("getLocalizedMessage():" + e.getLocalizedMessage());
+            // 3
+            System.out.println("toString():" + e.toString());
+            // 4
             System.out.println("printStackTrace():");
             e.printStackTrace(System.out);
 
