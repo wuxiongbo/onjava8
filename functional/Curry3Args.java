@@ -15,25 +15,26 @@ public class Curry3Args {
         Function<String, // arg1
                 Function<String, // arg2
                         Function<String, // arg3
-                                String>>> sum =
+                                String>  // result
+                        >> sum =
                 a -> b -> c -> a + b + c;
 
         // arg1
         Function<String,
-                Function<String, String>> hi =
-                sum.apply("Hi ");
+                Function<String, String>> hi = sum.apply("Hi ");
 
         // arg2
-        Function<String, String> ho =
-                hi.apply("Ho ");
+        Function<String, String> ho = hi.apply("Ho ");
 
         // arg3
         String result = ho.apply("Hup");
 
         System.out.println(result);
 
+
         // 流式编程
         String result1 = sum.apply("Hi ").apply("Ho ").apply("Hup");
+
 
         System.out.println(result1);
 

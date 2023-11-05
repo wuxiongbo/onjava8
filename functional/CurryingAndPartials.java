@@ -43,13 +43,12 @@ public class CurryingAndPartials {
 
 
         // 函数1
-        Function<String, String> hi =
-                sum.apply("Hi ");   // [2]
+        Function<String, String> hi = sum.apply("Hi ");   // [2]
 
-        println(
-                // 函数2
-                hi.apply("Ho")
-        );
+        // 函数2
+        String result = hi.apply("Ho");
+
+        println(result);
 
 
         // 部分应用:
