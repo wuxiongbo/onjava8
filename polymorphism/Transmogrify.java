@@ -10,6 +10,8 @@ class Actor {
     }
 }
 
+
+
 class HappyActor extends Actor {
     @Override
     public void act() {
@@ -17,12 +19,20 @@ class HappyActor extends Actor {
     }
 }
 
+
+
 class SadActor extends Actor {
     @Override
     public void act() {
         System.out.println("SadActor");
     }
 }
+
+
+
+
+
+
 
 /**
  * Stage对象包含了一个Actor的引用，它被初始化为一个HappyActor对象。

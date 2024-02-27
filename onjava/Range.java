@@ -13,8 +13,9 @@ public class Range {
     public static int[] range(int start, int end, int step) {
 
         // 参数校验
-        if (step == 0)
+        if (step == 0) {
             throw new IllegalArgumentException("Step cannot be zero");
+        }
 
 
         // 初始化数组
