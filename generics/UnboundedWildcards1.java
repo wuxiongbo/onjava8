@@ -105,23 +105,24 @@ public class UnboundedWildcards1 {
 
         // (-∞, 上界(MyClass)]，[下界(MyClass)， Object]
 
-        // 边界。
-        List<? extends Apple> c3 =new ArrayList<>();
-        // 不可写
+        // 1) 边界。 用于读
+        List<? extends Apple> c3 = new ArrayList<>(Collections.singletonList(new Apple()));
+        // 不可写入-边界类型
 //        c3.add(new Apple());
+        // 不可写入-Object
 //        c3.add(new Object());
-        // 可读取  上界类型。
+        // 可读取-边界类型
         Apple apple2 = c3.get(0);
+        // 可读取-Object
+        Object object = c3.get(0);
 
-
-        // 逆变。
-        List<? super Apple> cc = new ArrayList<Fruit>(); // 苹果 的 某种父类型
-        List<? super Apple> c4 =new ArrayList<>();
-        // 可写入  下界类型。
+        // 2) 逆变。 用于写
+        List<? super Apple> c4 = new ArrayList<>(Collections.singletonList(new Fruit())); // 苹果 的 某种父类型
+        // 可写入-边界类型。
         c4.add(new Apple());
+        // 不可写入-父类型。
 //        c4.add(new Fruit());
-
-        // 只可读取 Object
+        // 只可读取-Object
         Object obj = c4.get(0);  // List<? super Apple>  只能返回  Object
         Apple apple3 = (Apple)c4.get(0);  // 除非，你已经知道更多信息，然后强转
 
