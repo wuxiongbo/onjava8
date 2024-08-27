@@ -15,11 +15,13 @@ public class Human {
         // Catch the exact type:
         try {
             throw new Sneeze();
-        } catch (Sneeze s) {
-            System.out.println("Caught Sneeze");
-        } catch (Annoyance a) {
-            System.out.println("Caught Annoyance");
         }
+        catch (Sneeze s) {
+            System.out.println("Caught Sneeze");
+        }
+//        catch (Annoyance a) {
+//            System.out.println("Caught Annoyance");
+//        }
 
 
         // Catch the base type:
