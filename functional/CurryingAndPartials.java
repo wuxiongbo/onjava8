@@ -6,7 +6,7 @@
 import java.util.function.*;
 
 /**
- * 柯里化（Currying）是以其发明者之一的Haskell Curry的姓氏命名的。
+ * 柯里化（Currying）是以其发明者之一的 Haskell Curry 的姓氏命名的。
  * 而Haskell Curry也可能是唯一一位姓氏和名字都被用来命名重要事物的 计算机科学家，
  * Haskell编程语言就是以他的名字命名的。
  * <p>
@@ -16,6 +16,7 @@ import java.util.function.*;
  * @author 10027088
  */
 public class CurryingAndPartials {
+
     // 未柯里化:
     static String uncurried(String a, String b) {
         return a + b;
@@ -27,11 +28,12 @@ public class CurryingAndPartials {
         println(uncurried("Hi ", "Ho"));
 
 
-        // 柯里化函数:
+        // 柯里化:
         Function<String, Function<String, String>> sum =
                 a -> b -> a + b;                             // [1]
 
-        Function<String, Function<String, String>> sum1 =    // 换个好理解的写法
+        // 柯里化: 换个好理解的写法
+        Function<String, Function<String, String>> sum1 =
                 // 函数 1
                 (a) -> {
                     return
@@ -42,10 +44,10 @@ public class CurryingAndPartials {
                 };
 
 
-        // 函数1
+        // 函数1: 接收第一个参数
         Function<String, String> hi = sum.apply("Hi ");   // [2]
 
-        // 函数2
+        // 函数2: 接收第二个参数
         String result = hi.apply("Ho");
 
         println(result);

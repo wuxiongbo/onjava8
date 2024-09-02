@@ -21,10 +21,10 @@ public class WhoCalled {
                 System.out.println("类名: " + ste.getClassName() );
                 System.out.println("文件名: " + ste.getFileName() );
                 System.out.println("行号: " + ste.getLineNumber() );
-                System.out.println("类加载器名称: " + ste.getClassLoaderName() );
-
-                System.out.println("模块名: " + ste.getModuleName() );
-                System.out.println("模块版本: " + ste.getModuleVersion() );
+                // since 9+
+//                System.out.println("类加载器名称: " + ste.getClassLoaderName() );
+//                System.out.println("模块名: " + ste.getModuleName() );
+//                System.out.println("模块版本: " + ste.getModuleVersion() );
 
                 System.out.println("全部信息: " + ste);
             }

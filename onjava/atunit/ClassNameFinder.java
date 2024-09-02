@@ -161,7 +161,7 @@ onjava.Rand$Pshort
 onjava.Rand$Short
 onjava.Rand$String
 onjava.Rand
-onjava.Range
+onjava.onjava.Range
 onjava.Repeat
 onjava.RmDir
 onjava.Sets
